@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS0302P2" targetNamespace="http://tempuri.org/DS0302P2.xsd" xmlns:mstns="http://tempuri.org/DS0302P2.xsd" xmlns="http://tempuri.org/DS0302P2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS0302P2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS0302P2" msprop:Generator_DataSetName="DS0302P2" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtHeader" msprop:Generator_UserTableName="dtHeader" msprop:Generator_RowDeletedName="dtHeaderRowDeleted" msprop:Generator_RowChangedName="dtHeaderRowChanged" msprop:Generator_RowClassName="dtHeaderRow" msprop:Generator_RowChangingName="dtHeaderRowChanging" msprop:Generator_RowEvArgName="dtHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="dtHeaderRowChangeEventHandler" msprop:Generator_TableClassName="dtHeaderDataTable" msprop:Generator_TableVarName="tabledtHeader" msprop:Generator_RowDeletingName="dtHeaderRowDeleting" msprop:Generator_TablePropName="dtHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="l_omission_name" msprop:Generator_UserColumnName="l_omission_name" msprop:Generator_ColumnVarNameInTable="columnl_omission_name" msprop:Generator_ColumnPropNameInRow="l_omission_name" msprop:Generator_ColumnPropNameInTable="l_omission_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="l_key_date" msdata:Caption="DataColumn2" msprop:Generator_UserColumnName="l_key_date" msprop:Generator_ColumnVarNameInTable="columnl_key_date" msprop:Generator_ColumnPropNameInRow="l_key_date" msprop:Generator_ColumnPropNameInTable="l_key_dateColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtDetail" msprop:Generator_UserTableName="dtDetail" msprop:Generator_RowDeletedName="dtDetailRowDeleted" msprop:Generator_RowChangedName="dtDetailRowChanged" msprop:Generator_RowClassName="dtDetailRow" msprop:Generator_RowChangingName="dtDetailRowChanging" msprop:Generator_RowEvArgName="dtDetailRowChangeEvent" msprop:Generator_RowEvHandlerName="dtDetailRowChangeEventHandler" msprop:Generator_TableClassName="dtDetailDataTable" msprop:Generator_TableVarName="tabledtDetail" msprop:Generator_RowDeletingName="dtDetailRowDeleting" msprop:Generator_TablePropName="dtDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="l_committee" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_committee" msprop:Generator_ColumnVarNameInTable="columnl_committee" msprop:Generator_ColumnPropNameInRow="l_committee" msprop:Generator_ColumnPropNameInTable="l_committeeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="k_branch_officer_pay" msprop:Generator_UserColumnName="k_branch_officer_pay" msprop:Generator_ColumnVarNameInTable="columnk_branch_officer_pay" msprop:Generator_ColumnPropNameInRow="k_branch_officer_pay" msprop:Generator_ColumnPropNameInTable="k_branch_officer_payColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="c_staf_id_officer_pay" msdata:Caption="l_ast_7" msprop:Generator_UserColumnName="c_staf_id_officer_pay" msprop:Generator_ColumnVarNameInTable="columnc_staf_id_officer_pay" msprop:Generator_ColumnPropNameInRow="c_staf_id_officer_pay" msprop:Generator_ColumnPropNameInTable="c_staf_id_officer_payColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="l_name_officer_pay" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_name_officer_pay" msprop:Generator_ColumnVarNameInTable="columnl_name_officer_pay" msprop:Generator_ColumnPropNameInRow="l_name_officer_pay" msprop:Generator_ColumnPropNameInTable="l_name_officer_payColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="l_model_1" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_model_1" msprop:Generator_ColumnVarNameInTable="columnl_model_1" msprop:Generator_ColumnPropNameInRow="l_model_1" msprop:Generator_ColumnPropNameInTable="l_model_1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="k_branch_1" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="k_branch_1" msprop:Generator_ColumnVarNameInTable="columnk_branch_1" msprop:Generator_ColumnPropNameInRow="k_branch_1" msprop:Generator_ColumnPropNameInTable="k_branch_1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="c_staf_id_1" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="c_staf_id_1" msprop:Generator_ColumnVarNameInTable="columnc_staf_id_1" msprop:Generator_ColumnPropNameInRow="c_staf_id_1" msprop:Generator_ColumnPropNameInTable="c_staf_id_1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_staf_name_1" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_staf_name_1" msprop:Generator_ColumnVarNameInTable="columnl_staf_name_1" msprop:Generator_ColumnPropNameInRow="l_staf_name_1" msprop:Generator_ColumnPropNameInTable="l_staf_name_1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_model_2" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_model_2" msprop:Generator_ColumnVarNameInTable="columnl_model_2" msprop:Generator_ColumnPropNameInRow="l_model_2" msprop:Generator_ColumnPropNameInTable="l_model_2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="k_branch_2" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="k_branch_2" msprop:Generator_ColumnVarNameInTable="columnk_branch_2" msprop:Generator_ColumnPropNameInRow="k_branch_2" msprop:Generator_ColumnPropNameInTable="k_branch_2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="c_staf_id_2" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="c_staf_id_2" msprop:Generator_ColumnVarNameInTable="columnc_staf_id_2" msprop:Generator_ColumnPropNameInRow="c_staf_id_2" msprop:Generator_ColumnPropNameInTable="c_staf_id_2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_staf_name_2" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_staf_name_2" msprop:Generator_ColumnVarNameInTable="columnl_staf_name_2" msprop:Generator_ColumnPropNameInRow="l_staf_name_2" msprop:Generator_ColumnPropNameInTable="l_staf_name_2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_model_3" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_model_3" msprop:Generator_ColumnVarNameInTable="columnl_model_3" msprop:Generator_ColumnPropNameInRow="l_model_3" msprop:Generator_ColumnPropNameInTable="l_model_3Column" type="xs:string" minOccurs="0" />
+              <xs:element name="k_branch_3" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="k_branch_3" msprop:Generator_ColumnVarNameInTable="columnk_branch_3" msprop:Generator_ColumnPropNameInRow="k_branch_3" msprop:Generator_ColumnPropNameInTable="k_branch_3Column" type="xs:string" minOccurs="0" />
+              <xs:element name="c_staf_id_3" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="c_staf_id_3" msprop:Generator_ColumnVarNameInTable="columnc_staf_id_3" msprop:Generator_ColumnPropNameInRow="c_staf_id_3" msprop:Generator_ColumnPropNameInTable="c_staf_id_3Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_staf_name_3" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_staf_name_3" msprop:Generator_ColumnVarNameInTable="columnl_staf_name_3" msprop:Generator_ColumnPropNameInRow="l_staf_name_3" msprop:Generator_ColumnPropNameInTable="l_staf_name_3Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_model_4" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_model_4" msprop:Generator_ColumnVarNameInTable="columnl_model_4" msprop:Generator_ColumnPropNameInRow="l_model_4" msprop:Generator_ColumnPropNameInTable="l_model_4Column" type="xs:string" minOccurs="0" />
+              <xs:element name="k_branch_4" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="k_branch_4" msprop:Generator_ColumnVarNameInTable="columnk_branch_4" msprop:Generator_ColumnPropNameInRow="k_branch_4" msprop:Generator_ColumnPropNameInTable="k_branch_4Column" type="xs:string" minOccurs="0" />
+              <xs:element name="c_staf_id_4" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="c_staf_id_4" msprop:Generator_ColumnVarNameInTable="columnc_staf_id_4" msprop:Generator_ColumnPropNameInRow="c_staf_id_4" msprop:Generator_ColumnPropNameInTable="c_staf_id_4Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_staf_name_4" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_staf_name_4" msprop:Generator_ColumnVarNameInTable="columnl_staf_name_4" msprop:Generator_ColumnPropNameInRow="l_staf_name_4" msprop:Generator_ColumnPropNameInTable="l_staf_name_4Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_model_5" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_model_5" msprop:Generator_ColumnVarNameInTable="columnl_model_5" msprop:Generator_ColumnPropNameInRow="l_model_5" msprop:Generator_ColumnPropNameInTable="l_model_5Column" type="xs:string" minOccurs="0" />
+              <xs:element name="k_branch_5" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="k_branch_5" msprop:Generator_ColumnVarNameInTable="columnk_branch_5" msprop:Generator_ColumnPropNameInRow="k_branch_5" msprop:Generator_ColumnPropNameInTable="k_branch_5Column" type="xs:string" minOccurs="0" />
+              <xs:element name="c_staf_id_5" msprop:Generator_UserColumnName="c_staf_id_5" msprop:Generator_ColumnVarNameInTable="columnc_staf_id_5" msprop:Generator_ColumnPropNameInRow="c_staf_id_5" msprop:Generator_ColumnPropNameInTable="c_staf_id_5Column" type="xs:string" minOccurs="0" />
+              <xs:element name="l_staf_name_5" msdata:Caption="DataColumn1" msprop:Generator_UserColumnName="l_staf_name_5" msprop:Generator_ColumnVarNameInTable="columnl_staf_name_5" msprop:Generator_ColumnPropNameInRow="l_staf_name_5" msprop:Generator_ColumnPropNameInTable="l_staf_name_5Column" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

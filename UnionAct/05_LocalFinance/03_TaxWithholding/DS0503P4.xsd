@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS0503P4" targetNamespace="http://tempuri.org/DS0503P4.xsd" xmlns:mstns="http://tempuri.org/DS0503P4.xsd" xmlns="http://tempuri.org/DS0503P4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS0503P4" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS0503P4" msprop:Generator_DataSetName="DS0503P4" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtDetail" msprop:Generator_UserTableName="dtDetail" msprop:Generator_RowDeletedName="dtDetailRowDeleted" msprop:Generator_RowChangedName="dtDetailRowChanged" msprop:Generator_RowClassName="dtDetailRow" msprop:Generator_RowChangingName="dtDetailRowChanging" msprop:Generator_RowEvArgName="dtDetailRowChangeEvent" msprop:Generator_RowEvHandlerName="dtDetailRowChangeEventHandler" msprop:Generator_TableClassName="dtDetailDataTable" msprop:Generator_TableVarName="tabledtDetail" msprop:Generator_RowDeletingName="dtDetailRowDeleting" msprop:Generator_TablePropName="dtDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="c_staf_id" msprop:Generator_UserColumnName="c_staf_id" msprop:Generator_ColumnPropNameInRow="c_staf_id" msprop:Generator_ColumnVarNameInTable="columnc_staf_id" msprop:Generator_ColumnPropNameInTable="c_staf_idColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="l_name" msprop:Generator_UserColumnName="l_name" msprop:Generator_ColumnPropNameInRow="l_name" msprop:Generator_ColumnVarNameInTable="columnl_name" msprop:Generator_ColumnPropNameInTable="l_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="k_belonging" msprop:Generator_UserColumnName="k_belonging" msprop:Generator_ColumnPropNameInRow="k_belonging" msprop:Generator_ColumnVarNameInTable="columnk_belonging" msprop:Generator_ColumnPropNameInTable="k_belongingColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="k_qualification" msprop:Generator_UserColumnName="k_qualification" msprop:Generator_ColumnVarNameInTable="columnk_qualification" msprop:Generator_ColumnPropNameInRow="k_qualification" msprop:Generator_ColumnPropNameInTable="k_qualificationColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="s_officer_pay" msprop:Generator_UserColumnName="s_officer_pay" msprop:Generator_ColumnPropNameInRow="s_officer_pay" msprop:Generator_ColumnVarNameInTable="columns_officer_pay" msprop:Generator_ColumnPropNameInTable="s_officer_payColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="s_time_cut_monthly" msprop:Generator_UserColumnName="s_time_cut_monthly" msprop:Generator_ColumnPropNameInRow="s_time_cut_monthly" msprop:Generator_ColumnVarNameInTable="columns_time_cut_monthly" msprop:Generator_ColumnPropNameInTable="s_time_cut_monthlyColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="s_time_cut_once" msprop:Generator_UserColumnName="s_time_cut_once" msprop:Generator_ColumnPropNameInRow="s_time_cut_once" msprop:Generator_ColumnVarNameInTable="columns_time_cut_once" msprop:Generator_ColumnPropNameInTable="s_time_cut_onceColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="s_strike_cut_monthly" msprop:Generator_UserColumnName="s_strike_cut_monthly" msprop:Generator_ColumnPropNameInRow="s_strike_cut_monthly" msprop:Generator_ColumnVarNameInTable="columns_strike_cut_monthly" msprop:Generator_ColumnPropNameInTable="s_strike_cut_monthlyColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="s_strike_cut_once" msprop:Generator_UserColumnName="s_strike_cut_once" msprop:Generator_ColumnPropNameInRow="s_strike_cut_once" msprop:Generator_ColumnVarNameInTable="columns_strike_cut_once" msprop:Generator_ColumnPropNameInTable="s_strike_cut_onceColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="allowance" msprop:Generator_UserColumnName="allowance" msprop:Generator_ColumnPropNameInRow="allowance" msprop:Generator_ColumnVarNameInTable="columnallowance" msprop:Generator_ColumnPropNameInTable="allowanceColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="s_break_total" msprop:Generator_UserColumnName="s_break_total" msprop:Generator_ColumnPropNameInRow="s_break_total" msprop:Generator_ColumnVarNameInTable="columns_break_total" msprop:Generator_ColumnPropNameInTable="s_break_totalColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="c_taxation_flag" msprop:Generator_UserColumnName="c_taxation_flag" msprop:Generator_ColumnPropNameInRow="c_taxation_flag" msprop:Generator_ColumnVarNameInTable="columnc_taxation_flag" msprop:Generator_ColumnPropNameInTable="c_taxation_flagColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtHeader" msprop:Generator_UserTableName="dtHeader" msprop:Generator_RowDeletedName="dtHeaderRowDeleted" msprop:Generator_RowChangedName="dtHeaderRowChanged" msprop:Generator_RowClassName="dtHeaderRow" msprop:Generator_RowChangingName="dtHeaderRowChanging" msprop:Generator_RowEvArgName="dtHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="dtHeaderRowChangeEventHandler" msprop:Generator_TableClassName="dtHeaderDataTable" msprop:Generator_TableVarName="tabledtHeader" msprop:Generator_RowDeletingName="dtHeaderRowDeleting" msprop:Generator_TablePropName="dtHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="month" msprop:Generator_UserColumnName="month" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInTable="monthColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="s_break" msprop:Generator_UserColumnName="s_break" msprop:Generator_ColumnPropNameInRow="s_break" msprop:Generator_ColumnVarNameInTable="columns_break" msprop:Generator_ColumnPropNameInTable="s_breakColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

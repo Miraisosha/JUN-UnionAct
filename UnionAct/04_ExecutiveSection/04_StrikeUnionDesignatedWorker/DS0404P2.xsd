@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS0404P2" targetNamespace="http://tempuri.org/DS0404P2.xsd" xmlns:mstns="http://tempuri.org/DS0404P2.xsd" xmlns="http://tempuri.org/DS0404P2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS0404P2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS0404P2" msprop:Generator_DataSetName="DS0404P2" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtDetail" msprop:Generator_UserTableName="dtDetail" msprop:Generator_RowDeletedName="dtDetailRowDeleted" msprop:Generator_RowChangedName="dtDetailRowChanged" msprop:Generator_RowClassName="dtDetailRow" msprop:Generator_RowChangingName="dtDetailRowChanging" msprop:Generator_RowEvArgName="dtDetailRowChangeEvent" msprop:Generator_RowEvHandlerName="dtDetailRowChangeEventHandler" msprop:Generator_TableClassName="dtDetailDataTable" msprop:Generator_TableVarName="tabledtDetail" msprop:Generator_RowDeletingName="dtDetailRowDeleting" msprop:Generator_TablePropName="dtDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="c_staf_id" msprop:Generator_UserColumnName="c_staf_id" msprop:Generator_ColumnPropNameInRow="c_staf_id" msprop:Generator_ColumnVarNameInTable="columnc_staf_id" msprop:Generator_ColumnPropNameInTable="c_staf_idColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="l_name" msprop:Generator_UserColumnName="l_name" msprop:Generator_ColumnPropNameInRow="l_name" msprop:Generator_ColumnVarNameInTable="columnl_name" msprop:Generator_ColumnPropNameInTable="l_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="local_name" msprop:Generator_UserColumnName="local_name" msprop:Generator_ColumnPropNameInRow="local_name" msprop:Generator_ColumnVarNameInTable="columnlocal_name" msprop:Generator_ColumnPropNameInTable="local_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="k_model" msprop:Generator_UserColumnName="k_model" msprop:Generator_ColumnPropNameInRow="k_model" msprop:Generator_ColumnVarNameInTable="columnk_model" msprop:Generator_ColumnPropNameInTable="k_modelColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="k_qualification" msprop:Generator_UserColumnName="k_qualification" msprop:Generator_ColumnPropNameInRow="k_qualification" msprop:Generator_ColumnVarNameInTable="columnk_qualification" msprop:Generator_ColumnPropNameInTable="k_qualificationColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtHeader" msprop:Generator_UserTableName="dtHeader" msprop:Generator_RowDeletedName="dtHeaderRowDeleted" msprop:Generator_RowChangedName="dtHeaderRowChanged" msprop:Generator_RowClassName="dtHeaderRow" msprop:Generator_RowChangingName="dtHeaderRowChanging" msprop:Generator_RowEvArgName="dtHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="dtHeaderRowChangeEventHandler" msprop:Generator_TableClassName="dtHeaderDataTable" msprop:Generator_TableVarName="tabledtHeader" msprop:Generator_RowDeletingName="dtHeaderRowDeleting" msprop:Generator_TablePropName="dtHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="strike_info" msprop:Generator_UserColumnName="strike_info" msprop:Generator_ColumnPropNameInRow="strike_info" msprop:Generator_ColumnVarNameInTable="columnstrike_info" msprop:Generator_ColumnPropNameInTable="strike_infoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="period_id" msprop:Generator_UserColumnName="period_id" msprop:Generator_ColumnPropNameInRow="period_id" msprop:Generator_ColumnVarNameInTable="columnperiod_id" msprop:Generator_ColumnPropNameInTable="period_idColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="name_strike_info" msprop:Generator_UserColumnName="name_strike_info" msprop:Generator_ColumnPropNameInRow="name_strike_info" msprop:Generator_ColumnVarNameInTable="columnname_strike_info" msprop:Generator_ColumnPropNameInTable="name_strike_infoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="president_name" msprop:Generator_UserColumnName="president_name" msprop:Generator_ColumnPropNameInRow="president_name" msprop:Generator_ColumnVarNameInTable="columnpresident_name" msprop:Generator_ColumnPropNameInTable="president_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="l_stand_name" msprop:Generator_UserColumnName="l_stand_name" msprop:Generator_ColumnPropNameInRow="l_stand_name" msprop:Generator_ColumnVarNameInTable="columnl_stand_name" msprop:Generator_ColumnPropNameInTable="l_stand_nameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="operation_from" msprop:Generator_UserColumnName="operation_from" msprop:Generator_ColumnPropNameInRow="operation_from" msprop:Generator_ColumnVarNameInTable="columnoperation_from" msprop:Generator_ColumnPropNameInTable="operation_fromColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="operation_to" msprop:Generator_UserColumnName="operation_to" msprop:Generator_ColumnPropNameInRow="operation_to" msprop:Generator_ColumnVarNameInTable="columnoperation_to" msprop:Generator_ColumnPropNameInTable="operation_toColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="time_frame" msprop:Generator_UserColumnName="time_frame" msprop:Generator_ColumnPropNameInRow="time_frame" msprop:Generator_ColumnVarNameInTable="columntime_frame" msprop:Generator_ColumnPropNameInTable="time_frameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="info" msprop:Generator_UserColumnName="info" msprop:Generator_ColumnPropNameInRow="info" msprop:Generator_ColumnVarNameInTable="columninfo" msprop:Generator_ColumnPropNameInTable="infoColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="strike_strike_info" msprop:Generator_UserColumnName="strike_strike_info" msprop:Generator_ColumnPropNameInRow="strike_strike_info" msprop:Generator_ColumnVarNameInTable="columnstrike_strike_info" msprop:Generator_ColumnPropNameInTable="strike_strike_infoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="strike_period_id" msprop:Generator_UserColumnName="strike_period_id" msprop:Generator_ColumnPropNameInRow="strike_period_id" msprop:Generator_ColumnVarNameInTable="columnstrike_period_id" msprop:Generator_ColumnPropNameInTable="strike_period_idColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="strike_name_strike_info" msprop:Generator_UserColumnName="strike_name_strike_info" msprop:Generator_ColumnPropNameInRow="strike_name_strike_info" msprop:Generator_ColumnVarNameInTable="columnstrike_name_strike_info" msprop:Generator_ColumnPropNameInTable="strike_name_strike_infoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="c_related_info" msprop:Generator_UserColumnName="c_related_info" msprop:Generator_ColumnPropNameInRow="c_related_info" msprop:Generator_ColumnVarNameInTable="columnc_related_info" msprop:Generator_ColumnPropNameInTable="c_related_infoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="c_fight" msprop:Generator_UserColumnName="c_fight" msprop:Generator_ColumnPropNameInRow="c_fight" msprop:Generator_ColumnVarNameInTable="columnc_fight" msprop:Generator_ColumnPropNameInTable="c_fightColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="c_cancel" msprop:Generator_UserColumnName="c_cancel" msprop:Generator_ColumnPropNameInRow="c_cancel" msprop:Generator_ColumnVarNameInTable="columnc_cancel" msprop:Generator_ColumnPropNameInTable="c_cancelColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="k_time_frame" msprop:Generator_UserColumnName="k_time_frame" msprop:Generator_ColumnPropNameInRow="k_time_frame" msprop:Generator_ColumnVarNameInTable="columnk_time_frame" msprop:Generator_ColumnPropNameInTable="k_time_frameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="c_related_info_period_id" msprop:Generator_UserColumnName="c_related_info_period_id" msprop:Generator_ColumnPropNameInRow="c_related_info_period_id" msprop:Generator_ColumnVarNameInTable="columnc_related_info_period_id" msprop:Generator_ColumnPropNameInTable="c_related_info_period_idColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtFooter" msprop:Generator_UserTableName="dtFooter" msprop:Generator_RowDeletedName="dtFooterRowDeleted" msprop:Generator_RowChangedName="dtFooterRowChanged" msprop:Generator_RowClassName="dtFooterRow" msprop:Generator_RowChangingName="dtFooterRowChanging" msprop:Generator_RowEvArgName="dtFooterRowChangeEvent" msprop:Generator_RowEvHandlerName="dtFooterRowChangeEventHandler" msprop:Generator_TableClassName="dtFooterDataTable" msprop:Generator_TableVarName="tabledtFooter" msprop:Generator_RowDeletingName="dtFooterRowDeleting" msprop:Generator_TablePropName="dtFooter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="up" msprop:Generator_UserColumnName="up" msprop:Generator_ColumnPropNameInRow="up" msprop:Generator_ColumnVarNameInTable="columnup" msprop:Generator_ColumnPropNameInTable="upColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

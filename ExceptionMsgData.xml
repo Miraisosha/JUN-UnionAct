@@ -1,0 +1,2593 @@
+<?xml version="1.0" encoding="shift_jis"?>
+<ExceptionMsgData>
+    <Message ID="FE0001">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>予期しないエラーが発生しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="FE0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」ファイルに関連付けられたアプリケーションが正常に起動できませんでした。</OutputMsg>
+    </Message>
+    <Message ID="FE0003">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>回線が混雑しています。または切断されていますので、総合OAシステムを終了します。
+デスクトップの「総合OA_VPN」をクリックして、切断されている場合には、再度接続して下さい。
+エラー№ : {0}
+エラー内容 : {1}
+画面ID : {2}
+画面名 : {3}
+エラー箇所 : {4}</OutputMsg>
+    </Message>
+    <Message ID="FE0004">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>システム管理者に連絡して下さい。総合OAシステムを終了します。
+エラー№ : {0}
+エラー内容 : {1}
+画面ID : {2}
+画面名 : {3}
+エラー箇所 : {4}</OutputMsg>
+    </Message>
+    <Message ID="GE0001">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>予期しないエラーが発生しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0002">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>アプリケーションのダウンロードに失敗しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0003">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>配置のファイルが破損しています。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0004">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>予期しないエラーが発生しました。システム管理者へ連絡してください。({0}情報の抽出失敗)</OutputMsg>
+    </Message>
+    <Message ID="GE0005">
+        <NotContinue>true</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>現在の解像度ではご利用頂けません。画面の解像度を 1280 × 1024 以上に設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0006">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>項目『{0}』が未入力です。</OutputMsg>
+    </Message>
+    <Message ID="GE0007">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された検索条件では、対象者は存在しませんでした。</OutputMsg>
+    </Message>
+    <Message ID="GE0008">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>コード変換に失敗しました。正しい内容で表示できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0009">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>重複しています：「{0}」</OutputMsg>
+    </Message>
+    <Message ID="GE0010">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}が選択されていません。{0}を選択し再度実行してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0011">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>検索条件が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0012">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された社員番号・組合員種別の組合員は既に存在します。</OutputMsg>
+    </Message>
+    <Message ID="GE0013">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>検索条件の対象年月が正しくありません。（対象期間：{0}～{1}）</OutputMsg>
+    </Message>
+    <Message ID="GE0014">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷対象が存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0015">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>前期のデータはありません。</OutputMsg>
+    </Message>
+    <Message ID="GE0016">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>前期のデータはありません。</OutputMsg>
+    </Message>
+    <Message ID="GE0017">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>過去に登録されたデータはありません。</OutputMsg>
+    </Message>
+    <Message ID="GE0018">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0019">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に不正な文字が含まれています。</OutputMsg>
+    </Message>
+    <Message ID="GE0020">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』は不正な日付です。</OutputMsg>
+    </Message>
+    <Message ID="GE0021">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の入力値が正しくありません。</OutputMsg>
+    </Message>
+    <Message ID="GE0022">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』は省略することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0023">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された社員番号は既に存在します。</OutputMsg>
+    </Message>
+    <Message ID="GE0024">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>控除額は0より大きい金額を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0025">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された社員番号『{0}』は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0026">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}年 {1}月 の賃金控除明細は既に登録されています。</OutputMsg>
+    </Message>
+    <Message ID="GE0027">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>賃金控除明細情報が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0028">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0} 行目：社員番号は省略することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0029">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0} 行目：社員番号が重複しています。</OutputMsg>
+    </Message>
+    <Message ID="GE0030">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0} 行目：社員番号は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0031">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0} 行目：控除額は0より大きい金額を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0032">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』 は 『{1}』 より先日付で設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0033">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」は出欠簿で登録されている為、削除はできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0034">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷権限がないため、印刷することができません。</OutputMsg>
+    </Message>
+    <Message ID="GE0035">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>控除額にマイナス金額を入力することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0036">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0} 行目：控除額にマイナス金額を入力することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0037">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0} 行目：時間内・争議行為ともに控除額を0とすることはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0038">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に対して『{1}』は選択できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0039">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」に現在所属していないため検索は行えません。</OutputMsg>
+    </Message>
+    <Message ID="GE0040">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>検索条件で入力された対象年月時に、「{0}」は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0041">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>取消申請書に対しての取消はできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0042">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>取消対象の日付が選択されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0043">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された組合員の方({0})を、対象外とする事は出来ません。前画面にて操作を行って下さい。</OutputMsg>
+    </Message>
+    <Message ID="GE0044">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月 {0}年{1}月は既に源泉徴収集計が行われています。</OutputMsg>
+    </Message>
+    <Message ID="GE0045">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}が登録されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0046">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>内容変更画面では全件削除を行うことはできません。
+取消画面から取消を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0047">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>課税対象額 {0}に対する課税額情報が存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0048">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>課税対象額 {0}に対して課税額情報が複数存在します。</OutputMsg>
+    </Message>
+    <Message ID="GE0049">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>役員手当にマイナス金額を入力することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0050">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>合同の会議通知を選択して下さい。</OutputMsg>
+    </Message>
+    <Message ID="GE0051">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>不正データが存在します。</OutputMsg>
+    </Message>
+    <Message ID="GE0052">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>更新対象データが存在しません。
+他のユーザによって更新された可能性があります。</OutputMsg>
+    </Message>
+    <Message ID="GE0053">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>この支部では既に登録されています。違う支部を選択して下さい。</OutputMsg>
+    </Message>
+    <Message ID="GE0054">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷項目がチェックされていません。
+印刷する項目にチェックをつけてから再度実行してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0055">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷可能な項目数は、
+「住所」を選択時は７項目まで、
+「住所」を未選択時で１０項目までです。</OutputMsg>
+    </Message>
+    <Message ID="GE0056">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>差替え対象の申請書番号は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0057">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>同一日がセットされています。</OutputMsg>
+    </Message>
+    <Message ID="GE0058">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>他の申請書で既に同一日が設定されています。</OutputMsg>
+    </Message>
+    <Message ID="GE0059">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>日付が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0060">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>活動日が既に過ぎている日付が存在する為、変更できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0061">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された活動日が正しくありません。
+ログイン期以前の日付が入力されています。</OutputMsg>
+    </Message>
+    <Message ID="GE0062">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された活動日は期をまたがっています。申請書を分けて入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0063">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>活動日が既に過ぎている日付が存在する為、取消は行えません。</OutputMsg>
+    </Message>
+    <Message ID="GE0064">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイルの保存に失敗しました。</OutputMsg>
+    </Message>
+    <Message ID="GE0065">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>出力対象となる組合員が選択されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0066">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>活動日に今日、または過去の日付が入力されています。
+明日以降の日付を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0067">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>会議名の文字数が制限を越えました。(全角で{0}文字まで入力が可能です)</OutputMsg>
+    </Message>
+    <Message ID="GE0068">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『争議日付』は争議行為通告の争議日付よりも先日を指定してください。({0}～以降)</OutputMsg>
+    </Message>
+    <Message ID="GE0069">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>指定された年月が直近の締め日より過去になっています。
+指定可能な年月は{0}以降です。</OutputMsg>
+    </Message>
+    <Message ID="GE0070">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』から行が選択されていません。
+{1}をする行を選択して再実行してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0071">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『争議行為終結通知』は、関連する他の文書の争議日付よりも先日を指定してください。({0}～以降)</OutputMsg>
+    </Message>
+    <Message ID="GE0072">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>組合員が選出されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0073">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}の入力内容が既定の文字数・行数を超えているため、正しく印刷されません。1行{1}文字、{2}行以内で入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0074">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>内容変更画面では全件削除を行うことはできません。
+一部解除画面から解除を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0075">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>解除対象の組合員が選択されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0076">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>該当の一時保存文書は存在しません。再度、検索し直してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0077">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『争議日付』に過去日を指定することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0078">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>解除通告書に対しての一部解除を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0079">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に漢数字が含まれています。</OutputMsg>
+    </Message>
+    <Message ID="GE0080">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}時間前までに通告する必要があるため、現在指定されている
+日付では通告を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0081">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の内容が、入力された郵便番号の住所情報と一致しません。再度確認して下さい。</OutputMsg>
+    </Message>
+    <Message ID="GE0082">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』には市区町村名のみ入力し、以降は『番地等』欄に入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0083">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>他の通告書で既に同一日が設定されています。</OutputMsg>
+    </Message>
+    <Message ID="GE0084">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』は 年のみ、年・月のみ、あるいは年・月・日を指定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0085">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『争議番号』は期を指定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0086">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>既に全ての組合員が解除されている為、一部解除を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0087">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>取消が行える組合員の情報はありません。
+既に全て取消されている可能性があります。</OutputMsg>
+    </Message>
+    <Message ID="GE0088">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}する行が選択されていません。
+{0}する行にチェックを付けて、再度実行してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0089">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>適用日付を直接指定する際は、履歴最新データの適用日付の翌日以降({0}～)を指定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0090">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}が存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0091">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>新しいパスワードが一致しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0092">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>現在のパスワードが一致しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0093">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の桁数が正しくありません。</OutputMsg>
+    </Message>
+    <Message ID="GE0094">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『住所区分』は"住所１"、"住所２"、"住所３"のうち少なくとも１つを選択してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0095">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『現住所』は "住所１"、"住所２"、"住所３"のうちいずれか１つを選択してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0096">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に入力された郵便番号に対する住所情報は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0097">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された行には既にデータが存在します。『詳細』ボタンより内容変更を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0098">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>名前：『{0}』 - {1}が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0099">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>検索条件の適用日付が正しくありません。（対象期間：{0}～）</OutputMsg>
+    </Message>
+    <Message ID="GE0100">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>出力対象の名簿が選択されていません。選択した後に再度印刷ボタンを押してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0101">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイルの読み込みに失敗しました。</OutputMsg>
+    </Message>
+    <Message ID="GE0102">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された日付はマスタデータで管理していません。
+日付を見直すか、システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0103">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力内容が既定の文字数・行数を超えています。</OutputMsg>
+    </Message>
+    <Message ID="GE0104">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の登録は、『{0}登録』ボタンより行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0105">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}年月日』は『{0}』のみ入力できます。</OutputMsg>
+    </Message>
+    <Message ID="GE0106">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』～『{1}』は{2}日以内で設定して下さい。</OutputMsg>
+    </Message>
+    <Message ID="GE0107">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>住所情報が存在しません。シニア前情報のため新規登録はできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0108">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『加入年月日』は『適用日付』と同日付、もしくはそれ以前の日付を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0109">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『地位喪失理由』が "定年" もしくは "本人の自由意志により会社を退職" の場合は、『退職年月日』は『地位喪失年月日』と同一日付を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0110">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『加入年月日』は『{0}』より先日付で入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0111">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>既に活動日付が経過しているため、解除を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0112">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}半角 {1} 文字（全角 {2} 文字）以内で入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0113">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>既に開催開始日付が経過しているため、合同登録を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0114">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された日付『{0}』は不正です。</OutputMsg>
+    </Message>
+    <Message ID="GE0115">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された日付『{0}』は不正です。『{1}』の形式で入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0116">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は既に同一日が指名ストライキで設定されています。
+{0}</OutputMsg>
+    </Message>
+    <Message ID="GE0117">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『日付』の開始日と終了日の間が100日を越えました。登録できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0118">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は既に同一日が時間内組合活動で設定されています。
+{0}</OutputMsg>
+    </Message>
+    <Message ID="GE0119">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>一覧にデータが存在しません。『新規登録』にチェックをつけ、新規登録を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0120">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>該当の組合大会には既に『{0}』の通知が出されています。検索画面へ戻り、現在の一時保存文書を削除してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0121">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』には{1}以降の日付を設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0122">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>今日現在有効、もしくは過去のマスタデータを削除することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0123">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>適用終了日付が設定されているデータに対して履歴登録を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0124">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択されたデータは、既に時間内申請が行われています。
+時間内申請取消後、削除を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0125">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>登録された期間が正しくありません。登録できる期間は下記の２ヶ月単位です。
+（4・5月、6・7月、8・9月、10・11月、12・1月、2・3月の2ヶ月期間で指定してください.）</OutputMsg>
+    </Message>
+    <Message ID="GE0126">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}：「{1}」 - 『{2}』が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0127">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}が登録されていません。{1}より、データの登録を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0128">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>既に同じ{0}が存在します。</OutputMsg>
+    </Message>
+    <Message ID="GE0129">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』が規定の文字数を超えています。
+入力可能な文字数は半角{1}文字までです。</OutputMsg>
+    </Message>
+    <Message ID="GE0130">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイルの種類が不正です。
+指定できるファイル拡張子は『{0}』です。</OutputMsg>
+    </Message>
+    <Message ID="GE0131">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「時間内組合活動覚書グループ」は既に登録されているので、新規登録はできません。
+「内容変更」か「履歴登録」でファイルUPを行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0132">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>指定されたファイルは存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0133">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択されたマスタデータには既に適用終了日が設定されています。</OutputMsg>
+    </Message>
+    <Message ID="GE0134">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>既に未来期のデータが存在しているため、新規登録は出来ません。</OutputMsg>
+    </Message>
+    <Message ID="GE0135">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>重複する役職名が入力されています。役職名：「{0}」</OutputMsg>
+    </Message>
+    <Message ID="GE0136">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}行目：{1}が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0137">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』は半角{1}文字で入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0138">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月{0}年{1}月の{2}控除額は登録、変更できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0139">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>前回（{0}）の登録内容が確定していないため新規登録はできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0140">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月{0}年{1}月より以前に設定されていない年月が存在するため、
+新規登録できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0141">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に過去日を指定することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0142">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>組合員管理情報の適用日付より過去のデータは登録できません（対象日付：{0}～)。</OutputMsg>
+    </Message>
+    <Message ID="GE0143">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>締め日(To) は 締め日(From) より後の年月を指定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0144">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>月のみ指定することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0145">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>データが選択されていません。新規作成を行う場合は「*」列にチェックをつけてください。</OutputMsg>
+    </Message>
+    <Message ID="GE0146">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>一度に選択できる締め日は１０個以内です。</OutputMsg>
+    </Message>
+    <Message ID="GE0147">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル名を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0148">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル名には次の文字（半角）は使えません。
+「￥」「／」「：」「＊」「？」「”」「＜」「＞」「｜」</OutputMsg>
+    </Message>
+    <Message ID="GE0149">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の保険料率、割合が設定されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0150">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>複数の組合員を選択することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0151">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>振込データ作成対象の組合員が選択されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0152">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>名前『{0}』：振込金額が 0 円以下の組合員に対して振込データを作成することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0153">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>既に{0}年{1}月分の労金データが作成されているため、締め日を設定することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0154">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された認証番号の専従職員は既に存在します。</OutputMsg>
+    </Message>
+    <Message ID="GE0155">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された郵便番号に対する住所情報は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0156">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月{0}年{1}月{2}日の{3}は既に存在しています。</OutputMsg>
+    </Message>
+    <Message ID="GE0157">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力金額が大きすぎます。1000万円未満の金額を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0158">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>マイナス金額を入力することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0159">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>控除額表の全ての専従職員を削除、またはすべての金額を \0 として登録することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0160">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』には適用日付より過去日を設定することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0161">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}に入力されている値は既に存在します。</OutputMsg>
+    </Message>
+    <Message ID="GE0162">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>口座情報（銀行名・支店名・預金種目・口座番号・口座名義・口座名義カナ）又は労金ＣＩＲを入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0163">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}：{1}行目 - 『{2}』が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0164">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』を削除することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0165">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}と{1}の合計が{2}となるように設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0166">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}は{1}より小さい値で登録してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0167">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』にマイナス金額を入力することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0168">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>支給年月日は支払対象年月（{0}年{1}月）内の日付で指定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0169">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>給与科目細目の項目数が多すぎるため、帳票に出力することができません。</OutputMsg>
+    </Message>
+    <Message ID="GE0170">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>科目({0} - {1})の『{2}』が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0171">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』は、整数部分を {1} 桁、少数部分を 3 桁以内で入力して下さい。</OutputMsg>
+    </Message>
+    <Message ID="GE0172">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の控除額詳細は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0173">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>マイナスの値を入力することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0174">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>値が大きすぎるため、{0}を計算することができません。</OutputMsg>
+    </Message>
+    <Message ID="GE0175">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}の給与科目細目項目数が多すぎるため、帳票に出力することができません。{1}行以内になるように入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0176">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>設定された予想開始年月日「{0}」は予算が確定している為、
+再作成を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0177">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』 の位置を変更することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0178">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力値は不正です。</OutputMsg>
+    </Message>
+    <Message ID="GE0179">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>0 以下の値を入力することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0180">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>値を省略することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0181">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」が重複しています。</OutputMsg>
+    </Message>
+    <Message ID="GE0182">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に 0 を登録することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0183">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』には0円より大きい金額を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0184">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>本人負担額が1円以上の場合、標準報酬額を0円で登録することはできません。（{0}行目:{1}）</OutputMsg>
+    </Message>
+    <Message ID="GE0185">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>締め日には、翌月以降の年月は設定できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0186">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は既に同一日が{0}で設定されているため、
+登録処理を継続することはできません。
+{1}</OutputMsg>
+    </Message>
+    <Message ID="GE0187">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>終了日設定が出来る月は{0}月のみです。</OutputMsg>
+    </Message>
+    <Message ID="GE0188">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}には{1}と同一日、もしくは以降の日付を設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0189">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>今月は期の最終月（７月）のため、来期の情報は自動作成されます。
+マスタメンテナンスからの新規登録はできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0190">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}行目：『{1}』は『{2}』より小さい値を設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0191">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}行目：『{1}』の値が他行と重複しています。</OutputMsg>
+    </Message>
+    <Message ID="GE0192">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}行目：『{1}』に続く『{2}』が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0193">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>出力する行にチェックを入れてください。</OutputMsg>
+    </Message>
+    <Message ID="GE0194">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>出力する行を選択してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0195">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』列に {1} つ以上チェックをつけることはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0196">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』には、履歴登録前のデータの{0}より後日({1}～)を設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0197">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>帳票の初期{0}に設定されているので、削除できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0198">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>帳票の初期{0}に設定されているので、適用終了日設定が出来ません。</OutputMsg>
+    </Message>
+    <Message ID="GE0199">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>名前 - 「{0}」：『{1}』には任期期間内の日付({2}～{3})を設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0200">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>名前 - 「{0}」：『{1}』には『{2}』以前の日付を設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0201">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>名前 - 「{0}」：『{1}』が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0202">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>出力対象情報はありません。</OutputMsg>
+    </Message>
+    <Message ID="GE0203">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>出力する組合員がチェックされていません。
+出力する組合員の行にチェックを入れてください。</OutputMsg>
+    </Message>
+    <Message ID="GE0204">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>データベースに不整合があります。
+システム管理者に連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0205">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>同じ委員会は指定できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0206">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』『{1}』のどちらともを省略することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0207">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>登録年月日（TO）には、登録年月日（FROM）と同じか、それより後の日付を指定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0208">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>出力項目がありません。
+出力する項目にチェックをつけ、再度実行してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0209">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>その位置には貼り付けできません。
+貼り付けできるのは、『標題』（{0}行目）より下の行です。</OutputMsg>
+    </Message>
+    <Message ID="GE0210">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>Excelで「ダイアログ」や「印刷プレビュー」画面の表示中は操作できません。
+Excel上で開いているダイアログをすべて閉じてから、実行してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0211">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』『{1}』に同一日を設定することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0212">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>現在参照しているデータ{0}の残回数一覧は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0213">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>適用開始日付が過去日であるデータを削除することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0214">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された会議通知は終了、もしくは『{0}』の通知が出されています。</OutputMsg>
+    </Message>
+    <Message ID="GE0215">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」は他の委員会にて出欠簿で登録されている為、追加できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0216">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の文字数が帳票の最大出力文字数(半角 {1} 文字、全角 {2} 文字)を超えています。</OutputMsg>
+    </Message>
+    <Message ID="GE0217">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>該当の会議通知は既に終了しているか、もしくは『{0}』の通知が出されています。検索画面に戻り、この一時保存文書を削除してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0218">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』には『{1}』以降の日付を設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0219">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』には『{1}』以降の時刻を設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0220">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』は以下の日当で日当金額が指定されているため、削除できません。
+
+{1}</OutputMsg>
+    </Message>
+    <Message ID="GE0221">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』は以下の出欠簿で登録されているため、削除できません。
+
+{1}</OutputMsg>
+    </Message>
+    <Message ID="GE0222">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』はすでに以下の出欠簿で登録されているため、変更できません。
+
+{1}</OutputMsg>
+    </Message>
+    <Message ID="GE0223">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』はすでに以下の出欠簿で登録されているため、{1}。
+
+{2}</OutputMsg>
+    </Message>
+    <Message ID="GE0224">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」は支部委員会（３役）以外で出欠簿登録をされているため、
+　支部委員会（３役）として登録は行えません。</OutputMsg>
+    </Message>
+    <Message ID="GE0225">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」の履歴は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GE0226">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインすることができないため、総合ＯＡの起動はできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0227">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の{1}権限がないため、{2}。総合ＯＡを終了します。</OutputMsg>
+    </Message>
+    <Message ID="GE0228">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>参照権限がないか、もしくは指定された機能は基準日時点で操作することはできません。総合ＯＡを終了します。</OutputMsg>
+    </Message>
+    <Message ID="GE0229">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>住所情報が存在しません。登録権限がないため、新規登録を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0230">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>争議有効日付({0})以前の日付では登録できません。</OutputMsg>
+    </Message>
+    <Message ID="GE0231">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された申請情報は{0}で作成された情報ではない為、取消を行うことはできません。
+作成時の期で再度ログインしなおしてから取消を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GE0232">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>新しいパスワードを空白にすることはできません。</OutputMsg>
+    </Message>
+    <Message ID="GE0233">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>一部解除の対象となる文書が更新されている可能性があるため登録できません。検索画面に戻りこの文書を削除してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0234">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログイン期が現在期ではありません、
+{0}を行う場合は現在期でログインしなおしてください。
+</OutputMsg>
+    </Message>
+    <Message ID="GE0235">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>課税対象者の組合員が選択されていません。</OutputMsg>
+    </Message>
+    <Message ID="GE0236">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}がプラス金額で入力されています。</OutputMsg>
+    </Message>
+    <Message ID="GE0237">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}は数値で入力してください。</OutputMsg>
+    </Message>
+    <Message ID="GE0238">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>取込データがありません。</OutputMsg>
+    </Message>
+    <Message ID="GE9000">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg></OutputMsg>
+    </Message>
+    <Message ID="GW0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}が選択されていません。{0}を選択し再度実行してください。</OutputMsg>
+    </Message>
+    <Message ID="GW0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>時間内組合活動の回数が制限を越えました。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0003">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}時間枠では、{0}時間前までに通告する必要があります。
+処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0004">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}に通告されている組合員({1})が7人を超えますが通告を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0005">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>中央執行委員会または支部委員会に在籍していない人が
+設定されています。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0006">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>すべての組合員種別の方が対象となりますがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GW0007">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>パスワードが初期状態から変更されていません。変更を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0008">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の内容が、入力された郵便番号の住所情報と一致しません。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0009">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に対して『{1}』が入力されています。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0010">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に対して『{1}』が選択されています。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0011">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>
+部／委員会「{0}」は、対象年月「{1}年{2}月」以降の
+出欠簿が既に登録されていますが、内容変更を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0012">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>同日付の組合大会通知が存在します。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0013">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>この支部では既に同委員会、同開催日付の会議通知（{0}）が存在します。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0014">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『日付』の開始日と終了日の間が３０日を越えていますが登録を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0015">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は既に同一日が「指名ストライキ」で設定されていますが
+処理を継続しますか？
+{0}</OutputMsg>
+    </Message>
+    <Message ID="GW0016">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は既に同一日が「時間内組合活動」で設定されていますが
+処理を継続しますか？
+{0}</OutputMsg>
+    </Message>
+    <Message ID="GW0017">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>指定された取消日は今日、または過去の日付が設定されています。
+取消設定を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0018">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『開催日付』に今日以前の日付が指定されています。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0019">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『表示順序』に重複する値が存在します。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0020">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>振込データ作成対象外（「*」列にチェックを付けられていない）組合員が存在します。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0021">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>年末調整額が未入力ですが、登録を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0022">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』が規定の文字数({1}桁)を超えています。正しく印刷されない可能性がありますが、処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0023">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』にマイナス金額を入力してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GW0024">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』と『{1}』の入力内容が異なりますが、登録してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GW0025">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}：{1}行目 - 『{2}』が帳票の最大出力文字数(半角 {3} 文字、全角 {4} 文字)を超えています。正しく印刷されない可能性がありますが、処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0026">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>給与科目細目の項目数が多すぎるため、帳票に出力することができません。データの登録のみを行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0027">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>科目({0} - {1})、『{2}』の値が大きすぎるため、帳票に正しく印刷されない可能性があります(最大 11 桁まで)。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0028">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>マイナス金額を登録しますが、よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GW0029">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>差引支給額がマイナス金額となっていますが、登録してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GW0030">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>役職 - 『{0}』：画面操作権限が設定されていません。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0031">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}が入力されていません。帳票に{0}が出力されませんが、登録してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GW0032">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>既に同じ{0}が存在しますが、処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0033">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』に重複する値が設定されています。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GW0034">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>同一社員番号の方が存在します。処理を継続してもよろしいですか？
+{0}</OutputMsg>
+    </Message>
+    <Message ID="GW0035">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は登録月末時点で、ステータスが「加入」以外で『{0}』に所属しています。
+出欠簿の登録を行いますか？
+{1}</OutputMsg>
+    </Message>
+    <Message ID="GW0036">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>活動日に今日以前の日付が入力されています。
+緊急時以外は、明日以降の日付を入力してください。
+処理を継続してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GW0037">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>開始日付が24時間後以前で入力されています
+緊急時以外は、24時間後以降の日付で通告を行ってください。
+処理を継続してもよろしいですか？
+</OutputMsg>
+    </Message>
+    <Message ID="GW0038">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>名前：{1}（{0}）、組合員種別：{2}　は本来登録できません。
+対象年月（末日時点）の組合員種別またはステータスを確認してください。
+登録を継続してよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GW0039">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログイン期が現在期ではありません、
+{0}を行う場合は現在期でログインしなおしてください。
+処理を継続してしまってよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力内容を登録しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0003">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>組合員が入力されていません。処理を継続しますがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0004">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>委員会構成一覧に表示されている内容はクリアされますがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0005">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>検索で抽出したデータを削除します。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0006">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}　{1}年{2}月
+
+入力内容を登録してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0007">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力・変更内容は破棄されます。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0008">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された明細を削除しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0009">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月 {0}年{1}月
+
+賃金控除情報をすべて削除してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0010">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>外部アプリケーション
+{0}
+は終了しますがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0011">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>データを削除してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0012">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月 {0}年{1}月
+
+源泉徴収額の集計を実行します。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0013">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月 {0}年{1}月
+
+源泉徴収額の【再集計】を実行してよろしいですか？
+
+※変更された役員手当額は全て削除されます。</OutputMsg>
+    </Message>
+    <Message ID="GQ0014">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>役員手当を\0とした組合員は課税非対象となります。
+処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0015">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>タックシールは「{0}」で指定された方法で印刷されます。
+続行しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0016">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>登録されている組合活動内容はクリアされますがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0017">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された組合員の振込明細を印刷します。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0018">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された組合員の源泉徴収額累計表を印刷します。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0019">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された組合員の支払証を印刷します。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0020">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力内容が既定の文字数・行数を超えているため、正しく印刷されない可能性があります。続行しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0021">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>現在入力されている『{0}』・『{1}』は破棄されます。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0022">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>指定された日付まで72時間以上ありますが、
+24時間枠を利用して通告されますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0023">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の入力内容は破棄されます。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0024">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>指定された適用日付は、今日より未来日です。続行しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0025">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>総合OAシステムを終了します。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0026">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ユーザ認証画面へ戻ります。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0027">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}の{1}を削除してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0028">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『郵便番号』が入力されていません。検索処理に時間がかかる可能性がありますが、続行しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0029">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>操作練習環境へ切替ますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0030">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月　{0}年{1}月
+
+{2} 締め日を設定してよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0031">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択されたデータを削除します。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0032">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}年{1}月は、既に締め日が設定されています。
+再設定しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0033">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}を削除してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0034">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>パスワードを初期化してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0035">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>パスワードは初期化されていません。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0036">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>現在入力されている{0}は削除されます。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0037">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択されたデータの適用終了日付を更新してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0038">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>適用開始日付を変更すると、現在入力されている内容が破棄される可能性があります。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0039">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>メニュー制御マスタを削除すると、メニューコントロール明細のデータも削除されます。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0040">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}年{1}月で控除額新規作成を行いますが、よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0041">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}年{1}月は、既に控除額が設定されています。
+再設定を行うと既に設定されているデータは破棄されます。
+再設定を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0042">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>振込データを作成すると「日当計算」「源泉徴収」での対象締め日再集計は行えなくなります。処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0043">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>予想開始年月日{0}年{1}月{2}日は既に処理されています。
+再設定を行うと既に設定されているデータは破棄されます。再設定を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0044">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}{1}年{2}月{3}日で{4}の新規登録を
+行いますが、よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0045">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された内容で『{0}』の比率を登録しますがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0046">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>支払対象年月に過去日が指定されていますが、処理を継続しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0047">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>属性情報入力画面へ移ります。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0048">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>基本情報を含む全ての入力内容は破棄されます。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0049">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『基準月日』を変更すると、現在入力されている『対象組合員数』『合計金額』は変更されます。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0050">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>このウィンドウを閉じると、Excelも終了します。
+終了してよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0051">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』を振り直します。現在入力されている『{0}』は破棄されますが、よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0052">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>予想期間({0} ～ {1})の予算を確定します。
+確定後は修正予算のみ変更可能となりますが、よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0053">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}『{1}』の額が、乗員計画画面で算出された補正後収入額と異なります。
+{0}『{1}』に反映して表示しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0054">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>自動計算を行いますがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0055">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>文書番号の採番を行うと、後で番号の取消を行うことは出来ません。
+また採番と同時に文書をデータベースへ一度登録します。
+続行しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0057">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>変更は破棄され、適用日付時点でのデータで再生成しますがよろしいですか？
+（標題は変更されません）</OutputMsg>
+    </Message>
+    <Message ID="GQ0058">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>文書をデータベースへ登録しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0059">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>Excelを終了します。
+終了時にデータベースへの登録を行いますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0060">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「文書番号の採番」が行われていない文書は、「一時保存」となります。
+続行しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0061">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}に表示されている内容はクリアされますがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0062">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>一時保存文書「{0}」を削除してもよろしいですか？
+（削除すると復元できません）</OutputMsg>
+    </Message>
+    <Message ID="GQ0063">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「締め日設定」処理には3分程かかります。処理中は、総合ＯＡを操作されずお待ちください。
+締め処理を行います。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0064">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}委員会名簿の変更履歴を削除します。よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0065">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>締め日一覧にチェックがされていません。このまま労金データを作成しますか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0066">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択されたデータを削除します。よろしいですか？
+※登録済みのデータは「更新」を押す前に削除され
+　この処理を戻す事は出来ません</OutputMsg>
+    </Message>
+    <Message ID="GQ0067">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}　{1}年{2}月
+
+選択した組合員を課税対象者にしてよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0068">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>現在入力されている『{0}』は破棄されます。よろしいですか？</OutputMsg>
+    </Message>
+  <Message ID="GQ0100">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>マスタデータとのレプリケーションを行います。
+よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0101">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>PC上のデータベースを修復・最適化します。
+よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0102">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>PC上のデータベースを調査のためサーバ上に提出します。
+よろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0103">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>PC上のデータベースを破棄し、正常なものを再取得します
+よろしいですか？
+
+※本端末から登録したデータのうち
+　障害などの原因で反映が完了出来なかったものは
+　この作業によって失われてしまいまう場合があります
+　ご注意ください</OutputMsg>
+    </Message>
+    <Message ID="GQ0104">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}　{1}年{2}月
+
+変更内容を登録してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="GQ0105">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>サーバー上のデータベースを修復・最適化します。
+よろしいですか？
+
+※ 最適化の際、Accessアプリケーションが表示され、
+確認メッセージが表示される場合があります。
+その際は、OKボタンを押下して下さい。
+</OutputMsg>
+    </Message>
+    <Message ID="GI0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>項目『{0}』が未入力です。</OutputMsg>
+    </Message>
+    <Message ID="GI0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>住所情報が存在しません。新規登録を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GI0003">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された検索条件では、対象者は存在しませんでした。</OutputMsg>
+    </Message>
+    <Message ID="GI0004">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>組合員の情報が見つかりませんでした。組合員情報を登録してください。</OutputMsg>
+    </Message>
+    <Message ID="GI0007">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択箇所にはデータが存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GI0008">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象年月 {0}年{1}月
+
+課税対象者・課税非対象者ともに存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GI0009">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『終了時間』 は 『開始時間』より後に設定してください。</OutputMsg>
+    </Message>
+    <Message ID="GI0010">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>更新対象となるデータはありません。</OutputMsg>
+    </Message>
+    <Message ID="GI0013">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>『{0}』の登録は、『争議行為通告』に対してのみ行えます。</OutputMsg>
+    </Message>
+    <Message ID="GI0014">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>該当の争議行為は既に終結しています。</OutputMsg>
+    </Message>
+    <Message ID="GI0015">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>登録完了しました。</OutputMsg>
+    </Message>
+    <Message ID="GI0017">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}年{1}月　{2}締め日を設定しました。</OutputMsg>
+    </Message>
+    <Message ID="GI0018">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>パスワードを変更しました。</OutputMsg>
+    </Message>
+    <Message ID="GI0019">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷対象の組合員は選択されませんでしたが、データの登録は行いました。</OutputMsg>
+    </Message>
+    <Message ID="GI0020">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷対象の組合員は選択されませんでした。
+印刷は行っていません。</OutputMsg>
+    </Message>
+    <Message ID="GI0021">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>該当の組合大会通知は既に{0}</OutputMsg>
+    </Message>
+    <Message ID="GI0022">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>役員手当マスタのメンテナンスを行った際は、委員会組織マスタのメンテナンスも行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GI0023">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>固定帳票グループ『{0}』が選択されているので、
+ファイル「{1}」は「{2}」の名称で登録されます。</OutputMsg>
+    </Message>
+    <Message ID="GI0024">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>振込データの作成が行われていません。『新規作成』ボタンより、データの作成を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GI0025">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>該当の締め日データに対しては、既に全組合員の振込データが作成されています。</OutputMsg>
+    </Message>
+    <Message ID="GI0026">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}が起動している間は、{1}は操作できません。</OutputMsg>
+    </Message>
+    <Message ID="GI0027">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>該当する詳細データは存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GI0028">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイルの作成が完了しました。</OutputMsg>
+    </Message>
+    <Message ID="GI0029">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>調整金額を入力する際は、『*』列にチェックをつけてください。</OutputMsg>
+    </Message>
+    <Message ID="GI0030">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>名前：『{0}』　口座情報が無いため、振込データを作成することはできません。</OutputMsg>
+    </Message>
+    <Message ID="GI0031">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された社員番号『{0}』は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="GI0032">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>属性情報が存在しません。新規登録を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="GI0033">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>登録権限がないため、属性情報の登録を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="GI0034">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>専従職員の新規登録を行った際は、操作権限をマスタメンテナンス画面にて登録してください。</OutputMsg>
+    </Message>
+    <Message ID="GI0035">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>Excelで「ダイアログ」や「印刷プレビュー」画面を表示していると、正しく終了できません。
+Excel上で開いているダイアログをすべて閉じてから、終了してください。</OutputMsg>
+    </Message>
+    <Message ID="GI0036">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>予算を確定しました！</OutputMsg>
+    </Message>
+    <Message ID="GI0037">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>内容変更を行うと{0}のデータも更新されます。
+再度、{0}画面を表示し内容を確認してください。</OutputMsg>
+    </Message>
+    <Message ID="GI0038">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>賞与のデータが{0}か月分ありますが、賃金台帳には3か月分のみ表示されます。</OutputMsg>
+    </Message>
+    <Message ID="GI0039">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>内容変更を行うと{0}のデータにも影響します。
+再度、{0}画面を表示し必ずデータを再登録して下さい。</OutputMsg>
+    </Message>
+    <Message ID="GI0040">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」が、収入予想画面で再算出されています。
+「{1}」も変更となりますので、再度この画面でデータ登録を必ず行って下さい。</OutputMsg>
+    </Message>
+    <Message ID="GI0041">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>Excelを終了するときは、[文書操作ウィンドウ]から閉じてください。</OutputMsg>
+    </Message>
+    <Message ID="GI0042">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象となるデータは存在しませんでした。</OutputMsg>
+    </Message>
+    <Message ID="GI0043">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル「{0}」を削除しました。</OutputMsg>
+    </Message>
+    <Message ID="GI0044">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>適用終了日設定を行おうとしているデータの「c_full_time_control_id」が、現在有効な「full_time_union_officer」テーブルの中に存在していないか確認してください。</OutputMsg>
+    </Message>
+    <Message ID="GI0045">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>課税対象者にしたい人を選択してください。</OutputMsg>
+    </Message>
+    <Message ID="GI0046">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>課税対象を役員手当のみにしたい人を選択してください。</OutputMsg>
+    </Message>
+  <Message ID="GI0047">
+    <NotContinue>false</NotContinue>
+    <OutputDb>false</OutputDb>
+    <OutputMsg>ファイルの読み込みが完了しました。</OutputMsg>
+  </Message>
+  <Message ID="GI0100">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>サーバー上のマスタデータとの
+レプリケーションが正常に終了できませんでした。
+総合ＯＡを再起動するか、情報更新ボタンを使用して
+マスタデータとのレプリケーションを完了させて下さい。
+</OutputMsg>
+    </Message>
+    <Message ID="BW0200">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>委員会の新規登録時は、権限の設定も行って下さい。
+詳細はシステム管理者にお問い合わせ下さい。</OutputMsg>
+    </Message>
+    <Message ID="BE0001">
+        <NotContinue>true</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>予期しないエラーが発生しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0002">
+        <NotContinue>true</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>アプリケーション[{0}]は既に起動しています。</OutputMsg>
+    </Message>
+    <Message ID="BE0003">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>ログインできません。データの不整合があります。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0004">
+        <NotContinue>false</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>登録された社員の情報は既に存在しています。登録内容を見直すか、または更新画面から登録し直してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0005">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>既に他の方によって変更されています。もう一度、最初からし直してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0006">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインできません。社員番号またはパスワードが一致しません。</OutputMsg>
+    </Message>
+    <Message ID="BE0007">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」の対象年月が正しくありません。（{1}の任期：{2}～{3}）</OutputMsg>
+    </Message>
+    <Message ID="BE0008">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインできません。データの不整合があります。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0009">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインできません。社員番号またはパスワードが一致しません。</OutputMsg>
+    </Message>
+    <Message ID="BE0010">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインできません。データの不整合があります。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0011">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインできません。社員番号またはパスワードが一致しません。</OutputMsg>
+    </Message>
+    <Message ID="BE0012">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>名前：{1}（{0}）、組合員種別：{2}　は登録できません。
+対象年月（末日時点）の組合員種別またはステータスを確認してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0013">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」を正常に起動できませんでした。</OutputMsg>
+    </Message>
+    <Message ID="BE0014">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}を正しく表示できませんでした。</OutputMsg>
+    </Message>
+    <Message ID="BE0015">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>該当するファイルデータの不整合があります。
+システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0016">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>データの不整合があります。
+システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0017">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>全てのデータが既に取消されています。</OutputMsg>
+    </Message>
+    <Message ID="BE0018">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>時間内申請の制限枠を認識できませんでした。
+正しい制限枠を表記することができません。</OutputMsg>
+    </Message>
+    <Message ID="BE0019">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>選択された組合員の住所情報が存在しません。</OutputMsg>
+    </Message>
+    <Message ID="BE0020">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}する検索結果が選択されていません。
+検索結果一覧から{0}項目を選んで、再度実行してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0021">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された日付では、処理を行うことはできません。</OutputMsg>
+    </Message>
+    <Message ID="BE0022">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル「{0}」を正常に保存できませんでした。</OutputMsg>
+    </Message>
+    <Message ID="BE0023">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>設定された対象年月では全ての役職で任期対象外になります。　
+対象年月またはログイン期を見直してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0024">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>CSVファイルの形式が不正です。
+ファイルの読み込みに失敗しました。</OutputMsg>
+    </Message>
+    <Message ID="BE0025">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル「{0}」の読み込みに失敗しました。
+「{0}」を開いている場合は、終了してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0026">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>退職者の情報は取得できませんでした。</OutputMsg>
+    </Message>
+    <Message ID="BE0027">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>定数マスタに「専従職員給与体系区分」の情報が存在しませんでした。システム管理者に連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="BE0028">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>この文書は、他の方が更新された最新データがあります。
+データベースへ登録できません。</OutputMsg>
+    </Message>
+    <Message ID="BE0029">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>新しいシートは挿入できません。</OutputMsg>
+    </Message>
+    <Message ID="BE0030">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>指定された年月に、「{0}」は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="BE0031">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>他のワークブックを同じウィンドウで開くことは出来ません。</OutputMsg>
+    </Message>
+    <Message ID="BE0032">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>65536行を超えるデータは貼り付け出来ません。</OutputMsg>
+    </Message>
+    <Message ID="BE0033">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>256列を超えるデータは貼り付け出来ません。</OutputMsg>
+    </Message>
+    <Message ID="BE0034">
+        <NotContinue>false</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>ログインできません。</OutputMsg>
+    </Message>
+    <Message ID="BE0100">
+        <NotContinue>true</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>PC上のデータベースの修復・最適化に失敗しました。
+管理者に問い合わせを行うか、破棄・再取得による正常化を行って下さい。</OutputMsg>
+    </Message>
+    <Message ID="BE0101">
+        <NotContinue>true</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>サーバー上のデータベースの修復・最適化に失敗しました。
+管理者に問い合わせ下さい。</OutputMsg>
+    </Message>
+    <Message ID="BE9000">
+        <NotContinue>true</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg></OutputMsg>
+    </Message>
+    <Message ID="BE9001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg></OutputMsg>
+    </Message>
+    <Message ID="BW0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>前回の締め日から指定された年月までで、出欠簿に未記入な組合員を含む委員会・月があります。
+{0}
+締め日を設定してよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="BW0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は、対象年月(月末時点)でステータスが「加入」以外になっています。
+登録を継続しますか？
+{0}</OutputMsg>
+    </Message>
+    <Message ID="BQ0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>システム日付を変更してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="BQ0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>検索条件の{0}は既に存在しています。更新してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="BQ0003">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>入力された適用年月日以後のデータが存在します。入力された適用年月日以後のデータを消去して現在の入力内容を登録しますか？</OutputMsg>
+    </Message>
+    <Message ID="BQ0004">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル「{0}」は、既にデータベース上に存在します。
+上書きしますか？</OutputMsg>
+    </Message>
+    <Message ID="BQ0005">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル
+{0}
+をデータベースに登録してもよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="BQ0006">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は郵便番号が登録されていないか、代表番号（下2桁が'00'）になっています。
+{0}
+タックシールにバーコードが出力されませんがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="BQ0007">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>以下の方は住所情報が存在しないため、タックシール印刷はできません。
+{0}
+タックシールが出力されませんがよろしいですか？</OutputMsg>
+    </Message>
+    <Message ID="BQ0008">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>文書の編集中に、他の方によってこの文書がデータベースから削除されました。
+再度登録しなおしますか？</OutputMsg>
+    </Message>
+    <Message ID="BI0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>登録処理を中止しました。</OutputMsg>
+    </Message>
+    <Message ID="BI0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>取得していない最新データがあります。
+入力された内容を破棄して、最新データを取得します。</OutputMsg>
+    </Message>
+    <Message ID="BI0003">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>更新対象のデータはありませんでした。</OutputMsg>
+    </Message>
+    <Message ID="BI0004">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象となるデータは存在しませんでした。</OutputMsg>
+    </Message>
+    <Message ID="BI0005">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」の任期は({1}～{2})です。その間以外では登録できません。</OutputMsg>
+    </Message>
+    <Message ID="BI0006">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル出力できる項目はありません。</OutputMsg>
+    </Message>
+    <Message ID="BI0007">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>一覧データ取得時以降に、他の方によってこの文書が更新されました。
+一覧画面を更新します。</OutputMsg>
+    </Message>
+    <Message ID="BI0008">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>一覧データ取得時以降に、他の方によってこの文書がデータベースから削除されました。
+一覧画面を更新します。</OutputMsg>
+    </Message>
+    <Message ID="BI0100">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>処理は正常に完了しました。</OutputMsg>
+    </Message>
+    <Message ID="BI0101">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>処理は正常に完了しました。
+
+念の為、続けて「調査提出」を行っておいてください。</OutputMsg>
+    </Message>
+
+    <Message ID="DE0001">
+        <NotContinue>true</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>予期しないエラーが発生しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="DE0002">
+        <NotContinue>true</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>データベース接続時にエラーが発生しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="DE0003">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>{0}を取得できませんでした。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="DE0004">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>予期しないエラーが発生しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="DE0005">
+        <NotContinue>false</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>正しくデータが更新できませんでした。</OutputMsg>
+    </Message>
+    <Message ID="DE0006">
+        <NotContinue>false</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>ログインできません。</OutputMsg>
+    </Message>
+    <Message ID="DE0007">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインできません。</OutputMsg>
+    </Message>
+    <Message ID="DE0008">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ログインできません。社員番号またはパスワードが一致しません。</OutputMsg>
+    </Message>
+    <Message ID="DE0009">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>指定されたファイル「{0}」は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="DE0010">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>「{0}」は、既に起動しています。</OutputMsg>
+    </Message>
+    <Message ID="DE0011">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>正しく登録ができませんでした。
+既に解除されている組合員が存在する可能性があります。</OutputMsg>
+    </Message>
+    <Message ID="DE0012">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>ファイル「{0}」の読み込みに失敗しました。
+ファイルのアップデートを正常に行えませんでした。</OutputMsg>
+    </Message>
+    <Message ID="DE0013">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>{0}を取得できませんでした。</OutputMsg>
+    </Message>
+    <Message ID="DE0014">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>正しくデータの削除が出来ませんでした。</OutputMsg>
+    </Message>
+    <Message ID="DE0015">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>エラーが発生して登録が中断しました。
+再度登録を実行してください。
+症状が改善しない場合は、システム管理者へ連絡して下さい。</OutputMsg>
+    </Message>
+    <Message ID="DW0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>入力された条件では、{0}は存在しません。</OutputMsg>
+    </Message>
+    <Message ID="DI0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象となるデータは存在しませんでした。</OutputMsg>
+    </Message>
+    <Message ID="DI0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>対象となるデータは存在しませんでした。新規登録を行ってください。</OutputMsg>
+    </Message>
+    <Message ID="RE0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>予期しないエラーが発生しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="RE0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷部数には、1以上を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="RE0003">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷部数に正しい数字が入力されていません。</OutputMsg>
+    </Message>
+    <Message ID="RE0004">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷範囲の入力値が不正です。
+[開始ページ]には[終了ページ]より小さい値を入力してください。</OutputMsg>
+    </Message>
+    <Message ID="RI0001">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>印刷できるものはありません。</OutputMsg>
+    </Message>
+    <Message ID="OE0001">
+        <NotContinue>true</NotContinue>
+        <OutputDb>true</OutputDb>
+        <OutputMsg>予期しないエラーが発生しました。システム管理者へ連絡してください。</OutputMsg>
+    </Message>
+    <Message ID="OE0002">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>Excelで「ダイアログ」や「印刷プレビュー」画面を表示しているか
+またはセルの編集中は、『総合ＯＡ』から操作できません。
+開いているダイアログは閉じ、セルの編集状態を解除してください。</OutputMsg>
+    </Message>
+    <Message ID="OE0003">
+        <NotContinue>false</NotContinue>
+        <OutputDb>false</OutputDb>
+        <OutputMsg>マクロの実行が中断されています。
+中断を解除して、再実行してください。</OutputMsg>
+    </Message>
+</ExceptionMsgData>
+

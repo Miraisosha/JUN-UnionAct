@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TSUUCHI_NO" msprop:Generator_UserColumnName="TSUUCHI_NO" msprop:Generator_ColumnPropNameInRow="TSUUCHI_NO" msprop:Generator_ColumnVarNameInTable="columnTSUUCHI_NO" msprop:Generator_ColumnPropNameInTable="TSUUCHI_NOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="TOUROKU_DATE" msprop:Generator_UserColumnName="TOUROKU_DATE" msprop:Generator_ColumnPropNameInRow="TOUROKU_DATE" msprop:Generator_ColumnVarNameInTable="columnTOUROKU_DATE" msprop:Generator_ColumnPropNameInTable="TOUROKU_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="GOUDOU_FLG" msprop:Generator_UserColumnName="GOUDOU_FLG" msprop:Generator_ColumnPropNameInRow="GOUDOU_FLG" msprop:Generator_ColumnVarNameInTable="columnGOUDOU_FLG" msprop:Generator_ColumnPropNameInTable="GOUDOU_FLGColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="SYURUI" msprop:Generator_UserColumnName="SYURUI" msprop:Generator_ColumnPropNameInRow="SYURUI" msprop:Generator_ColumnVarNameInTable="columnSYURUI" msprop:Generator_ColumnPropNameInTable="SYURUIColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="SHIBU" msprop:Generator_UserColumnName="SHIBU" msprop:Generator_ColumnPropNameInRow="SHIBU" msprop:Generator_ColumnVarNameInTable="columnSHIBU" msprop:Generator_ColumnPropNameInTable="SHIBUColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BUIINKAI" msprop:Generator_UserColumnName="BUIINKAI" msprop:Generator_ColumnPropNameInRow="BUIINKAI" msprop:Generator_ColumnVarNameInTable="columnBUIINKAI" msprop:Generator_ColumnPropNameInTable="BUIINKAIColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="KAIGI_NAME" msprop:Generator_UserColumnName="KAIGI_NAME" msprop:Generator_ColumnPropNameInRow="KAIGI_NAME" msprop:Generator_ColumnVarNameInTable="columnKAIGI_NAME" msprop:Generator_ColumnPropNameInTable="KAIGI_NAMEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="KAISAIBASHO" msprop:Generator_UserColumnName="KAISAIBASHO" msprop:Generator_ColumnPropNameInRow="KAISAIBASHO" msprop:Generator_ColumnVarNameInTable="columnKAISAIBASHO" msprop:Generator_ColumnPropNameInTable="KAISAIBASHOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="KAIGIJOU" msprop:Generator_UserColumnName="KAIGIJOU" msprop:Generator_ColumnPropNameInRow="KAIGIJOU" msprop:Generator_ColumnVarNameInTable="columnKAIGIJOU" msprop:Generator_ColumnPropNameInTable="KAIGIJOUColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI1_DATE" msprop:Generator_UserColumnName="NICHIJI1_DATE" msprop:Generator_ColumnPropNameInRow="NICHIJI1_DATE" msprop:Generator_ColumnVarNameInTable="columnNICHIJI1_DATE" msprop:Generator_ColumnPropNameInTable="NICHIJI1_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI1_TIME_F" msprop:Generator_UserColumnName="NICHIJI1_TIME_F" msprop:Generator_ColumnPropNameInRow="NICHIJI1_TIME_F" msprop:Generator_ColumnVarNameInTable="columnNICHIJI1_TIME_F" msprop:Generator_ColumnPropNameInTable="NICHIJI1_TIME_FColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI1_TIME_T" msprop:Generator_UserColumnName="NICHIJI1_TIME_T" msprop:Generator_ColumnPropNameInRow="NICHIJI1_TIME_T" msprop:Generator_ColumnVarNameInTable="columnNICHIJI1_TIME_T" msprop:Generator_ColumnPropNameInTable="NICHIJI1_TIME_TColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI2_DATE" msprop:Generator_UserColumnName="NICHIJI2_DATE" msprop:Generator_ColumnPropNameInRow="NICHIJI2_DATE" msprop:Generator_ColumnVarNameInTable="columnNICHIJI2_DATE" msprop:Generator_ColumnPropNameInTable="NICHIJI2_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI2_TIME_F" msprop:Generator_UserColumnName="NICHIJI2_TIME_F" msprop:Generator_ColumnPropNameInRow="NICHIJI2_TIME_F" msprop:Generator_ColumnVarNameInTable="columnNICHIJI2_TIME_F" msprop:Generator_ColumnPropNameInTable="NICHIJI2_TIME_FColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI2_TIME_T" msprop:Generator_UserColumnName="NICHIJI2_TIME_T" msprop:Generator_ColumnPropNameInRow="NICHIJI2_TIME_T" msprop:Generator_ColumnVarNameInTable="columnNICHIJI2_TIME_T" msprop:Generator_ColumnPropNameInTable="NICHIJI2_TIME_TColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI3_DATE" msprop:Generator_UserColumnName="NICHIJI3_DATE" msprop:Generator_ColumnPropNameInRow="NICHIJI3_DATE" msprop:Generator_ColumnVarNameInTable="columnNICHIJI3_DATE" msprop:Generator_ColumnPropNameInTable="NICHIJI3_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI3_TIME_F" msprop:Generator_UserColumnName="NICHIJI3_TIME_F" msprop:Generator_ColumnPropNameInRow="NICHIJI3_TIME_F" msprop:Generator_ColumnVarNameInTable="columnNICHIJI3_TIME_F" msprop:Generator_ColumnPropNameInTable="NICHIJI3_TIME_FColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="NICHIJI3_TIME_T" msprop:Generator_UserColumnName="NICHIJI3_TIME_T" msprop:Generator_ColumnPropNameInRow="NICHIJI3_TIME_T" msprop:Generator_ColumnVarNameInTable="columnNICHIJI3_TIME_T" msprop:Generator_ColumnPropNameInTable="NICHIJI3_TIME_TColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IDOU_OU_BIN" msprop:Generator_UserColumnName="IDOU_OU_BIN" msprop:Generator_ColumnPropNameInRow="IDOU_OU_BIN" msprop:Generator_ColumnVarNameInTable="columnIDOU_OU_BIN" msprop:Generator_ColumnPropNameInTable="IDOU_OU_BINColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IDOU_OU_HATSU" msprop:Generator_UserColumnName="IDOU_OU_HATSU" msprop:Generator_ColumnPropNameInRow="IDOU_OU_HATSU" msprop:Generator_ColumnVarNameInTable="columnIDOU_OU_HATSU" msprop:Generator_ColumnPropNameInTable="IDOU_OU_HATSUColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IDOU_FU_BIN" msprop:Generator_UserColumnName="IDOU_FU_BIN" msprop:Generator_ColumnPropNameInRow="IDOU_FU_BIN" msprop:Generator_ColumnVarNameInTable="columnIDOU_FU_BIN" msprop:Generator_ColumnPropNameInTable="IDOU_FU_BINColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IDOU_FU_HATSU" msprop:Generator_UserColumnName="IDOU_FU_HATSU" msprop:Generator_ColumnPropNameInRow="IDOU_FU_HATSU" msprop:Generator_ColumnVarNameInTable="columnIDOU_FU_HATSU" msprop:Generator_ColumnPropNameInTable="IDOU_FU_HATSUColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BIKOU" msprop:Generator_UserColumnName="BIKOU" msprop:Generator_ColumnPropNameInRow="BIKOU" msprop:Generator_ColumnVarNameInTable="columnBIKOU" msprop:Generator_ColumnPropNameInTable="BIKOUColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="GIDAI1" msprop:Generator_UserColumnName="GIDAI1" msprop:Generator_ColumnPropNameInRow="GIDAI1" msprop:Generator_ColumnVarNameInTable="columnGIDAI1" msprop:Generator_ColumnPropNameInTable="GIDAI1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="GIDAI2" msprop:Generator_UserColumnName="GIDAI2" msprop:Generator_ColumnPropNameInRow="GIDAI2" msprop:Generator_ColumnVarNameInTable="columnGIDAI2" msprop:Generator_ColumnPropNameInTable="GIDAI2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="GIDAI3" msprop:Generator_UserColumnName="GIDAI3" msprop:Generator_ColumnPropNameInRow="GIDAI3" msprop:Generator_ColumnVarNameInTable="columnGIDAI3" msprop:Generator_ColumnPropNameInTable="GIDAI3Column" type="xs:string" minOccurs="0" />
+              <xs:element name="GIDAI4" msprop:Generator_UserColumnName="GIDAI4" msprop:Generator_ColumnPropNameInRow="GIDAI4" msprop:Generator_ColumnVarNameInTable="columnGIDAI4" msprop:Generator_ColumnPropNameInTable="GIDAI4Column" type="xs:string" minOccurs="0" />
+              <xs:element name="GIDAI5" msprop:Generator_UserColumnName="GIDAI5" msprop:Generator_ColumnPropNameInRow="GIDAI5" msprop:Generator_ColumnVarNameInTable="columnGIDAI5" msprop:Generator_ColumnPropNameInTable="GIDAI5Column" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="DataTable1Key1">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:TSUUCHI_NO" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
