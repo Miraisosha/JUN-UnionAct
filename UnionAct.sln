@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32413.119
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "UnionAct", "UnionAct\UnionAct.vbproj", "{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}"
 EndProject
@@ -13,6 +13,8 @@ Global
 		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
+		Staging|Any CPU = Staging|Any CPU
+		Staging|x86 = Staging|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}.Debug|Any CPU.ActiveCfg = Debug|x86
@@ -23,6 +25,10 @@ Global
 		{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}.Release|Any CPU.Build.0 = Release|x86
 		{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}.Release|x86.ActiveCfg = Release|x86
 		{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}.Release|x86.Build.0 = Release|x86
+		{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}.Staging|x86.ActiveCfg = Staging|x86
+		{2994CD2B-6A81-445A-8A4D-890FDCD7BCA0}.Staging|x86.Build.0 = Staging|x86
 		{4BC4B7CC-EFA6-4B70-B4D3-74923B821221}.Debug|Any CPU.ActiveCfg = Debug
 		{4BC4B7CC-EFA6-4B70-B4D3-74923B821221}.Debug|x86.ActiveCfg = Debug
 		{4BC4B7CC-EFA6-4B70-B4D3-74923B821221}.Debug|x86.Build.0 = Debug
@@ -30,6 +36,8 @@ Global
 		{4BC4B7CC-EFA6-4B70-B4D3-74923B821221}.Release|Any CPU.Build.0 = Release
 		{4BC4B7CC-EFA6-4B70-B4D3-74923B821221}.Release|x86.ActiveCfg = Release
 		{4BC4B7CC-EFA6-4B70-B4D3-74923B821221}.Release|x86.Build.0 = Release
+		{4BC4B7CC-EFA6-4B70-B4D3-74923B821221}.Staging|Any CPU.ActiveCfg = Release
+		{4BC4B7CC-EFA6-4B70-B4D3-74923B821221}.Staging|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
