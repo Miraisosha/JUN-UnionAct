@@ -119,13 +119,25 @@ Public Class FM000101
             If GetData() = False Then
                 Exit Sub
             End If
-            ''*******************************************************************************
-            ''   開発用
-            ''*******************************************************************************
-            'Me.txtMemberNo.Text = "senjyu1"
-            'Me.txtPwd.Text = "1"
-            ''*******************************************************************************
-        Catch ex As Exception
+
+
+      '*******************************************************************************
+      '   開発用
+      '*******************************************************************************
+#If DEBUG Then
+      Me.txtMemberNo.Text = "sysadmin"
+      Me.txtPwd.Text = "admin"
+      me.lblTitle.text = "総合ＯＡシステム"
+      me.text = "ユーザ認証［Debug］"
+#ElseIf STAGING Then
+      Me.lblTitle.Text = "総合ＯＡシステム"
+      Me.Text = "ユーザ認証［Staging］"
+#ElseIf RELEASE Then
+      Me.lblTitle.Text = "総合ＯＡシステム"
+      Me.Text = "ユーザ認証"
+#End If
+      ''*******************************************************************************
+    Catch ex As Exception
             ' ログ出力（致命的エラー）
             log.Fatal(ex.Message)
             ' 致命的エラーメッセージボックス表示

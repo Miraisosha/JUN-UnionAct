@@ -255,8 +255,8 @@ Public Class FM020602
             dt = ds.search_list_header
             '印刷プレビュー
             fmPrint = New FM000205
-            reportObj = New CR0206P1(dt)
-            fmPrint.ButtonShowType = 2
+      reportObj = New CR0206P1()
+      fmPrint.ButtonShowType = 2
             fmPrint.PrintCntVisible = True
             fmPrint.PrintAreaVisible = True
             fmPrint.ObjResource = reportObj
@@ -447,7 +447,6 @@ Public Class FM020602
             Dim fmPrint As FM000203
             Dim reportObj As CrystalDecisions.CrystalReports.Engine.ReportDocument      'IDと名前印刷レポート
             Dim pkSource As System.Drawing.Printing.PaperSource
-            Dim printDoc As System.Windows.Forms.PrintDialog = New System.Windows.Forms.PrintDialog()
             Dim daiRet As DialogResult = Nothing    ' 確認メッセージ結果
             Dim strRemove() As String = Nothing
             Dim SkipFlg As Boolean = False
@@ -455,8 +454,22 @@ Public Class FM020602
             If chkMem(True, strRemove) = False Then
                 Exit Sub
             End If
+            '給紙トレイ確認
+            If Me.cboTack.SelectedIndex < 0 Then
+                If Me.cboTack.Items.Count > 0 Then
+                    Me.cboTack.SelectedIndex = 0
+                Else
+                    MessageBox.Show("タックシール給紙方法を取得できません。プリンタ設定を確認してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
+                    Exit Sub
+                End If
+            End If
+            pkSource = TryCast(Me.cboTack.SelectedItem, System.Drawing.Printing.PaperSource)
+            If pkSource Is Nothing Then
+                MessageBox.Show("タックシール給紙方法を取得できません。プリンタ設定を確認してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
+                Exit Sub
+            End If
             '印刷続行確認
-            daiRet = CLMsg.Show("GQ0015", "タックシール給紙方法")
+            daiRet = CLMsg.Show("GQ0015", pkSource.SourceName)
             If daiRet = DialogResult.No Then
                 Exit Sub
             End If
@@ -544,11 +557,11 @@ Public Class FM020602
                             drHeader.k_staf_kind = Row.Cells.Item("組合員種別略称").Value
                         End If
                         'バーコード設定
-                        If Not (Row.Cells.Item("").Value Is DBNull.Value) Then
-                            BarCode = GetBarCode(Row.Cells.Item("住所区分").Value.ToString, _
+                        If Not (Row.Cells.Item("郵便番号").Value Is DBNull.Value) Then
+                            BarCode = GetBarCode(If(Row.Cells.Item("住所区分").Value Is DBNull.Value, "", Row.Cells.Item("住所区分").Value.ToString), _
                                                  Row.Cells.Item("郵便番号").Value.ToString, _
-                                                 Row.Cells.Item("番地等").Value.ToString, _
-                                                 Row.Cells.Item("建物等").Value.ToString)
+                                                 If(Row.Cells.Item("番地等").Value Is DBNull.Value, "", Row.Cells.Item("番地等").Value.ToString), _
+                                                 If(Row.Cells.Item("建物等").Value Is DBNull.Value, "", Row.Cells.Item("建物等").Value.ToString))
                             drHeader.bar_code = BarCode
                         End If
                         'データセットに追加
@@ -568,7 +581,6 @@ Public Class FM020602
             'データセットを設定
             reportObj.SetDataSource(ds)
             '給紙トレイを設定
-            pkSource = printDoc.PrinterSettings.PaperSources.Item(Me.cboTack.SelectedIndex)
             reportObj.PrintOptions.CustomPaperSource = pkSource
             '印刷プレビューはないため、そのまま印刷開始
             fmPrint.PrintOut()

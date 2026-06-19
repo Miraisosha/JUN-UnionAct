@@ -22,27 +22,27 @@ Partial Class FM000101
     'コード エディタを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblTitle = New System.Windows.Forms.Label
-        Me.lblMemberNo = New System.Windows.Forms.Label
-        Me.lblPwd = New System.Windows.Forms.Label
-        Me.lblPeriod = New System.Windows.Forms.Label
-        Me.txtMemberNo = New System.Windows.Forms.TextBox
-        Me.txtPwd = New System.Windows.Forms.TextBox
-        Me.cboPeriod = New System.Windows.Forms.ComboBox
-        Me.btnBegin = New System.Windows.Forms.Button
-        Me.btnEnd = New System.Windows.Forms.Button
-        Me.txtInfomation = New System.Windows.Forms.TextBox
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.lblMemberNo = New System.Windows.Forms.Label()
+        Me.lblPwd = New System.Windows.Forms.Label()
+        Me.lblPeriod = New System.Windows.Forms.Label()
+        Me.txtMemberNo = New System.Windows.Forms.TextBox()
+        Me.txtPwd = New System.Windows.Forms.TextBox()
+        Me.cboPeriod = New System.Windows.Forms.ComboBox()
+        Me.btnBegin = New System.Windows.Forms.Button()
+        Me.btnEnd = New System.Windows.Forms.Button()
+        Me.txtInfomation = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lblTitle
         '
-        Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("MS UI Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(60, 20)
+        Me.lblTitle.Location = New System.Drawing.Point(2, 24)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(238, 33)
+        Me.lblTitle.Size = New System.Drawing.Size(359, 33)
         Me.lblTitle.TabIndex = 7
         Me.lblTitle.Text = "総合ＯＡシステム"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblMemberNo
         '
@@ -50,7 +50,7 @@ Partial Class FM000101
         Me.lblMemberNo.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblMemberNo.Location = New System.Drawing.Point(63, 77)
         Me.lblMemberNo.Name = "lblMemberNo"
-        Me.lblMemberNo.Size = New System.Drawing.Size(72, 16)
+        Me.lblMemberNo.Size = New System.Drawing.Size(71, 16)
         Me.lblMemberNo.TabIndex = 1
         Me.lblMemberNo.Text = "社員番号"
         '
@@ -60,7 +60,7 @@ Partial Class FM000101
         Me.lblPwd.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblPwd.Location = New System.Drawing.Point(65, 106)
         Me.lblPwd.Name = "lblPwd"
-        Me.lblPwd.Size = New System.Drawing.Size(70, 16)
+        Me.lblPwd.Size = New System.Drawing.Size(69, 16)
         Me.lblPwd.TabIndex = 1
         Me.lblPwd.Text = "パスワード"
         '
@@ -70,7 +70,7 @@ Partial Class FM000101
         Me.lblPeriod.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblPeriod.Location = New System.Drawing.Point(111, 136)
         Me.lblPeriod.Name = "lblPeriod"
-        Me.lblPeriod.Size = New System.Drawing.Size(24, 16)
+        Me.lblPeriod.Size = New System.Drawing.Size(23, 16)
         Me.lblPeriod.TabIndex = 1
         Me.lblPeriod.Text = "期"
         '

@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Imports System.Resources
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -8,17 +9,17 @@ Imports System.Runtime.InteropServices
 
 ' アセンブリ属性の値を確認します。
 
-<Assembly: AssemblyTitle("UnionAct")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("UnionAct")> 
-<Assembly: AssemblyCopyright("Copyright ©  2011")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("UnionAct")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("全日空乗員組合")>
+<Assembly: AssemblyProduct("UnionAct")>
+<Assembly: AssemblyCopyright("Copyright ©  2011")>
+<Assembly: AssemblyTrademark("")>
 
-<Assembly: ComVisible(True)> 
+<Assembly: ComVisible(True)>
 
 'このプロジェクトが COM に公開される場合、次の GUID がタイプ ライブラリの ID になります。
-<Assembly: Guid("220596c8-cc6e-472b-8824-3301b107a728")> 
+<Assembly: Guid("220596c8-cc6e-472b-8824-3301b107a728")>
 
 ' アセンブリのバージョン情報は、以下の 4 つの値で構成されています:
 '
@@ -31,7 +32,7 @@ Imports System.Runtime.InteropServices
 ' 既定値にすることができます:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
-<Assembly: log4net.Config.XmlConfigurator(Watch:=True)> 
-
+<Assembly: AssemblyVersion("1.0.0.1")>
+<Assembly: AssemblyFileVersion("1.0.0.1")>
+<Assembly: log4net.Config.XmlConfigurator(Watch:=True)>
+<Assembly: NeutralResourcesLanguage("")>

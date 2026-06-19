@@ -55,8 +55,18 @@ Public Class FM000102
                                    SCREEN_ID, SCREEN_NAME, _
                                    System.Reflection.MethodInfo.GetCurrentMethod.Name())
         End Try
-        log.Info(System.Reflection.MethodInfo.GetCurrentMethod.Name() & STR_LOG_END)        ' ログ出力（処理正常終了）
-    End Sub
+    '*******************************************************************************
+    '   開発用
+    '*******************************************************************************
+#If DEBUG Then
+      Me.Text = "全日本空輸乗員組合　総合ＯＡシステム［Debug］"
+#ElseIf STAGING Then
+    Me.Text = "全日本空輸乗員組合　総合ＯＡシステム［Staging］"
+#ElseIf RELEASE Then
+      Me.Text = "全日本空輸乗員組合　総合ＯＡシステム"
+#End If
+    log.Info(System.Reflection.MethodInfo.GetCurrentMethod.Name() & STR_LOG_END)        ' ログ出力（処理正常終了）
+  End Sub
 
     '***************************************************************************************************
     '   ＩＤ　：btEnd_Click

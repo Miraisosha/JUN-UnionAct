@@ -22,27 +22,27 @@ Partial Class FM000102
     'コード エディタを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Me.lblLogInTerm = New System.Windows.Forms.Label
-        Me.lblLogInUserInfo = New System.Windows.Forms.Label
-        Me.pnlMain = New System.Windows.Forms.Panel
-        Me.lblSelectMenu = New System.Windows.Forms.Label
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.lblLogInTerm = New System.Windows.Forms.Label()
+        Me.lblLogInUserInfo = New System.Windows.Forms.Label()
+        Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.lblSelectMenu = New System.Windows.Forms.Label()
         Me.DataTable1BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2 = New UnionAct.DataSet2
-        Me.btnLogOff = New System.Windows.Forms.Button
-        Me.btnEnd = New System.Windows.Forms.Button
-        Me.btnChangeAuthority = New System.Windows.Forms.Button
-        Me.txtInfoMessage = New System.Windows.Forms.TextBox
-        Me.llbChangePassword = New System.Windows.Forms.LinkLabel
+        Me.DataSet2 = New UnionAct.DataSet2()
+        Me.btnLogOff = New System.Windows.Forms.Button()
+        Me.btnEnd = New System.Windows.Forms.Button()
+        Me.btnChangeAuthority = New System.Windows.Forms.Button()
+        Me.txtInfoMessage = New System.Windows.Forms.TextBox()
+        Me.llbChangePassword = New System.Windows.Forms.LinkLabel()
         Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet1 = New UnionAct.DataSet1
-        Me.dgdMenu = New System.Windows.Forms.DataGridView
-        Me.grbAuthority = New System.Windows.Forms.GroupBox
-        Me.lblLogInAuthority = New System.Windows.Forms.Label
-        Me.btnSync = New System.Windows.Forms.Button
+        Me.DataSet1 = New UnionAct.DataSet1()
+        Me.dgdMenu = New System.Windows.Forms.DataGridView()
+        Me.grbAuthority = New System.Windows.Forms.GroupBox()
+        Me.lblLogInAuthority = New System.Windows.Forms.Label()
+        Me.btnSync = New System.Windows.Forms.Button()
         Me.pnlMain.SuspendLayout()
         CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,7 +148,7 @@ Partial Class FM000102
         Me.llbChangePassword.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.llbChangePassword.Location = New System.Drawing.Point(1153, 23)
         Me.llbChangePassword.Name = "llbChangePassword"
-        Me.llbChangePassword.Size = New System.Drawing.Size(102, 16)
+        Me.llbChangePassword.Size = New System.Drawing.Size(101, 16)
         Me.llbChangePassword.TabIndex = 103
         Me.llbChangePassword.TabStop = True
         Me.llbChangePassword.Text = "パスワード変更"
@@ -219,7 +219,7 @@ Partial Class FM000102
         Me.lblLogInAuthority.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblLogInAuthority.Location = New System.Drawing.Point(31, 21)
         Me.lblLogInAuthority.Name = "lblLogInAuthority"
-        Me.lblLogInAuthority.Size = New System.Drawing.Size(290, 16)
+        Me.lblLogInAuthority.Size = New System.Drawing.Size(289, 16)
         Me.lblLogInAuthority.TabIndex = 0
         Me.lblLogInAuthority.Text = "『***（***）』の操作権限でログインしています"
         '
