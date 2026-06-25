@@ -3380,11 +3380,12 @@ Namespace DAO.FinancialAffairs.WithHolding
                 cmdText += "                      ,taxation_total.c_user_id AS c_user_id" & vbCrLf
                 cmdText += "                      ,taxation_total.c_taxation_flag AS c_taxation_flag" & vbCrLf
                 cmdText += "                  FROM taxation_total" & vbCrLf
-                cmdText += "                 WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-                'cmdText += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+        cmdText += "                 WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
+        ' 2026/06/18 MOD START なぜコメントにしたのか不明？？　これをコメントにするとユーザが寿福表示されてしまう
+        cmdText += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
 
-                ' 条件に一時金名称があれば、追加
-                If OnceName.Length > 0 Then
+        ' 条件に一時金名称があれば、追加
+        If OnceName.Length > 0 Then
                     cmdText += "                   AND c_pay_once_name = :c_pay_once_name" & vbCrLf
                 End If
 
@@ -3392,9 +3393,10 @@ Namespace DAO.FinancialAffairs.WithHolding
                 cmdText += "                        SELECT c_user_id" & vbCrLf
                 cmdText += "                          FROM taxation_total" & vbCrLf
                 cmdText += "                         WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-                'cmdText += "                           AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
-                cmdText += "                         GROUP BY c_user_id" & vbCrLf
-                cmdText += "                        HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
+        ' 2026/06/18 MOD START なぜコメントにしたのか不明？？　これをコメントにするとユーザが寿福表示されてしまう
+        cmdText += "                           AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+        cmdText += "                         GROUP BY c_user_id" & vbCrLf
+        cmdText += "                        HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
                 cmdText += "                               OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
                 cmdText += "                               OR SUM(s_cut_once_taxation) <> 0)" & vbCrLf
                 cmdText += "                       ))" & vbCrLf
