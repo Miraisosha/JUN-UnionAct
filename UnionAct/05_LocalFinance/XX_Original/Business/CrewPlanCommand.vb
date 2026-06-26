@@ -147,7 +147,7 @@ Namespace Business.RevenueExpenditure
                 Next j
                 Dim k As Integer
                 For k = 0 To rowArray.Length - 1
-                    dTable.Rows.Item(k).Item("d_target") = dTable.Rows.Item(k).Item("d_target").ToString.Replace("/", "").Insert((dTable.Rows.Item(k).Item("d_target").ToString.Length - 1), "01")
+                    dTable.Rows.Item(k).Item("d_target") = dTable.Rows.Item(k).Item("d_target").ToString.Replace("/", "").Replace("-", "").Insert((dTable.Rows.Item(k).Item("d_target").ToString.Length - 1), "01")
                 Next k
                 dao.UpDateRevenueExpenditure(command, dtKeyData, dtUpdate, MDLoginInfo.UserId)
                 dao.InsertRevenueExpenditurePromotionDtl(command, dTable, MDLoginInfo.UserId)

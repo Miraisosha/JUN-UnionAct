@@ -337,7 +337,6 @@ Partial Class UC010101
         Me.txtNameKana.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.txtNameKana.MaxLength = 200
         Me.txtNameKana.Name = "txtNameKana"
-        Me.txtNameKana.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txtNameKana.Size = New System.Drawing.Size(263, 35)
         Me.txtNameKana.TabIndex = 1
         '
@@ -371,7 +370,6 @@ Partial Class UC010101
         Me.txtMemberNo.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.txtMemberNo.MaxLength = 10
         Me.txtMemberNo.Name = "txtMemberNo"
-        Me.txtMemberNo.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txtMemberNo.Size = New System.Drawing.Size(187, 35)
         Me.txtMemberNo.TabIndex = 0
         '

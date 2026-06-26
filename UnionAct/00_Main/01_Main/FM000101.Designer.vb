@@ -32,17 +32,18 @@ Partial Class FM000101
         Me.btnBegin = New System.Windows.Forms.Button()
         Me.btnEnd = New System.Windows.Forms.Button()
         Me.txtInfomation = New System.Windows.Forms.TextBox()
+        Me.lblVer = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblTitle
         '
+        Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("MS UI Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(2, 24)
+        Me.lblTitle.Location = New System.Drawing.Point(62, 9)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(359, 33)
+        Me.lblTitle.Size = New System.Drawing.Size(238, 33)
         Me.lblTitle.TabIndex = 7
         Me.lblTitle.Text = "総合ＯＡシステム"
-        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblMemberNo
         '
@@ -50,7 +51,7 @@ Partial Class FM000101
         Me.lblMemberNo.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblMemberNo.Location = New System.Drawing.Point(63, 77)
         Me.lblMemberNo.Name = "lblMemberNo"
-        Me.lblMemberNo.Size = New System.Drawing.Size(71, 16)
+        Me.lblMemberNo.Size = New System.Drawing.Size(72, 16)
         Me.lblMemberNo.TabIndex = 1
         Me.lblMemberNo.Text = "社員番号"
         '
@@ -60,7 +61,7 @@ Partial Class FM000101
         Me.lblPwd.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblPwd.Location = New System.Drawing.Point(65, 106)
         Me.lblPwd.Name = "lblPwd"
-        Me.lblPwd.Size = New System.Drawing.Size(69, 16)
+        Me.lblPwd.Size = New System.Drawing.Size(70, 16)
         Me.lblPwd.TabIndex = 1
         Me.lblPwd.Text = "パスワード"
         '
@@ -70,7 +71,7 @@ Partial Class FM000101
         Me.lblPeriod.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblPeriod.Location = New System.Drawing.Point(111, 136)
         Me.lblPeriod.Name = "lblPeriod"
-        Me.lblPeriod.Size = New System.Drawing.Size(23, 16)
+        Me.lblPeriod.Size = New System.Drawing.Size(24, 16)
         Me.lblPeriod.TabIndex = 1
         Me.lblPeriod.Text = "期"
         '
@@ -139,11 +140,22 @@ Partial Class FM000101
         Me.txtInfomation.TabStop = False
         Me.txtInfomation.Text = "YYYY/MM/DD hh:mm～hh:mmの間、システムメンテナンスのためご利用になれません。"
         '
+        'lblVer
+        '
+        Me.lblVer.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.lblVer.Location = New System.Drawing.Point(66, 42)
+        Me.lblVer.Name = "lblVer"
+        Me.lblVer.Size = New System.Drawing.Size(232, 19)
+        Me.lblVer.TabIndex = 8
+        Me.lblVer.Text = "Ver.1.0"
+        Me.lblVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'FM000101
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(363, 356)
+        Me.Controls.Add(Me.lblVer)
         Me.Controls.Add(Me.txtInfomation)
         Me.Controls.Add(Me.btnEnd)
         Me.Controls.Add(Me.btnBegin)
@@ -175,5 +187,5 @@ Partial Class FM000101
     Friend WithEvents btnBegin As System.Windows.Forms.Button
     Friend WithEvents btnEnd As System.Windows.Forms.Button
     Friend WithEvents txtInfomation As System.Windows.Forms.TextBox
-
+    Friend WithEvents lblVer As Label
 End Class

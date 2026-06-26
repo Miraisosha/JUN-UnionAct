@@ -1346,7 +1346,7 @@ Public Class UC010101
                     strUserId = .Item(10).Value.ToString()                                  ' 個人認証ID
                     strKsh = .Item(11).Value.ToString()                                     ' 会社コード
                     strStafId = .Item(0).Value.ToString()                                   ' 社員番号
-                    strUseDate = .Item(9).Value.ToString().Replace("/", "")                 ' 適用日付
+                    strUseDate = .Item(9).Value.ToString().Replace("/", "").Replace("-", "")                 ' 適用日付
                 End With
             End If
 
@@ -1722,6 +1722,9 @@ Public Class UC010101
 
     End Sub
 
+    Private Sub txtMemberNo_TextChanged(sender As Object, e As EventArgs) Handles txtMemberNo.TextChanged
+
+    End Sub
 End Class
 
 #End Region

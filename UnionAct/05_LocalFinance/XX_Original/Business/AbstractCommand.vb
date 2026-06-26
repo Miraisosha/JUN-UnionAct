@@ -11,7 +11,7 @@ Namespace Business.Common
 
         Public Sub CheckTimeStamp(ByVal strDB As String, ByVal strTarget As String)
             Try
-                If Not strDB.Equals(strTarget) Then
+                If Not DateTime.Parse(strDB) = DateTime.Parse(strTarget) Then
                     Throw New AppUnionException(MethodBase.GetCurrentMethod, New Exception, "BE0005", New String(0 - 1) {})
                 End If
             Catch exception As AppUnionException

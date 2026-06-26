@@ -890,7 +890,8 @@ Namespace Business.FinancialAffairs.DailyAllowance
                         row = dtDtl.NewRow
                         row.Item("c_user_id") = drAllBelong.Item("c_user_id").ToString
                         row.Item("c_staf_id") = drAllBelong.Item("c_staf_id").ToString
-                        row.Item("l_name") = drAllBelong.Item("l_name").ToString
+                        'row.Item("l_name") = drAllBelong.Item("l_name").ToString
+                        row.Item("l_name") = drAllBelong.Item("staf_attribute_l_name").ToString
                         row.Item("k_model") = str3
                         row.Item("k_belonging") = str4
                         row.Item("k_qualification") = str5
@@ -910,7 +911,8 @@ Namespace Business.FinancialAffairs.DailyAllowance
                         row = dtDtl.NewRow
                         row.Item("c_user_id") = drAllBelong.Item("c_user_id").ToString
                         row.Item("c_staf_id") = drAllBelong.Item("c_staf_id").ToString
-                        row.Item("l_name") = drAllBelong.Item("l_name").ToString
+                        'row.Item("l_name") = drAllBelong.Item("l_name").ToString
+                        row.Item("l_name") = drAllBelong.Item("staf_attribute_l_name").ToString
                         row.Item("k_model") = str3
                         row.Item("k_belonging") = str4
                         row.Item("k_qualification") = str5
@@ -973,7 +975,7 @@ Namespace Business.FinancialAffairs.DailyAllowance
                     'TODO row.Item("c_staf_id") = Integer.Parse(rowArray(i).Item("c_staf_id").ToString) 
                     row.Item("c_staf_id") = rowArray(i).Item("c_staf_id").ToString
                     row.Item("ŽÐˆõ”Ô†") = rowArray(i).Item("ŽÐˆõ”Ô†").ToString
-                    row.Item("l_name") = rowArray(i).Item("l_name").ToString
+                    row.Item("staf_attribute_l_name") = rowArray(i).Item("staf_attribute_l_name").ToString
                     row.Item("Ž–¼") = rowArray(i).Item("Ž–¼").ToString
                     row.Item("k_belonging") = rowArray(i).Item("k_belonging").ToString
                     row.Item("k_qualification") = rowArray(i).Item("k_qualification").ToString

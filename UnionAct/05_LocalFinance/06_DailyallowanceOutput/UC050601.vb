@@ -747,7 +747,8 @@ Public Class UC050601
                         rowResult("締め日") = Format(dtDailyPayClose, "yyyy/MM/dd")                 ' 10. 締め日
 
                         ' 締め日を "yyyyMM形" 式で取得
-                        strDailyPayCloseYyyySlashMm = Format(dtOutput.Rows(i).Item("締め日"), "yyyy/MM")
+                        'strDailyPayCloseYyyySlashMm = Format(dtOutput.Rows(i).Item("締め日"), "yyyy/MM")
+                        strDailyPayCloseYyyySlashMm = Format(dtDailyPayClose, "yyyy/MM")
 
                         '---------------------------------------------------------------------------
                         '   振込状況チェック

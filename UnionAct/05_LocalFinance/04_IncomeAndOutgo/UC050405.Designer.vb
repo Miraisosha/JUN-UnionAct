@@ -22,21 +22,21 @@ Partial Class UC050405
     'コード エディタを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label11 = New System.Windows.Forms.Label
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.TextBox9 = New System.Windows.Forms.TextBox
-        Me.Label9 = New System.Windows.Forms.Label
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.Button3 = New System.Windows.Forms.Button
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.TextBox2 = New System.Windows.Forms.TextBox
-        Me.TextBox1 = New System.Windows.Forms.TextBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Label15 = New System.Windows.Forms.Label
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -52,7 +52,7 @@ Partial Class UC050405
         Me.Label11.MinimumSize = New System.Drawing.Size(630, 35)
         Me.Label11.Name = "Label11"
         Me.Label11.Padding = New System.Windows.Forms.Padding(12, 0, 12, 0)
-        Me.Label11.Size = New System.Drawing.Size(630, 35)
+        Me.Label11.Size = New System.Drawing.Size(630, 54)
         Me.Label11.TabIndex = 23
         Me.Label11.Text = "分担金状況 - 新規登録"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -77,7 +77,7 @@ Partial Class UC050405
         Me.TextBox9.Location = New System.Drawing.Point(843, 440)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.ReadOnly = True
-        Me.TextBox9.Size = New System.Drawing.Size(113, 23)
+        Me.TextBox9.Size = New System.Drawing.Size(113, 35)
         Me.TextBox9.TabIndex = 57
         Me.TextBox9.Text = "999,999,999"
         Me.TextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -87,7 +87,7 @@ Partial Class UC050405
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(749, 443)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(88, 16)
+        Me.Label9.Size = New System.Drawing.Size(152, 28)
         Me.Label9.TabIndex = 56
         Me.Label9.Text = "総合計金額"
         '
@@ -96,6 +96,7 @@ Partial Class UC050405
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(15, 32)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 72
         Me.DataGridView1.RowTemplate.Height = 21
         Me.DataGridView1.Size = New System.Drawing.Size(950, 391)
         Me.DataGridView1.TabIndex = 1
@@ -106,7 +107,7 @@ Partial Class UC050405
         Me.Label3.ForeColor = System.Drawing.Color.Red
         Me.Label3.Location = New System.Drawing.Point(12, 447)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(349, 16)
+        Me.Label3.Size = New System.Drawing.Size(605, 28)
         Me.Label3.TabIndex = 55
         Me.Label3.Text = "※基準月には予想期間内の年月を設定してください。"
         '
@@ -160,7 +161,7 @@ Partial Class UC050405
         Me.TextBox2.Font = New System.Drawing.Font("ＭＳ ゴシック", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(442, 19)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(140, 23)
+        Me.TextBox2.Size = New System.Drawing.Size(140, 35)
         Me.TextBox2.TabIndex = 56
         Me.TextBox2.Text = "2011/07/31"
         '
@@ -170,7 +171,7 @@ Partial Class UC050405
         Me.TextBox1.Font = New System.Drawing.Font("ＭＳ ゴシック", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(269, 19)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(140, 23)
+        Me.TextBox1.Size = New System.Drawing.Size(140, 35)
         Me.TextBox1.TabIndex = 57
         Me.TextBox1.Text = "2010/08/01"
         '
@@ -180,7 +181,7 @@ Partial Class UC050405
         Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label1.Location = New System.Drawing.Point(82, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 16)
+        Me.Label1.Size = New System.Drawing.Size(106, 28)
         Me.Label1.TabIndex = 55
         Me.Label1.Text = "第５３期"
         '
@@ -189,7 +190,7 @@ Partial Class UC050405
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(415, 22)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(21, 14)
+        Me.Label2.Size = New System.Drawing.Size(34, 24)
         Me.Label2.TabIndex = 54
         Me.Label2.Text = "～"
         '
@@ -199,13 +200,13 @@ Partial Class UC050405
         Me.Label15.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label15.Location = New System.Drawing.Point(191, 22)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(72, 16)
+        Me.Label15.Size = New System.Drawing.Size(124, 28)
         Me.Label15.TabIndex = 53
         Me.Label15.Text = "予想期間"
         '
         'UC050405
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 23.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Button3)

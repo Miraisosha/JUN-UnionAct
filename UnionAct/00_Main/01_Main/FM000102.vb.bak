@@ -38,14 +38,10 @@ Public Class FM000102
         log.Info(System.Reflection.MethodInfo.GetCurrentMethod.Name() & STR_LOG_BEGIN)      ' ログ出力（処理開始）
         Dim strLog As String = ""                                                           ' ログ出力用
         Try
-            If App.MainWindowWidth > 0 AndAlso App.MainWindowHeight > 0 Then
-                Width = App.MainWindowWidth
-                Height = App.MainWindowHeight
+            Me.FormBorderStyle = FormBorderStyle.FixedSingle                                ' 画面サイズ変更不可
+            If SetFormCenter(Me) = False Then                                               ' 画面中央表示処理
+                Exit Sub
             End If
-            'Me.FormBorderStyle = FormBorderStyle.FixedSingle                                ' 画面サイズ変更不可
-            'If SetFormCenter(Me) = False Then                                               ' 画面中央表示処理
-            '    Exit Sub
-            'End If
             Me.dgdMenu.Focus()                                                              ' フォーカスの変更
             strLog = " " & MDLoginInfo.OperatorName & "(" & UserId & ")さんが「" & CommitteeName & "」を選択されました。"
             log.Info(System.Reflection.MethodInfo.GetCurrentMethod.Name() & strLog)
@@ -54,9 +50,9 @@ Public Class FM000102
         Catch ex As Exception
             log.Fatal(ex.Message)                                                           ' ログ出力（致命的エラー）
             ' 致命的エラーメッセージボックス表示
-            Call CLMsg.ShowEtarnal(Err.Number,
-                                   Err.Description,
-                                   SCREEN_ID, SCREEN_NAME,
+            Call CLMsg.ShowEtarnal(Err.Number, _
+                                   Err.Description, _
+                                   SCREEN_ID, SCREEN_NAME, _
                                    System.Reflection.MethodInfo.GetCurrentMethod.Name())
         End Try
     '*******************************************************************************
@@ -69,13 +65,8 @@ Public Class FM000102
 #ElseIf RELEASE Then
       Me.Text = "全日本空輸乗員組合　総合ＯＡシステム"
 #End If
-        log.Info(System.Reflection.MethodInfo.GetCurrentMethod.Name() & STR_LOG_END)        ' ログ出力（処理正常終了）
-    End Sub
-
-    Private Sub FM000102_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        App.MainWindowWidth = Width
-        App.MainWindowHeight = Height
-    End Sub
+    log.Info(System.Reflection.MethodInfo.GetCurrentMethod.Name() & STR_LOG_END)        ' ログ出力（処理正常終了）
+  End Sub
 
     '***************************************************************************************************
     '   ＩＤ　：btEnd_Click

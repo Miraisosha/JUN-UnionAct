@@ -1705,7 +1705,7 @@ Public Class FM040602
                                     ' 帳票出力
                                     Me.strDocumentOut(j) = .Rows(k).Cells.Item(7).Value.ToString()
                                     ' 委員会適用日付
-                                    Me.strCommitteeDFrom(j) = .Rows(k).Cells.Item(2).Value.ToString().Replace("/", "")
+                                    Me.strCommitteeDFrom(j) = .Rows(k).Cells.Item(2).Value.ToString().Replace("/", "").Replace("-", "")
                                     j = j + 1
                                 End If
                             Next
@@ -1731,7 +1731,7 @@ Public Class FM040602
                         ' 帳票出力
                         Me.strDocumentOut(0) = .SelectedRows(0).Cells.Item(7).Value.ToString()
                         ' 委員会適用日付
-                        Me.strCommitteeDFrom(0) = .SelectedRows(0).Cells.Item(2).Value.ToString().Replace("/", "")
+                        Me.strCommitteeDFrom(0) = .SelectedRows(0).Cells.Item(2).Value.ToString().Replace("/", "").Replace("-", "")
                     Else
                         Me.strCommitteeUpdate() = Nothing               ' 委員会変更ID
                         Me.strDocumentOut() = Nothing                   ' 帳票出力

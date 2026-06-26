@@ -356,6 +356,7 @@ Public Class UC040302
                     For iDateCounter = 5 To (numUseCol + 4)
                         If Trim(flxNameAndDate.GetData(intCounter, iDateCounter)) <> "" Then
                             If IsDate(flxNameAndDate.GetData(intCounter, iDateCounter)) Then
+
                                 flxNameAndDate.SetData(intCounter, iDateCounter, Format(Date.Parse(flxNameAndDate.GetData(intCounter, iDateCounter)), "yyyy/MM/dd"))
                                 intUserCounter = intUserCounter + 1
                             Else
@@ -1624,7 +1625,7 @@ LBL_nextRow:
         Try
 
             Dim dt As DataTable
-            Dim dtM As DataTable
+            'Dim dtM As DataTable
             Dim sql As String
             sql = "SELECT apply_strike.c_strike_id, member_date.c_staf_id, member_date.l_name, format(member_date.d_strike,'yyyy/MM/dd') AS d_strike, apply_strike.k_apply_classify FROM "
             If strStrikeID <> "" Then
@@ -1647,35 +1648,37 @@ LBL_nextRow:
             sql = sql + "ORDER BY d_strike"
             dt = dbAccess.ExecuteSql(sql)
 
-            If dt.Rows.Count > 0 Or dtM.Rows.Count > 0 Then
-                '行数が多い方(同数ならローカル側)を使用 2015/03/30
-                If dt.Rows.Count >= dtM.Rows.Count Then
-                    For iCounter As Integer = 0 To dt.Rows.Count - 1
-                        errMsgOther.Add("氏名:" + dt.Rows(iCounter)("l_name") + "（申請書番号:" + dt.Rows(iCounter)("c_strike_id") + ", 日付:" + dt.Rows(iCounter)("d_strike") + "）")
-                    Next
-                Else
-                    For iCounter As Integer = 0 To dtM.Rows.Count - 1
-                        errMsgOther.Add("氏名:" + dtM.Rows(iCounter)("l_name") + "（申請書番号:" + dtM.Rows(iCounter)("c_strike_id") + ", 日付:" + dtM.Rows(iCounter)("d_strike") + "）")
-                    Next
-                End If
+            'If dt.Rows.Count > 0 Or dtM.Rows.Count > 0 Then
+            If dt.Rows.Count > 0 Then
+                ''行数が多い方(同数ならローカル側)を使用 2015/03/30
+                'If dt.Rows.Count >= dtM.Rows.Count Then
+                For iCounter As Integer = 0 To dt.Rows.Count - 1
+                    errMsgOther.Add("氏名:" + dt.Rows(iCounter)("l_name") + "（申請書番号:" + dt.Rows(iCounter)("c_strike_id") + ", 日付:" + dt.Rows(iCounter)("d_strike") + "）")
+                Next
+                'Else
+                '    For iCounter As Integer = 0 To dtM.Rows.Count - 1
+                '        errMsgOther.Add("氏名:" + dtM.Rows(iCounter)("l_name") + "（申請書番号:" + dtM.Rows(iCounter)("c_strike_id") + ", 日付:" + dtM.Rows(iCounter)("d_strike") + "）")
+                '    Next
+                'End If
             Else
                 retStr = ""
             End If
             '指名ストライキに同じ日に登録されているか
             sql = "select l_name,name_strike.c_name_strike_id,c_user_id,d_operation_from,d_operation_to,k_name_strike_kind from name_strike inner join "
-            sql = sql + "(select c_name_strike_id,l_name,c_user_id from name_strike_member_date left join staf_attribute_full_time_now_name_view on name_strike_member_date.c_user_id=staf_attribute_full_time_now_name_view.user_id where name_strike_member_date.c_user_id='" + strStafID + "' and name_strike_member_date.c_cancel_name_strike_id='')as attribute on attribute.c_name_strike_id=name_strike.c_name_strike_id where format(name_strike.d_operation_from,'yyyy/MM/dd') <='" + strDate + "' and format(name_strike.d_operation_to,'yyyy/MM/dd') >='" + strDate + "' and name_strike.k_name_strike_kind = '01'"
+            sql = sql + "(select c_name_strike_id,l_name,c_user_id from name_strike_member_date left join staf_attribute_full_time_now_name_view on name_strike_member_date.c_user_id=staf_attribute_full_time_now_name_view.user_id where name_strike_member_date.c_user_id='" + strStafID + "' and name_strike_member_date.c_cancel_name_strike_id='')as attribute on attribute.c_name_strike_id=name_strike.c_name_strike_id where format(CONVERT(DATE,name_strike.d_operation_from,111),'yyyy/MM/dd') <='" + strDate + "' and format(CONVERT(DATE,name_strike.d_operation_to,111),'yyyy/MM/dd') >='" + strDate + "' and name_strike.k_name_strike_kind = '01'"
             dt = dbAccess.ExecuteSql(sql)
-            If dt.Rows.Count > 0 Or dtM.Rows.Count > 0 Then
-                '行数が多い方(同数ならローカル側)を使用 2015/03/30
-                If dt.Rows.Count >= dtM.Rows.Count Then
-                    For iCounter As Integer = 0 To dt.Rows.Count - 1
-                        errMsgName.Add("氏名:" + dt.Rows(iCounter)("l_name") + "（通告書番号:" + dt.Rows(iCounter)("c_name_strike_id") + ", 日付:" + strDate + "）")
-                    Next
-                Else
-                    For iCounter As Integer = 0 To dtM.Rows.Count - 1
-                        errMsgName.Add("氏名:" + dtM.Rows(iCounter)("l_name") + "（通告書番号:" + dtM.Rows(iCounter)("c_name_strike_id") + ", 日付:" + strDate + "）")
-                    Next
-                End If
+            'If dt.Rows.Count > 0 Or dtM.Rows.Count > 0 Then
+            If dt.Rows.Count > 0 Then
+                ''行数が多い方(同数ならローカル側)を使用 2015/03/30
+                'If dt.Rows.Count >= dtM.Rows.Count Then
+                For iCounter As Integer = 0 To dt.Rows.Count - 1
+                    errMsgName.Add("氏名:" + dt.Rows(iCounter)("l_name") + "（通告書番号:" + dt.Rows(iCounter)("c_name_strike_id") + ", 日付:" + strDate + "）")
+                Next
+                'Else
+                '    For iCounter As Integer = 0 To dtM.Rows.Count - 1
+                '        errMsgName.Add("氏名:" + dtM.Rows(iCounter)("l_name") + "（通告書番号:" + dtM.Rows(iCounter)("c_name_strike_id") + ", 日付:" + strDate + "）")
+                '    Next
+                'End If
             End If
         Catch ex As Exception
             log.Fatal(ex.Message)
@@ -1792,8 +1795,9 @@ LBL_nextRow:
                                     End If
                                 End If
                                 '他の時間内活動チェック
-                                'Call checkIfStafMultiAction(dbAccess, CStr(flxNameAndDate.GetData(intCounter, 0)), Format(Date.Parse(flxNameAndDate.GetData(intCounter, intColNum)), DATE_yyyyMMdd_FORMAT), lblStrikeID.Text, cmbReplaceNumber.Text)
-                                'Call checkIfStafMultiAction(dbAccess, dbAccessMst, CStr(flxNameAndDate.GetData(intCounter, 0)), Format(Date.Parse(flxNameAndDate.GetData(intCounter, intColNum)), DATE_yyyyMMdd_FORMAT), lblStrikeID.Text, cmbReplaceNumber.Text)
+                                'Call checkIfStafMultiAction(dbAccess, CStr(flxNameAndDate.GetData(intCounter, 0)), Format(Date.Parse(flxNameAndDate.GetData(intCounter, intColNum)), DATE_YYYYMMDD_FORMAT), lblStrikeID.Text, cmbReplaceNumber.Text)
+                                'Call checkIfStafMultiAction(dbAccess, dbAccessMst, CStr(flxNameAndDate.GetData(intCounter, 0)), Format(Date.Parse(flxNameAndDate.GetData(intCounter, intColNum)), DATE_YYYYMMDD_FORMAT), lblStrikeID.Text, cmbReplaceNumber.Text)
+                                Call checkIfStafMultiAction(dbAccess, CStr(flxNameAndDate.GetData(intCounter, 0)), Format(Date.Parse(flxNameAndDate.GetData(intCounter, intColNum)), DATE_YYYYMMDD_FORMAT), lblStrikeID.Text, cmbReplaceNumber.Text)
 
                                 '最小日付を取得
                                 If minDate = "" Then

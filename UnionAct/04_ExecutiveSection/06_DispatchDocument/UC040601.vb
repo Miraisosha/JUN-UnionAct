@@ -2433,7 +2433,7 @@ Public Class UC040601
                 Me.strDocNumber = .Item(20).Value.ToString()                 ' 文書№（文書番号）
                 Me.strFile = .Item(3).Value.ToString()                      ' ファイル名
                 'Me.strIssueDate = .Item(4).Value.ToString()                 
-                Me.strIssueDate = .Item(4).Value.ToString().Replace("/", "") ' 発行日
+                Me.strIssueDate = .Item(4).Value.ToString().Replace("/", "").Replace("-", "") ' 発行日
                 Me.strDocId = .Item(9).Value.ToString()                      ' 文書フルパス（文書ID）
                 Me.intDocId = .Item(10).Value.ToString()                     ' 文書識別コード
                 Me.strPeriodName = .Item(11).Value.ToString()                ' 期コード

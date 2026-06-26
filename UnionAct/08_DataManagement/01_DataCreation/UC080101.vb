@@ -1302,7 +1302,7 @@ Public Class UC080101
 
         Try
             'taxation_total、staf_bank_closeテーブルより該当締め日を取得
-            strSql = "SELECT TAX_TOTAL.d_years as 締め日, " &
+            strSql = "SELECT FORMAT(TAX_TOTAL.d_years, 'yyyy/MM/dd') as 締め日, " &
                      "       IIF(STAF_CLOSE.k_bank_send_status is null, '03', STAF_CLOSE.k_bank_send_status) as k_bank_send_status, " &
                      "       STAF_CLOSE.d_pay_close,  " &
                      "       STAF_CLOSE.k_daily_pay_kind,  " &
@@ -1362,18 +1362,18 @@ Public Class UC080101
         '一時金カット
         Dim dtOnceCut As DataTable = SearchPayCutCloseDay(strFromDate, strToDate, DAILY_PAY_KIND_ONCE_CUT_CODE)
         '部／委員会日当
-        Dim dtDailyPayCommittee As DataTable = SearchDailyPayCloseDay(strFromDate.Replace("/", ""), _
-                                                                      strToDate.Replace("/", ""), _
+        Dim dtDailyPayCommittee As DataTable = SearchDailyPayCloseDay(strFromDate.Replace("/", "").Replace("-", ""),
+                                                                      strToDate.Replace("/", "").Replace("-", ""),
                                                                       DAILY_PAY_KIND_COMMITTEE_CODE)
         '支部委員会三役日当
-        Dim dtDailyPayBranch As DataTable = SearchDailyPayCloseDay(strFromDate.Replace("/", ""), _
-                                                                   strToDate.Replace("/", ""), DAILY_PAY_KIND_BRANCH_CODE)
+        Dim dtDailyPayBranch As DataTable = SearchDailyPayCloseDay(strFromDate.Replace("/", "").Replace("-", ""),
+                                                                   strToDate.Replace("/", "").Replace("-", ""), DAILY_PAY_KIND_BRANCH_CODE)
         '中央執行委員会日当
-        Dim dtDailyPayExecutive As DataTable = SearchDailyPayCloseDay(strFromDate.Replace("/", ""), _
-                                                                      strToDate.Replace("/", ""), DAILY_PAY_KIND_EXECUTIVE_CODE)
+        Dim dtDailyPayExecutive As DataTable = SearchDailyPayCloseDay(strFromDate.Replace("/", "").Replace("-", ""),
+                                                                      strToDate.Replace("/", "").Replace("-", ""), DAILY_PAY_KIND_EXECUTIVE_CODE)
         'DGM日当
-        Dim dtDailyPayDgm As DataTable = SearchDailyPayCloseDay(strFromDate.Replace("/", ""), _
-                                                                strToDate.Replace("/", ""), DAILY_PAY_KIND_DGM_CODE)
+        Dim dtDailyPayDgm As DataTable = SearchDailyPayCloseDay(strFromDate.Replace("/", "").Replace("-", ""),
+                                                                strToDate.Replace("/", "").Replace("-", ""), DAILY_PAY_KIND_DGM_CODE)
         Dim intCnt As Integer = 0
 
         '各グリッドのクリア

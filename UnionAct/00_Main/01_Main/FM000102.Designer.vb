@@ -30,26 +30,26 @@ Partial Class FM000102
         Me.lblLogInUserInfo = New System.Windows.Forms.Label()
         Me.pnlMain = New System.Windows.Forms.Panel()
         Me.lblSelectMenu = New System.Windows.Forms.Label()
-        Me.DataTable1BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2 = New UnionAct.DataSet2()
         Me.btnLogOff = New System.Windows.Forms.Button()
         Me.btnEnd = New System.Windows.Forms.Button()
         Me.btnChangeAuthority = New System.Windows.Forms.Button()
         Me.txtInfoMessage = New System.Windows.Forms.TextBox()
         Me.llbChangePassword = New System.Windows.Forms.LinkLabel()
-        Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet1 = New UnionAct.DataSet1()
         Me.dgdMenu = New System.Windows.Forms.DataGridView()
         Me.grbAuthority = New System.Windows.Forms.GroupBox()
         Me.lblLogInAuthority = New System.Windows.Forms.Label()
         Me.btnSync = New System.Windows.Forms.Button()
+        Me.DataTable1BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet2 = New UnionAct.DataSet2()
+        Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet1 = New UnionAct.DataSet1()
         Me.pnlMain.SuspendLayout()
+        CType(Me.dgdMenu, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grbAuthority.SuspendLayout()
         CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgdMenu, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grbAuthority.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblLogInTerm
@@ -90,16 +90,6 @@ Partial Class FM000102
         Me.lblSelectMenu.Size = New System.Drawing.Size(512, 48)
         Me.lblSelectMenu.TabIndex = 0
         Me.lblSelectMenu.Text = "メニューを選択してください"
-        '
-        'DataTable1BindingSource1
-        '
-        Me.DataTable1BindingSource1.DataMember = "DataTable1"
-        Me.DataTable1BindingSource1.DataSource = Me.DataSet2
-        '
-        'DataSet2
-        '
-        Me.DataSet2.DataSetName = "DataSet2"
-        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnLogOff
         '
@@ -148,20 +138,10 @@ Partial Class FM000102
         Me.llbChangePassword.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.llbChangePassword.Location = New System.Drawing.Point(1153, 23)
         Me.llbChangePassword.Name = "llbChangePassword"
-        Me.llbChangePassword.Size = New System.Drawing.Size(101, 16)
+        Me.llbChangePassword.Size = New System.Drawing.Size(102, 16)
         Me.llbChangePassword.TabIndex = 103
         Me.llbChangePassword.TabStop = True
         Me.llbChangePassword.Text = "パスワード変更"
-        '
-        'DataTable1BindingSource
-        '
-        Me.DataTable1BindingSource.DataMember = "DataTable1"
-        Me.DataTable1BindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'dgdMenu
         '
@@ -199,6 +179,7 @@ Partial Class FM000102
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgdMenu.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgdMenu.RowHeadersWidth = 72
         Me.dgdMenu.RowTemplate.Height = 21
         Me.dgdMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgdMenu.Size = New System.Drawing.Size(220, 820)
@@ -219,7 +200,7 @@ Partial Class FM000102
         Me.lblLogInAuthority.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblLogInAuthority.Location = New System.Drawing.Point(31, 21)
         Me.lblLogInAuthority.Name = "lblLogInAuthority"
-        Me.lblLogInAuthority.Size = New System.Drawing.Size(289, 16)
+        Me.lblLogInAuthority.Size = New System.Drawing.Size(290, 16)
         Me.lblLogInAuthority.TabIndex = 0
         Me.lblLogInAuthority.Text = "『***（***）』の操作権限でログインしています"
         '
@@ -233,11 +214,31 @@ Partial Class FM000102
         Me.btnSync.Text = "情報更新"
         Me.btnSync.UseVisualStyleBackColor = True
         '
+        'DataTable1BindingSource1
+        '
+        Me.DataTable1BindingSource1.DataMember = "DataTable1"
+        Me.DataTable1BindingSource1.DataSource = Me.DataSet2
+        '
+        'DataSet2
+        '
+        Me.DataSet2.DataSetName = "DataSet2"
+        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DataTable1BindingSource
+        '
+        Me.DataTable1BindingSource.DataMember = "DataTable1"
+        Me.DataTable1BindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'FM000102
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1272, 961)
+        Me.ClientSize = New System.Drawing.Size(1276, 947)
         Me.Controls.Add(Me.btnSync)
         Me.Controls.Add(Me.grbAuthority)
         Me.Controls.Add(Me.dgdMenu)
@@ -250,17 +251,19 @@ Partial Class FM000102
         Me.Controls.Add(Me.lblLogInUserInfo)
         Me.Controls.Add(Me.lblLogInTerm)
         Me.MaximizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(1290, 940)
         Me.Name = "FM000102"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "全日本空輸乗員組合　総合ＯＡシステム"
         Me.pnlMain.ResumeLayout(False)
         Me.pnlMain.PerformLayout()
+        CType(Me.dgdMenu, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grbAuthority.ResumeLayout(False)
+        Me.grbAuthority.PerformLayout()
         CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgdMenu, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grbAuthority.ResumeLayout(False)
-        Me.grbAuthority.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

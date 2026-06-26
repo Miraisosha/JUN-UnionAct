@@ -133,7 +133,7 @@ Public Class FM080102
                      " AND dtl1.c_constant = 'BELONGING' AND dtl1.c_constant_seq = attr1.k_belonging " &
                      ") AS staf " &
                      "ON  staf.c_user_id = CLOSE_MEM.c_user_id " &
-                     "WHERE CLOSE_MEM.d_pay_close = '" & _strCloseDate.Replace("/", "") & "' " &
+                     "WHERE CLOSE_MEM.d_pay_close = '" & _strCloseDate.Replace("/", "").Replace("-", "") & "' " &
                      "AND CLOSE_MEM.k_daily_pay_kind = '" & _strCloseDayKind & "' " &
                      "AND d_bank_send = '" & MAX_DATE & "' " &
                      "ORDER BY CLng(STAF.c_staf_id) "

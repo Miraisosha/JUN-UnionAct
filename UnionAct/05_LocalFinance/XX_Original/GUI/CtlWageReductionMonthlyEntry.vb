@@ -714,6 +714,12 @@ Namespace GUI.FinancialAffairs.WageReduction
                 ' 登録確認メッセージ
                 If (CLMsg.Show("GQ0006", "対象年月", TargetYear, TargetMonth) <> DialogResult.No) Then
                     Dim saveData As DataTable = Me.CreateSaveDataTable((TargetYear & TargetMonth & "01"))
+                    For Each row As DataRow In saveData.Rows
+                        If (IsDBNull(row.Item(4)) OrElse row.Item(4) = Nothing) Then
+                            MessageBox.Show("控除額計が入力されていない行があります")
+                            Return
+                        End If
+                    Next
                     Me._business.SaveData(Me._kind, saveData, MDLoginInfo.UserId)
                     MyBase.FireCancel(Me, EventArgs.Empty)
                 End If

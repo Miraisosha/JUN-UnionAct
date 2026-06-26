@@ -436,7 +436,7 @@ Namespace DAO.RevenueExpenditure
                     command.Parameters.Item("d_up").Value = PublicCommand.GetNow
                     command.Parameters.Item("c_user_id_up").Value = strUserID
                     command.Parameters.Item("d_revenue_str").Value = dtKeyData.Rows.Item(0).Item("d_revenue_str")
-                    command.Parameters.Item("d_target").Value = dtUpData.Rows.Item(i).Item("ëŒè€åé").ToString.Replace("/", "").Insert((dtUpData.Rows.Item(i).Item("ëŒè€åé").ToString.Length - 1), "01")
+                    command.Parameters.Item("d_target").Value = dtUpData.Rows.Item(i).Item("ëŒè€åé").ToString.Replace("/", "").Replace("-", "").Insert((dtUpData.Rows.Item(i).Item("ëŒè€åé").ToString.Length - 1), "01")
                     If (command.ExecuteNonQuery <> 1) Then
                         Throw New SysUnionException(MethodBase.GetCurrentMethod, New Exception, "DE0002", New String(0 - 1) {})
                     End If

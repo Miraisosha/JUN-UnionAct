@@ -1620,10 +1620,13 @@ Public Class UC020301
             End If
             '開催月
             If ChkNull(Me.cboYear.Text.Trim()) = False AndAlso ChkNull(Me.cboMonth.Text.Trim()) = False Then
-                strSql = strSql & "   AND meeting_information.d_meeting_1 LIKE '" & Me.cboYear.Text.Trim() & _
-                        "/" & Me.cboMonth.Text.Trim() & "%' " & vbCrLf
+                strSql = strSql & "   AND FORMAT(meeting_information.d_meeting_1,'yyyyMM')='" & Me.cboYear.Text.Trim() &
+                        Me.cboMonth.Text.Trim() & "' " & vbCrLf
+                'strSql = strSql & "   AND meeting_information.d_meeting_1 LIKE '" & Me.cboYear.Text.Trim() &
+                '        "/" & Me.cboMonth.Text.Trim() & "%' " & vbCrLf
             ElseIf ChkNull(Me.cboYear.Text.Trim()) = False Then
-                strSql = strSql & "   AND meeting_information.d_meeting_1 LIKE '" & Me.cboYear.Text.Trim() & "%' " & vbCrLf
+                strSql = strSql & "   AND FORMAT(meeting_information.d_meeting_1,'yyyy')='" & Me.cboYear.Text.Trim() & "' " & vbCrLf
+                'strSql = strSql & "   AND meeting_information.d_meeting_1 LIKE '" & Me.cboYear.Text.Trim() & "%' " & vbCrLf
             End If
             '支部、通知番号順にソート
             strSql = strSql & " ORDER BY meeting_information.k_apply_area, Len(meeting_information.c_meeting) " & _
