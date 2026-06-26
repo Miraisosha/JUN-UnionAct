@@ -9,6 +9,8 @@
 Imports UnionAct.NSMDConst
 Imports UnionAct.NSCLMsg
 Imports UnionAct.NSMDCommon
+Imports UnionAct.NSCLAccessMdb
+Imports System.IO
 
 Namespace NSMDFile
     Public Module MDFile
@@ -55,12 +57,12 @@ Namespace NSMDFile
                 log.Fatal(ex.Message)
 
                 ' エラーメッセージ表示
-                Call CLMsg.ShowEtarnal( _
-                    Err.Number, _
-                    Err.Description, _
-                    SCREEN_ID, _
-                    SCREEN_NAME, _
-                    System.Reflection.MethodBase.GetCurrentMethod.Name() _
+                Call CLMsg.ShowEtarnal(
+                    Err.Number,
+                    Err.Description,
+                    SCREEN_ID,
+                    SCREEN_NAME,
+                    System.Reflection.MethodBase.GetCurrentMethod.Name()
                 )
 
             End Try
@@ -93,10 +95,10 @@ Namespace NSMDFile
         ''' <param name="overWritingFlg">上書きフラグ</param>
         ''' <returns>True = 正常, False = エラー</returns>
         ''' <remarks></remarks>
-        Public Function FileCopy( _
-            ByVal pStrFileFrom As String, _
-            ByVal pStrFileTo As String, _
-            Optional ByVal overWritingFlg As Boolean = False _
+        Public Function FileCopy(
+            ByVal pStrFileFrom As String,
+            ByVal pStrFileTo As String,
+            Optional ByVal overWritingFlg As Boolean = False
         ) As Boolean
 
             Dim blnRet As Boolean = False           ' 処理結果
@@ -126,12 +128,12 @@ Namespace NSMDFile
                 log.Fatal(ex.Message)
 
                 ' エラーメッセージ表示
-                Call CLMsg.ShowEtarnal( _
-                    Err.Number, _
-                    Err.Description, _
-                    SCREEN_ID, _
-                    SCREEN_NAME, _
-                    System.Reflection.MethodBase.GetCurrentMethod.Name() _
+                Call CLMsg.ShowEtarnal(
+                    Err.Number,
+                    Err.Description,
+                    SCREEN_ID,
+                    SCREEN_NAME,
+                    System.Reflection.MethodBase.GetCurrentMethod.Name()
                 )
 
             End Try
@@ -160,9 +162,9 @@ Namespace NSMDFile
         ''' <param name="pBlnCompulsionDelFlg">強制削除フラグ</param>
         ''' <returns>True = 正常, False = エラー</returns>
         ''' <remarks></remarks>
-        Public Function FileDelete( _
-            ByVal pStrFile As String, _
-            Optional ByVal pBlnCompulsionDelFlg As Boolean = True _
+        Public Function FileDelete(
+            ByVal pStrFile As String,
+            Optional ByVal pBlnCompulsionDelFlg As Boolean = True
         ) As Boolean
 
             Dim blnRet As Boolean = False           ' 処理結果
@@ -199,12 +201,12 @@ Namespace NSMDFile
                 log.Fatal(ex.Message)
 
                 ' エラーメッセージ表示
-                Call CLMsg.ShowEtarnal( _
-                    Err.Number, _
-                    Err.Description, _
-                    SCREEN_ID, _
-                    SCREEN_NAME, _
-                    System.Reflection.MethodBase.GetCurrentMethod.Name() _
+                Call CLMsg.ShowEtarnal(
+                    Err.Number,
+                    Err.Description,
+                    SCREEN_ID,
+                    SCREEN_NAME,
+                    System.Reflection.MethodBase.GetCurrentMethod.Name()
                 )
 
             End Try
@@ -256,12 +258,12 @@ Namespace NSMDFile
                 log.Fatal(ex.Message)
 
                 ' エラーメッセージ表示
-                Call CLMsg.ShowEtarnal( _
-                    Err.Number, _
-                    Err.Description, _
-                    SCREEN_ID, _
-                    SCREEN_NAME, _
-                    System.Reflection.MethodBase.GetCurrentMethod.Name() _
+                Call CLMsg.ShowEtarnal(
+                    Err.Number,
+                    Err.Description,
+                    SCREEN_ID,
+                    SCREEN_NAME,
+                    System.Reflection.MethodBase.GetCurrentMethod.Name()
                 )
 
             End Try
@@ -271,7 +273,39 @@ Namespace NSMDFile
 
         End Function
 #End Region
+        Public Function GetName(ByVal v_FilePath As String) As String
+            Return GetName(v_FilePath, True)
+        End Function
 
+        Public Function GetName(ByVal v_FilePath As String, ByVal v_RetExtension As Boolean) As String
+            If v_FilePath Is Nothing OrElse v_FilePath = "" Then Return ""
+            Dim fi As FileInfo = New FileInfo(v_FilePath)
+
+            If v_RetExtension Then
+                Return fi.Name
+            Else
+                Return fi.Name.Substring(0, fi.Name.Length - fi.Extension.Length)
+            End If
+        End Function
+        Public Function GetDirPath(ByVal v_FilePath As String) As String
+            Try
+                Return If(System.IO.Path.GetDirectoryName(v_FilePath), "")
+            Catch
+                Return ""
+            End Try
+        End Function
+        Public Function ExistDir(ByVal v_DirPath As String) As Boolean
+            Return System.IO.Directory.Exists(v_DirPath)
+        End Function
+
+        Public Function GetFiles(ByVal dir As String, ByVal searchPattern As String, ByVal vSearchOption As SearchOption) As String()
+            If ExistDir(dir) = False Then Return New String(-1) {}
+            Return System.IO.Directory.GetFiles(dir, searchPattern, vSearchOption)
+        End Function
+        Public Function GetDirs(ByVal dir As String, ByVal searchPattern As String, ByVal vSearchOption As SearchOption) As String()
+            If ExistDir(dir) = False Then Return New String(-1) {}
+            Return System.IO.Directory.GetDirectories(dir, searchPattern, vSearchOption)
+        End Function
 #Region " フォルダ作成処理 "
         '***************************************************************************************************
         '   ＩＤ　：DirCreate
@@ -312,12 +346,12 @@ Namespace NSMDFile
                 log.Fatal(ex.Message)
 
                 ' エラーメッセージ表示
-                Call CLMsg.ShowEtarnal( _
-                    Err.Number, _
-                    Err.Description, _
-                    SCREEN_ID, _
-                    SCREEN_NAME, _
-                    System.Reflection.MethodBase.GetCurrentMethod.Name() _
+                Call CLMsg.ShowEtarnal(
+                    Err.Number,
+                    Err.Description,
+                    SCREEN_ID,
+                    SCREEN_NAME,
+                    System.Reflection.MethodBase.GetCurrentMethod.Name()
                 )
 
             End Try
@@ -328,7 +362,107 @@ Namespace NSMDFile
         End Function
 #End Region
 
+#Region "ワークフォルダ取得処理"
+        '    '***************************************************************************************************
+        '    '   ＩＤ　：GetWorkDir
+        '    '   名称　：ワークフォルダ取得処理
+        '    '   概要  ：ワークフォルダを取得する。
+        '    '   引数　：ByVal clsDb As CLAccessMdb = データベースクラス
+        '    '   戻り値：True：正常, False：異常
+        '    '   作成日：2012/03/18(日)  m.suzuki
+        '    '   更新日：
+        '    '---------------------------------------------------------------------------------------------------
+        '    '   履歴　：2012/03/18(日)  m.suzuki  新規作成
+        '    '***************************************************************************************************
+        '    ''' <summary>ワークフォルダ取得処理</summary>
+        '    ''' <param name="clsDb">データベースクラス</param>
+        '    ''' <returns>True：正常, False：異常</returns>
+        '    ''' <remarks></remarks>
+        '    Public Function GetWorkDir(
+        '    ByVal clsDb As CLAccessMdb
+        ') As String
+
+        '        'Dim blnRet As Boolean = False       ' 処理結果
+        '        Dim strSql As String                ' SQL
+        '        Dim dtRet As DataTable = Nothing    ' 処理結果格納データテーブル
+        '        Dim intRet As Integer = 0           ' 処理件数
+        '        Dim strRet As String = ""           ' 処理結果パス
+        '        Dim strNow As String = ""           ' 現在時刻（yyyyMMdd）
+
+        '        Try
+        '            ' SQL作成
+        '            strSql = "" & vbCrLf
+        '            strSql = strSql & " SELECT l_name" & vbCrLf
+        '            strSql = strSql & "   FROM constant_dtl" & vbCrLf
+        '            strSql = strSql & "  WHERE c_constant = 'ISSUE_DOCUMENT_WORK'" & vbCrLf
+        '            strSql = strSql & "    AND c_constant_seq = '01'" & vbCrLf
+        '            strSql = strSql & ";" & vbCrLf
+
+        '            ' SQL実行
+        '            dtRet = clsDb.ExecuteSql(strSql)
+
+        '            ' 処理件数取得
+        '            intRet = dtRet.Rows.Count
+
+        '            ' 処理件数チェック
+        '            If intRet = 0 Then
+        '                Call MessageBox.Show(
+        '                "発行文書作業先が取得できません。",
+        '                "エラー",
+        '                MessageBoxButtons.OK,
+        '                MessageBoxIcon.Warning,
+        '                MessageBoxDefaultButton.Button1
+        '            )
+        '                Return ""
+        '            End If
+
+        '            ' ワークフォルダ取得
+        '            mStrWorkDir = dtRet.Rows(0).Item(0).ToString()
+        '            strNow = Now.ToString("yyyyMMdd")
+        '            mStrWorkDirTo = mStrWorkDir & strNow & "\"
+
+        '            '' 下1桁が "\" ではない場合、"\" を付与
+        '            'If mStrWorkDir.Substring(mStrWorkDir.Length - 1, 1) <> "\" Then
+        '            '    mStrWorkDir = mStrWorkDir & "\"
+        '            'End If
+
+        '            ' フォルダ存在チェック
+        '            If MDFile.DirExists(mStrWorkDir) Then
+        '                ' フォルダ作成処理
+        '                If MDFile.DirCreate(mStrWorkDir) = False Then
+        '                    Return blnRet
+        '                End If
+        '            End If
+
+        '            ' 処理結果に正常を設定
+        '            blnRet = True
+
+        '        Catch ex As Exception
+        '            ' ログ出力（致命的エラー）
+        '            log.Fatal(ex.Message)
+
+        '            ' エラーメッセージ表示
+        '            Call CLMsg.ShowEtarnal(
+        '                Err.Number,
+        '                Err.Description,
+        '                SCREEN_ID,
+        '                SCREEN_NAME,
+        '                System.Reflection.MethodBase.GetCurrentMethod.Name()
+        '            )
+        '        )
+
+        '        End Try
+
+        '        ' 戻り値設定
+        '        Return blnRet
+
+        '    End Function
+#End Region
+
+
 #Region " フォルダ削除処理 "
+
+
         '***************************************************************************************************
         '   ＩＤ　：DirDelete
         '   名称　：フォルダ削除処理
@@ -372,16 +506,18 @@ Namespace NSMDFile
                         dirInfo.Attributes = System.IO.FileAttributes.Normal
                     End If
                 End If
-
-                ' フォルダ削除処理
-                System.IO.Directory.Delete(pStrDir, True)
-
+                Try
+                    ' フォルダ削除処理
+                    System.IO.Directory.Delete(pStrDir, True)
+                Catch ex As Exception
+                    Return False
+                End Try
                 ' 処理結果に正常を設定
                 blnRet = True
 
-            Catch ex As Exception
-                ' ログ出力（致命的エラー）
-                log.Fatal(ex.Message)
+                Catch ex As Exception
+                    ' ログ出力（致命的エラー）
+                    log.Fatal(ex.Message)
 
                 ' エラーメッセージ表示
                 Call CLMsg.ShowEtarnal( _

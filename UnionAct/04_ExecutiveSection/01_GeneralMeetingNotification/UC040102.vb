@@ -245,7 +245,7 @@ Public Class UC040102
             '-------------------------------------------------------------------------------
             '   印刷メンバーリスト取得処理  
             '-------------------------------------------------------------------------------
-            If Me.GetPrintMemberList(dtPrintMemberListInfo) = False Then
+            If Me.GetPrintMemberList(dtPrintMemberListInfo) = False OrElse dtPrintMemberListInfo Is Nothing Then
                 Exit Sub
             End If
 
@@ -389,7 +389,7 @@ Public Class UC040102
             '-------------------------------------------------------------------------------
             '   印刷メンバーリスト取得処理  
             '-------------------------------------------------------------------------------
-            If Me.GetPrintMemberList(dtPrintMemberListInfo) = False Then
+            If Me.GetPrintMemberList(dtPrintMemberListInfo) = False OrElse dtPrintMemberListInfo Is Nothing Then
                 Exit Sub
             End If
 
@@ -3210,174 +3210,178 @@ Public Class UC040102
             '-------------------------------------------------------------------------------
             '   印刷情報設定
             '-------------------------------------------------------------------------------
-            For i = 0 To iDtStafInfo.Rows.Count - 1
-                ' 詳細ロー作成
-                drDetail = ds.dtDetail.NewRow
-                ' 詳細ロー編集開始
-                drDetail.BeginEdit()
+            If iDtStafInfo IsNot Nothing Then
 
-                With drDetail
-                    ' 01. 組合大会会議番号
-                    If Me.bytStatus = STATUS_INSERT Then
-                        ' 開催登録
-                        .c_union_meeting = "***"
-                    Else
-                        ' 変更・中止
-                        .c_union_meeting = Me.intUnionMeetingSeq.ToString()
-                    End If
-                    ' 02. 申請地区区分
-                    .apply_area = Me.cboApplyArea.Text.Trim()
-                    ' 03. 社員番号
-                    .c_staf_id = iDtStafInfo.Rows(i).Item("社員番号").ToString()
-                    ' 04. 名前
-                    .l_name = iDtStafInfo.Rows(i).Item("名前").ToString()
-                    ' 05. 機種
-                    .k_model = iDtStafInfo.Rows(i).Item("機種").ToString()
-                    ' 06. 期略名称
-                    .l_omission_name = MDLoginInfo.Period
-                    ' 07. 種類
-                    If Me.optInfomationName1.Checked Then
-                        .information_type = Me.optInfomationName1.Text.Trim()   ' 開催
-                    ElseIf Me.optInfomationName2.Checked Then
-                        .information_type = Me.optInfomationName1.Text.Trim()   ' 変更の時も"開催"
-                    ElseIf Me.optInfomationName3.Checked Then
-                        .information_type = Me.optInfomationName3.Text.Trim()   ' 中止
-                    End If
-                    '=======================================
-                    '   開始日時
-                    '=======================================
-                    ' 08. 会議日付1
-                    .d_meeting_1 = Me.dtpMeeting1.Value
-                    ' 09. 会議時間1From
-                    .d_meeting_time_from_1 = MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom1.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom1.Text).Substring(2, 2)
-                    ' 10. 会議時間1To
-                    If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbMeetingTimeTo1.Text)) = False Then
-                        .d_meeting_time_to_1 = MDCommon.ReplaceTime(Me.mtbMeetingTimeTo1.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbMeetingTimeTo1.Text).Substring(2, 2)
-                    End If
-                    ' 11. 会議場所1
-                    .l_place_1 = Me.txtPlace1.Text.Trim()
-                    ' 12. 移動フライト（往路）1
-                    If MDChk.ChkNull(Me.txtLFlight1.Text.Trim()) = False Then
-                        .l_flight_1 = Me.txtLFlight1.Text.Trim()
-                    End If
-                    ' 13. 移動フライト時間（往路）1
-                    If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbDFlight1.Text)) = False Then
-                        .d_flight_1 = MDCommon.ReplaceTime(Me.mtbDFlight1.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbDFlight1.Text).Substring(2, 2)
-                    End If
-                    ' 14. 昼食可否1
-                    If Me.chkLunch1.Checked Then
-                        .k_lunch_1 = "1"        ' チェック有り
-                    End If
-                    '=======================================
-                    '   終了日時
-                    '=======================================
-                    If Me.chkMeeting2.Checked Then
-                        '-----------------------------------
-                        '   終了日時チェック有り
-                        '-----------------------------------
-                        ' 15. 会議日付2
-                        .d_meeting_2 = Me.dtpMeeting2.Value.Date
-                        ' 16. 会議時間From2
-                        If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom2.Text)) = False Then
-                            .d_meeting_time_from_2 = MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom2.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom2.Text).Substring(2, 2)
-                        End If
-                        ' 17. 会議時間To2
-                        If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbMeetingTimeTo2.Text)) = False Then
-                            .d_meeting_time_to_2 = MDCommon.ReplaceTime(Me.mtbMeetingTimeTo2.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbMeetingTimeTo2.Text).Substring(2, 2)
-                        End If
-                        ' 18. 会議場所2
-                        If MDChk.ChkNull(Me.txtPlace2.Text.Trim()) = False Then
-                            .l_place_2 = Me.txtPlace2.Text.Trim()
-                        End If
-                        ' 19. 移動フライト（往路）2
-                        If MDChk.ChkNull(Me.txtLFlightBack2.Text.Trim()) = False Then
-                            .l_flight_2 = Me.txtLFlightBack2.Text.Trim()
-                        End If
-                        ' 20. 移動フライト時間（往路）2
-                        If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbDFlightBack2.Text)) = False Then
-                            .d_flight_2 = MDCommon.ReplaceTime(Me.mtbDFlightBack2.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbDFlightBack2.Text).Substring(2, 2)
-                        End If
-                        ' 21. 昼食可否
-                        If Me.chkLunch2.Checked Then
-                            .k_lunch_2 = "1"
-                        End If
-                    Else
-                        '-----------------------------------
-                        '   終了日時チェック無し
-                        '-----------------------------------
-                        ' 19. 移動フライト（往路）2
-                        If MDChk.ChkNull(Me.txtLFlightBack1.Text.Trim()) = False Then
-                            .l_flight_2 = Me.txtLFlightBack1.Text.Trim()
-                        End If
-                        ' 20. 移動フライト時間（往路）2
-                        If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbDFlightBack1.Text)) = False Then
-                            .d_flight_2 = MDCommon.ReplaceTime(Me.mtbDFlightBack1.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbDFlightBack1.Text).Substring(2, 2)
-                        End If
-                    End If
-                    ' 22. 開催場所
-                    .open_belonging = Me.cboOpenBelonging.Text.Trim()
-                    ' 23. 議題備考
-                    If MDChk.ChkNull(Me.txtSubject1.Text.Trim()) = False Then
-                        .l_subject_1 = Me.txtSubject1.Text.Trim()
-                    End If
-                    ' 24. 備考1
-                    If MDChk.ChkNull(Me.txtBiko1.Text.Trim()) = False Then
-                        .l_biko_1 = Me.txtBiko1.Text.Trim()
-                    End If
-                    ' 25. 備考2
-                    If MDChk.ChkNull(Me.txtBiko2.Text.Trim()) = False Then
-                        .l_biko_2 = Me.txtBiko2.Text.Trim()
-                    End If
-                    ' 26. 電話番号（東京）
-                    .t_tel = strTelTokyo
-                    ' 27. FAX番号（東京）
-                    .t_fax = strFaxTokyo
-                    ' 28. 電話番号（大阪）
-                    .o_tel = strTelOosaka
-                    ' 29. FAX番号（大阪）
-                    .o_fax = strFaxOosaka
-                    ' 30. 登録日
-                    .d_up = Me.lblCreateDate.Text.Trim().Replace("/", "").Substring(0, 4) & "年" & Me.lblCreateDate.Text.Trim().Replace("/", "").Substring(4, 2) & "月" & Me.lblCreateDate.Text.Trim().Replace("/", "").Substring(6, 2) & "日"
-                    ' 31. 日付1
-                    .meeting_days_1 = DateAdd(DateInterval.Day, -4, Me.dtpMeeting1.Value)
-                    ' 32. 日付2
-                    .meeting_days_2 = DateAdd(DateInterval.Day, -3, Me.dtpMeeting1.Value)
-                    ' 33. 日付3
-                    .meeting_days_3 = DateAdd(DateInterval.Day, -2, Me.dtpMeeting1.Value)
-                    ' 34. 日付4
-                    .meeting_days_4 = DateAdd(DateInterval.Day, -1, Me.dtpMeeting1.Value)
-                    ' 35. 組合大会種別
-                    If Me.optUnionType1.Checked Then
-                        .l_union_type = Me.optUnionType1.Text.Trim()    ' 合同
-                    ElseIf Me.optUnionType2.Checked Then
-                        .l_union_type = Me.optUnionType2.Text.Trim()    ' TV
-                    ElseIf Me.optUnionType3.Checked Then
-                        .l_union_type = Me.optUnionType3.Text.Trim()    ' 任意
-                    End If
-                    ' 36. 件名副題
-                    If Me.optInfomationName1.Checked Then
-                        .l_meeting_subject = MEETING_SUBJECT_OPEN       ' 開催
-                    ElseIf Me.optInfomationName2.Checked Then
-                        .l_meeting_subject = MEETING_SUBJECT_UPDATE     ' 変更
-                    ElseIf Me.optInfomationName3.Checked Then
-                        .l_meeting_subject = ""                         ' 中止
-                    End If
-                    ' 37. 夕食交流会1
-                    If Me.chkExchangeMeeting1.Checked Then
-                        .k_dinner_1 = "1"
-                    End If
-                    ' 38. 夕食交流会2
-                    If Me.chkExchangeMeeting2.Checked Then
-                        .k_dinner_2 = "1"
-                    End If
-                End With
+                For i = 0 To iDtStafInfo.Rows.Count - 1
+                    ' 詳細ロー作成
+                    drDetail = ds.dtDetail.NewRow
+                    ' 詳細ロー編集開始
+                    drDetail.BeginEdit()
 
-                ' 詳細ロー編集終了
-                drDetail.EndEdit()
-                ' データセットに作成データロー設定
-                ds.dtDetail.Rows.Add(drDetail)
+                    With drDetail
+                        ' 01. 組合大会会議番号
+                        If Me.bytStatus = STATUS_INSERT Then
+                            ' 開催登録
+                            .c_union_meeting = "***"
+                        Else
+                            ' 変更・中止
+                            .c_union_meeting = Me.intUnionMeetingSeq.ToString()
+                        End If
+                        ' 02. 申請地区区分
+                        .apply_area = Me.cboApplyArea.Text.Trim()
+                        ' 03. 社員番号
+                        .c_staf_id = iDtStafInfo.Rows(i).Item("社員番号").ToString()
+                        ' 04. 名前
+                        .l_name = iDtStafInfo.Rows(i).Item("名前").ToString()
+                        ' 05. 機種
+                        .k_model = iDtStafInfo.Rows(i).Item("機種").ToString()
+                        ' 06. 期略名称
+                        .l_omission_name = MDLoginInfo.Period
+                        ' 07. 種類
+                        If Me.optInfomationName1.Checked Then
+                            .information_type = Me.optInfomationName1.Text.Trim()   ' 開催
+                        ElseIf Me.optInfomationName2.Checked Then
+                            .information_type = Me.optInfomationName1.Text.Trim()   ' 変更の時も"開催"
+                        ElseIf Me.optInfomationName3.Checked Then
+                            .information_type = Me.optInfomationName3.Text.Trim()   ' 中止
+                        End If
+                        '=======================================
+                        '   開始日時
+                        '=======================================
+                        ' 08. 会議日付1
+                        .d_meeting_1 = Me.dtpMeeting1.Value
+                        ' 09. 会議時間1From
+                        .d_meeting_time_from_1 = MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom1.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom1.Text).Substring(2, 2)
+                        ' 10. 会議時間1To
+                        If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbMeetingTimeTo1.Text)) = False Then
+                            .d_meeting_time_to_1 = MDCommon.ReplaceTime(Me.mtbMeetingTimeTo1.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbMeetingTimeTo1.Text).Substring(2, 2)
+                        End If
+                        ' 11. 会議場所1
+                        .l_place_1 = Me.txtPlace1.Text.Trim()
+                        ' 12. 移動フライト（往路）1
+                        If MDChk.ChkNull(Me.txtLFlight1.Text.Trim()) = False Then
+                            .l_flight_1 = Me.txtLFlight1.Text.Trim()
+                        End If
+                        ' 13. 移動フライト時間（往路）1
+                        If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbDFlight1.Text)) = False Then
+                            .d_flight_1 = MDCommon.ReplaceTime(Me.mtbDFlight1.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbDFlight1.Text).Substring(2, 2)
+                        End If
+                        ' 14. 昼食可否1
+                        If Me.chkLunch1.Checked Then
+                            .k_lunch_1 = "1"        ' チェック有り
+                        End If
+                        '=======================================
+                        '   終了日時
+                        '=======================================
+                        If Me.chkMeeting2.Checked Then
+                            '-----------------------------------
+                            '   終了日時チェック有り
+                            '-----------------------------------
+                            ' 15. 会議日付2
+                            .d_meeting_2 = Me.dtpMeeting2.Value.Date
+                            ' 16. 会議時間From2
+                            If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom2.Text)) = False Then
+                                .d_meeting_time_from_2 = MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom2.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbMeetingTimeFrom2.Text).Substring(2, 2)
+                            End If
+                            ' 17. 会議時間To2
+                            If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbMeetingTimeTo2.Text)) = False Then
+                                .d_meeting_time_to_2 = MDCommon.ReplaceTime(Me.mtbMeetingTimeTo2.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbMeetingTimeTo2.Text).Substring(2, 2)
+                            End If
+                            ' 18. 会議場所2
+                            If MDChk.ChkNull(Me.txtPlace2.Text.Trim()) = False Then
+                                .l_place_2 = Me.txtPlace2.Text.Trim()
+                            End If
+                            ' 19. 移動フライト（往路）2
+                            If MDChk.ChkNull(Me.txtLFlightBack2.Text.Trim()) = False Then
+                                .l_flight_2 = Me.txtLFlightBack2.Text.Trim()
+                            End If
+                            ' 20. 移動フライト時間（往路）2
+                            If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbDFlightBack2.Text)) = False Then
+                                .d_flight_2 = MDCommon.ReplaceTime(Me.mtbDFlightBack2.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbDFlightBack2.Text).Substring(2, 2)
+                            End If
+                            ' 21. 昼食可否
+                            If Me.chkLunch2.Checked Then
+                                .k_lunch_2 = "1"
+                            End If
+                        Else
+                            '-----------------------------------
+                            '   終了日時チェック無し
+                            '-----------------------------------
+                            ' 19. 移動フライト（往路）2
+                            If MDChk.ChkNull(Me.txtLFlightBack1.Text.Trim()) = False Then
+                                .l_flight_2 = Me.txtLFlightBack1.Text.Trim()
+                            End If
+                            ' 20. 移動フライト時間（往路）2
+                            If MDChk.ChkNull(MDCommon.ReplaceTime(Me.mtbDFlightBack1.Text)) = False Then
+                                .d_flight_2 = MDCommon.ReplaceTime(Me.mtbDFlightBack1.Text).Substring(0, 2) & ":" & MDCommon.ReplaceTime(Me.mtbDFlightBack1.Text).Substring(2, 2)
+                            End If
+                        End If
+                        ' 22. 開催場所
+                        .open_belonging = Me.cboOpenBelonging.Text.Trim()
+                        ' 23. 議題備考
+                        If MDChk.ChkNull(Me.txtSubject1.Text.Trim()) = False Then
+                            .l_subject_1 = Me.txtSubject1.Text.Trim()
+                        End If
+                        ' 24. 備考1
+                        If MDChk.ChkNull(Me.txtBiko1.Text.Trim()) = False Then
+                            .l_biko_1 = Me.txtBiko1.Text.Trim()
+                        End If
+                        ' 25. 備考2
+                        If MDChk.ChkNull(Me.txtBiko2.Text.Trim()) = False Then
+                            .l_biko_2 = Me.txtBiko2.Text.Trim()
+                        End If
+                        ' 26. 電話番号（東京）
+                        .t_tel = strTelTokyo
+                        ' 27. FAX番号（東京）
+                        .t_fax = strFaxTokyo
+                        ' 28. 電話番号（大阪）
+                        .o_tel = strTelOosaka
+                        ' 29. FAX番号（大阪）
+                        .o_fax = strFaxOosaka
+                        ' 30. 登録日
+                        .d_up = Me.lblCreateDate.Text.Trim().Replace("/", "").Replace("-", "").Substring(0, 4) & "年" & Me.lblCreateDate.Text.Trim().Replace("/", "").Replace("-", "").Substring(4, 2) & "月" & Me.lblCreateDate.Text.Trim().Replace("/", "").Replace("-", "").Substring(6, 2) & "日"
+                        ' 31. 日付1
+                        .meeting_days_1 = DateAdd(DateInterval.Day, -4, Me.dtpMeeting1.Value)
+                        ' 32. 日付2
+                        .meeting_days_2 = DateAdd(DateInterval.Day, -3, Me.dtpMeeting1.Value)
+                        ' 33. 日付3
+                        .meeting_days_3 = DateAdd(DateInterval.Day, -2, Me.dtpMeeting1.Value)
+                        ' 34. 日付4
+                        .meeting_days_4 = DateAdd(DateInterval.Day, -1, Me.dtpMeeting1.Value)
+                        ' 35. 組合大会種別
+                        If Me.optUnionType1.Checked Then
+                            .l_union_type = Me.optUnionType1.Text.Trim()    ' 合同
+                        ElseIf Me.optUnionType2.Checked Then
+                            .l_union_type = Me.optUnionType2.Text.Trim()    ' TV
+                        ElseIf Me.optUnionType3.Checked Then
+                            .l_union_type = Me.optUnionType3.Text.Trim()    ' 任意
+                        End If
+                        ' 36. 件名副題
+                        If Me.optInfomationName1.Checked Then
+                            .l_meeting_subject = MEETING_SUBJECT_OPEN       ' 開催
+                        ElseIf Me.optInfomationName2.Checked Then
+                            .l_meeting_subject = MEETING_SUBJECT_UPDATE     ' 変更
+                        ElseIf Me.optInfomationName3.Checked Then
+                            .l_meeting_subject = ""                         ' 中止
+                        End If
+                        ' 37. 夕食交流会1
+                        If Me.chkExchangeMeeting1.Checked Then
+                            .k_dinner_1 = "1"
+                        End If
+                        ' 38. 夕食交流会2
+                        If Me.chkExchangeMeeting2.Checked Then
+                            .k_dinner_2 = "1"
+                        End If
+                    End With
 
-            Next
+                    ' 詳細ロー編集終了
+                    drDetail.EndEdit()
+                    ' データセットに作成データロー設定
+                    ds.dtDetail.Rows.Add(drDetail)
+
+                Next
+            End If
+
             '-------------------------------------------------------------------------------
             '   印刷処理準備
             '-------------------------------------------------------------------------------

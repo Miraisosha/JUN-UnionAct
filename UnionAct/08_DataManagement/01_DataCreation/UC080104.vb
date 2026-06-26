@@ -1261,19 +1261,21 @@ Public Class UC080104
         log.Info(System.Reflection.MethodInfo.GetCurrentMethod.Name() & " 処理開始")
 
         ' 源泉側の該当ユーザー取得用
-        Dim strCut As String = "SELECT tbl1.c_user_id, CONVERT(date, FORMAT(tbl1.d_years, 'yyyy/MM/dd')) AS close_day, tbl1.k_daily_pay_kind, " &
+        'Dim strCut As String = "SELECT tbl1.c_user_id, CONVERT(date, FORMAT(tbl1.d_years, 'yyyy/MM/dd')) AS close_day, tbl1.k_daily_pay_kind, " &
+        Dim strCut As String = "SELECT tbl1.c_user_id, FORMAT(tbl1.d_years, 'yyyy/MM/dd') AS close_day, tbl1.k_daily_pay_kind, " &
                                "IIF(tbl1.k_daily_pay_kind = '05', SUM(tbl1.s_pay_time_cut_monthly + tbl1.s_pay_strike_cut_monthly + " &
                                "tbl1.s_officer_pay - tbl1.s_pay_time_cut_monthly_break - tbl1.s_pay_strike_cut_monthly_break - tbl1.s_cut_monthly_taxation)," &
                                "IIF(tbl1.k_daily_pay_kind = '06',SUM(tbl1.s_pay_time_cut_once + s_pay_strike_cut_once - " &
                                "s_pay_time_cut_once_break -s_pay_strike_cut_once_break - s_cut_once_taxation ),0)) AS total_pay " &
                                " FROM taxation_total AS tbl1 WHERE ({0}) AND tbl1.k_daily_pay_kind = '{1}' " &
-                               " GROUP BY tbl1.c_user_id, CONVERT(date, FORMAT(tbl1.d_years, 'yyyy/MM/dd')), tbl1.k_daily_pay_kind "
+                               " GROUP BY tbl1.c_user_id, FORMAT(tbl1.d_years, 'yyyy/MM/dd'), tbl1.k_daily_pay_kind "
 
         ' 日当側の該当ユーザー取得用
-        Dim strDaily As String = "SELECT tbl1.c_user_id, CONVERT(date, FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd')) AS close_day " &
+        'Dim strDaily As String = "SELECT tbl1.c_user_id, CONVERT(date, FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd')) AS close_day " &
+        Dim strDaily As String = "SELECT tbl1.c_user_id, FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') AS close_day " &
                          ", tbl1.k_daily_pay_kind, SUM(tbl1.s_daily_pay_total + tbl1.s_food_expenses_total + tbl1.s_next_balance_daily_pay_total + tbl1.s_next_balance_food_expenses_total ) AS total_pay " &
                          " FROM call_roll_user AS tbl1 WHERE ({0}) AND tbl1.k_daily_pay_kind = '{1}' " &
-                         " GROUP BY tbl1.c_user_id, CONVERT(date, FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd')), tbl1.k_daily_pay_kind "
+                         " GROUP BY tbl1.c_user_id, FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd'), tbl1.k_daily_pay_kind "
 
         Dim strWhereCut As String = String.Empty        ' 賃金カット・役員手当の対象者取得用WHERE句
         Dim strWhereOnceCut As String = String.Empty    ' 一時金カットの対象者取得用WHERE句
@@ -1323,9 +1325,9 @@ Public Class UC080104
                         Me.dgdPayCutCloseDay(1, Me.dgdPayCutCloseDay.Rows.Count - 1).Value = dtRow.Item("close_day")
 
                         If strWhereCut = String.Empty Then
-                            strWhereCut = "tbl1.d_years like'" & dtRow.Item("close_day") & "%' "
+                            strWhereCut = "FORMAT(tbl1.d_years, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         Else
-                            strWhereCut = strWhereCut & "OR tbl1.d_years like '" & dtRow.Item("close_day") & "%' "
+                            strWhereCut = strWhereCut & "OR FORMAT(tbl1.d_years, 'yyyy/MM/dd') like '" & dtRow.Item("close_day") & "%' "
                         End If
                     End If
 
@@ -1337,9 +1339,9 @@ Public Class UC080104
                         Me.dgdPayCutCloseDay(1, Me.dgdPayCutCloseDay.Rows.Count - 1).Value = dtRow.Item("close_day")
 
                         If strWhereOnceCut = String.Empty Then
-                            strWhereOnceCut = "tbl1.d_years like'" & dtRow.Item("close_day") & "%' "
+                            strWhereOnceCut = "FORMAT(tbl1.d_years, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         Else
-                            strWhereOnceCut = strWhereOnceCut & "OR tbl1.d_years like '" & dtRow.Item("close_day") & "%' "
+                            strWhereOnceCut = strWhereOnceCut & "OR FORMAT(tbl1.d_years, 'yyyy/MM/dd') like '" & dtRow.Item("close_day") & "%' "
                         End If
                     End If
 
@@ -1351,9 +1353,9 @@ Public Class UC080104
                         Me.dgdDayPayCloseDay(1, Me.dgdDayPayCloseDay.Rows.Count - 1).Value = dtRow.Item("close_day")
 
                         If strWhereCommittee = String.Empty Then
-                            strWhereCommittee = "tbl1.d_daily_pay_close like'" & dtRow.Item("close_day") & "%' "
+                            strWhereCommittee = "FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         Else
-                            strWhereCommittee = strWhereCommittee & "OR tbl1.d_daily_pay_close like '" & dtRow.Item("close_day") & "%' "
+                            strWhereCommittee = strWhereCommittee & "OR FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') like '" & dtRow.Item("close_day") & "%' "
                         End If
                     End If
 
@@ -1365,9 +1367,9 @@ Public Class UC080104
                         Me.dgdDayPayCloseDay(1, Me.dgdDayPayCloseDay.Rows.Count - 1).Value = dtRow.Item("close_day")
 
                         If strWhereBranch = String.Empty Then
-                            strWhereBranch = "tbl1.d_daily_pay_close like'" & dtRow.Item("close_day") & "%' "
+                            strWhereBranch = "FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         Else
-                            strWhereBranch = strWhereBranch & "OR tbl1.d_daily_pay_close like'" & dtRow.Item("close_day") & "%' "
+                            strWhereBranch = strWhereBranch & "OR FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         End If
                     End If
 
@@ -1379,9 +1381,9 @@ Public Class UC080104
                         Me.dgdDayPayCloseDay(1, Me.dgdDayPayCloseDay.Rows.Count - 1).Value = dtRow.Item("close_day")
 
                         If strWhereExecutive = String.Empty Then
-                            strWhereExecutive = "tbl1.d_daily_pay_close like'" & dtRow.Item("close_day") & "%' "
+                            strWhereExecutive = "FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         Else
-                            strWhereExecutive = strWhereExecutive & "OR tbl1.d_daily_pay_close like'" & dtRow.Item("close_day") & "%' "
+                            strWhereExecutive = strWhereExecutive & "OR FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         End If
                     End If
 
@@ -1393,9 +1395,9 @@ Public Class UC080104
                         Me.dgdDayPayCloseDay(1, Me.dgdDayPayCloseDay.Rows.Count - 1).Value = dtRow.Item("close_day")
 
                         If strWhereDgm = String.Empty Then
-                            strWhereDgm = "tbl1.d_daily_pay_close like'" & dtRow.Item("close_day") & "%' "
+                            strWhereDgm = "FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         Else
-                            strWhereDgm = strWhereDgm & "OR tbl1.d_daily_pay_close like'" & dtRow.Item("close_day") & "%' "
+                            strWhereDgm = strWhereDgm & "OR FORMAT(tbl1.d_daily_pay_close, 'yyyy/MM/dd') like'" & dtRow.Item("close_day") & "%' "
                         End If
                     End If
                 Next
@@ -1539,6 +1541,13 @@ Public Class UC080104
 
                         If _dtMakeUser.Rows.Count = 0 OrElse rowArray.Length = 0 Then '
                             userList = New List(Of String)
+                            Dim dtTypeName As String = drNew("close_day").GetType().Name
+                            Dim dtTypeName2 As String = drNew.Item("close_day").GetType().Name
+                            If (TypeOf drNew.Item("close_day") Is DateTime) Then
+                                Dim dtCloseDay As DateTime = drNew.Item("close_day")
+                            Else
+                                Dim dtCloseDay As Object = drNew.Item("close_day")
+                            End If
                             userList.Add(drNew.Item("close_day"))
                             userList.Add(drNew.Item("k_daily_pay_kind"))
                             userList.Add(drNew.Item("c_user_id"))
@@ -1684,8 +1693,8 @@ Public Class UC080104
                             Me.dgdPayCutCloseDay(0, iCnt).Value = DAILY_PAY_KIND_CUT
 
                             If _dtStafBankCloseMember.Rows.Count > 0 Then
-                                Dim rowArray As DataRow() = _dtStafBankCloseMember.Select("k_daily_pay_kind = '" & strCutKindArray(iCnt) & _
-                                                                                          "' AND d_pay_close = '" & strCutDayArray(iCnt).Replace("/", "") & "' ")
+                                Dim rowArray As DataRow() = _dtStafBankCloseMember.Select("k_daily_pay_kind = '" & strCutKindArray(iCnt) &
+                                                                                          "' AND d_pay_close = '" & strCutDayArray(iCnt).Replace("/", "").Replace("-", "") & "' ")
                                 For iRowCnt As Integer = 0 To rowArray.Length - 1
                                     If _dicUserCommittee.ContainsKey(rowArray(iRowCnt).Item("c_user_id")) = False Then
                                         Call Me.GetCommitteeData(clsDb, rowArray(iRowCnt).Item("c_user_id"))
@@ -2008,17 +2017,17 @@ Public Class UC080104
             For iCnt As Integer = 0 To Me.dgdPayCutCloseDay.Rows.Count - 1
                 If Me.dgdPayCutCloseDay(0, iCnt).Tag = DAILY_PAY_KIND_CUT_CODE Then
                     If strWhereCut = String.Empty Then
-                        strWhereCut = "cl.d_pay_close = '" & Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereCut = "cl.d_pay_close = '" & Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     Else
-                        strWhereCut = strWhereCut & " OR cl.d_pay_close = '" & _
-                                      Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereCut = strWhereCut & " OR cl.d_pay_close = '" &
+                                      Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     End If
                 ElseIf Me.dgdPayCutCloseDay(0, iCnt).Tag = DAILY_PAY_KIND_ONCE_CUT_CODE Then
                     If strWhereOnceCut = String.Empty Then
-                        strWhereOnceCut = "cl.d_pay_close = '" & Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereOnceCut = "cl.d_pay_close = '" & Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     Else
-                        strWhereOnceCut = strWhereOnceCut & " OR cl.d_pay_close = '" & _
-                                      Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereOnceCut = strWhereOnceCut & " OR cl.d_pay_close = '" &
+                                      Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     End If
                 End If
             Next
@@ -2034,31 +2043,31 @@ Public Class UC080104
             For iCnt As Integer = 0 To Me.dgdDayPayCloseDay.Rows.Count - 1
                 If Me.dgdDayPayCloseDay(0, iCnt).Tag = DAILY_PAY_KIND_COMMITTEE_CODE Then
                     If strWhereCommittee = String.Empty Then
-                        strWhereCommittee = "cl.d_pay_close = '" & Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereCommittee = "cl.d_pay_close = '" & Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     Else
-                        strWhereCommittee = strWhereCommittee & " OR cl.d_pay_close = '" & _
-                                      Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereCommittee = strWhereCommittee & " OR cl.d_pay_close = '" &
+                                      Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     End If
                 ElseIf Me.dgdDayPayCloseDay(0, iCnt).Tag = DAILY_PAY_KIND_BRANCH_CODE Then
                     If strWhereBranch = String.Empty Then
-                        strWhereBranch = "cl.d_pay_close = '" & Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereBranch = "cl.d_pay_close = '" & Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     Else
-                        strWhereBranch = strWhereBranch & " OR cl.d_pay_close = '" & _
-                                      Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereBranch = strWhereBranch & " OR cl.d_pay_close = '" &
+                                      Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     End If
                 ElseIf Me.dgdDayPayCloseDay(0, iCnt).Tag = DAILY_PAY_KIND_EXECUTIVE_CODE Then
                     If strWhereExecutive = String.Empty Then
-                        strWhereExecutive = "cl.d_pay_close = '" & Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereExecutive = "cl.d_pay_close = '" & Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     Else
-                        strWhereExecutive = strWhereExecutive & " OR cl.d_pay_close = '" & _
-                                      Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereExecutive = strWhereExecutive & " OR cl.d_pay_close = '" &
+                                      Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     End If
                 ElseIf Me.dgdDayPayCloseDay(0, iCnt).Tag = DAILY_PAY_KIND_DGM_CODE Then
                     If strWhereDgm = String.Empty Then
-                        strWhereDgm = "cl.d_pay_close = '" & Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereDgm = "cl.d_pay_close = '" & Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     Else
-                        strWhereDgm = strWhereDgm & " OR cl.d_pay_close = '" & _
-                                      Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "") & "' "
+                        strWhereDgm = strWhereDgm & " OR cl.d_pay_close = '" &
+                                      Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "") & "' "
                     End If
                 End If
             Next
@@ -4047,7 +4056,7 @@ Public Class UC080104
                 End If
 
                 sendData.strStafBankSendId = strId                              ' 振込番号ID
-                sendData.dateBankSend = Me.txtPayDay.Text.Replace("/", "")      ' 振込日付
+                sendData.dateBankSend = Me.txtPayDay.Text.Replace("/", "").Replace("-", "")      ' 振込日付
                 sendData.strBankSendMargin = Me._strPayStatusCd                 ' 支払方法種別
                 sendData.strBankSendItem = Me.txtTitle.Text                     ' 振込題目
 
@@ -4117,7 +4126,7 @@ Public Class UC080104
 
                     sendMemberData = New StafSendDataMember
                     sendMemberData.strStafBankSendId = strSendId                            ' 振込ID
-                    sendMemberData.strDateBankSend = Me.txtPayDay.Text.Replace("/", "")     ' 振込日付
+                    sendMemberData.strDateBankSend = Me.txtPayDay.Text.Replace("/", "").Replace("-", "")     ' 振込日付
                     sendMemberData.strUserId = Me.flxNetbank.GetData(iCnt, 1)               ' 社員番号
                     sendMemberData.intBankPay = Me.flxNetbank.GetData(iCnt, 8)              ' 振込金額
                     sendMemberData.intAdjust = Me.flxNetbank.GetData(iCnt, 7)               ' 調整金額
@@ -4181,7 +4190,7 @@ Public Class UC080104
         Try
             For iCnt As Integer = 0 To Me.dgdPayCutCloseDay.Rows.Count - 1
                 closeData = New StafBankClose
-                closeData.strDatePayClose = Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "")   ' 締め日
+                closeData.strDatePayClose = Me.dgdPayCutCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "")   ' 締め日
                 closeData.strDailyPayKind = Me.dgdPayCutCloseDay(0, iCnt).Tag                               ' 締め日種別
                 closeData.strBankSendStatus = "01"                                                          ' 振込完了区分
                 closeData.strDateIns = "'" & _NowDate & "'"                                                 ' 作成日
@@ -4194,7 +4203,7 @@ Public Class UC080104
 
             For iCnt As Integer = 0 To Me.dgdDayPayCloseDay.Rows.Count - 1
                 closeData = New StafBankClose
-                closeData.strDatePayClose = Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "")   ' 締め日
+                closeData.strDatePayClose = Me.dgdDayPayCloseDay(1, iCnt).Value.ToString.Replace("/", "").Replace("-", "")   ' 締め日
                 closeData.strDailyPayKind = Me.dgdDayPayCloseDay(0, iCnt).Tag                               ' 締め日種別
                 closeData.strBankSendStatus = "01"                                                          ' 振込完了区分
                 closeData.strDateIns = "'" & _NowDate & "'"                                                 ' 作成日
@@ -4307,7 +4316,7 @@ Public Class UC080104
         Dim closeMemberData As StafBankCloseMember = New StafBankCloseMember
 
         Try
-            closeMemberData.strDatePayClose = strList(0).Replace("/", "").Substring(0, 6)   ' 締め日
+            closeMemberData.strDatePayClose = strList(0).Replace("/", "").Replace("-", "").Substring(0, 6)   ' 締め日
             closeMemberData.strDailyPayKind = strList(1)                                    ' 締め日種別
             closeMemberData.strUserId = strList(2)                                          ' ユーザーID
             closeMemberData.strStafBankSendId = strSendId                                   ' 振込ID
@@ -4663,10 +4672,10 @@ Public Class UC080104
                 Return ""
             End If
             Dim builder As New StringBuilder
-            Dim strArray As String() = strCloseDay.Replace("/", "").Split(New Char() {","c})
+            Dim strArray As String() = strCloseDay.Replace("/", "").Replace("-", "").Split(New Char() {","c})
             Dim strArray2 As String() = Nothing
             If Not String.IsNullOrEmpty(strCloseKind) Then
-                strArray2 = strCloseKind.Replace("/", "").Split(New Char() {","c})
+                strArray2 = strCloseKind.Replace("/", "").Replace("-", "").Split(New Char() {","c})
             End If
             Dim i As Integer
             For i = 0 To strArray.Length - 1

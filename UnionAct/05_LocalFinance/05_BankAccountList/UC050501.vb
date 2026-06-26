@@ -153,6 +153,77 @@ Public Class UC050501
         ' 適用日と適用日以降の直近の最大2件を取って日付が古い情報を利用
         ' 2件ある場合＝適用対象と指定日以降の情報がある
         ' 1件ある場合＝適用対象のみ、もしくは、指定日以降の直近情報のみ
+        'strSql = "SELECT " &
+        '        "    sat.c_user_id AS 社員番号, " &
+        '        "    sat.l_name AS 名前, " &
+        '        "    skcd.l_name AS 組合員種別, " &
+        '        "    uscd.l_name AS ステータス, " &
+        '        "    sac.c_bank AS 銀行コード, " &
+        '        "    bi.l_bank_name AS 銀行名, " &
+        '        "    bi.l_bank_name_kna AS [銀行名（フリガナ）], " &
+        '        "    sac.c_bank_office AS 支店コード, " &
+        '        "    bid.l_bank_office_name AS 支店名, " &
+        '        "    bid.l_bank_office_name_kna AS [支店名（フリガナ）], " &
+        '        "    sac.k_deposit_items AS 預金種目コード, " &
+        '        "    IIf( " &
+        '        "        sac.k_deposit_items = '01', '普通', " &
+        '        "        IIF(sac.k_deposit_items = '02', '当座', '') " &
+        '        "    ) AS 預金種目, " &
+        '        "    sac.c_bank_account AS 口座番号, " &
+        '        "    sac.l_account_name AS 口座名義, " &
+        '        "    sac.l_account_name_kna AS 口座名義カナ " &
+        '        "FROM " &
+        '        "    staf_account sac, " &
+        '        "    ( " &
+        '        "        SELECT " &
+        '        "            c_user_id, " &
+        '        "            MAX(d_from) AS max_d_from " &
+        '        "        FROM " &
+        '        "            staf_account " &
+        '        "        WHERE " &
+        '        "            d_from <= '" & ymd & "' " &
+        '        "        GROUP BY " &
+        '        "            c_user_id " &
+        '        "    ) msac, " &
+        '        "    staf_attribute sat, " &
+        '        "    ( " &
+        '        "        SELECT " &
+        '        "            c_user_id, " &
+        '        "            MIN(d_from) AS d_from " &
+        '        "        FROM " &
+        '        "            staf_account " &
+        '        "        WHERE " &
+        '        "            d_from > '" & ymd & "' " &
+        '        "        GROUP BY " &
+        '        "            c_user_id " &
+        '        "    ) msat, " &
+        '        "    bank_info bi, " &
+        '        "    bank_info_dtl bid, " &
+        '        "    constant_dtl skcd, " &
+        '        "    constant_dtl uscd " &
+        '        "WHERE " &
+        '        "    sat.c_user_id = sac.c_user_id " &
+        '        "    AND (sat.c_user_id = msat.c_user_id OR msat.c_user_id IS NULL) " &
+        '        "    AND (sat.d_from = msat.d_from AND msat.d_from IS NOT NULL OR msat.d_from IS NULL) " &
+        '        "    AND sac.c_user_id = msac.c_user_id " &
+        '        "    AND sac.d_from = msac.max_d_from " &
+        '        "    AND sac.c_bank = bi.c_bank " &
+        '        "    AND sac.c_bank = bid.c_bank " &
+        '        "    AND sac.c_bank_office = bid.c_bank_office " &
+        '        "    AND bi.d_from <= '" & ymd & "' " &
+        '        "    AND bi.d_to >= '" & ymd & "' " &
+        '        "    AND bid.d_from <= '" & ymd & "' " &
+        '        "    AND bid.d_to >= '" & ymd & "' " &
+        '        "    AND sat.k_staf_kind = skcd.c_constant_seq " &
+        '        "    AND skcd.c_constant = 'STAF_KIND' " &
+        '        "    AND skcd.d_from <= '" & ymd & "' " &
+        '        "    AND skcd.d_to >= '" & ymd & "' " &
+        '        "    AND sat.k_user_status = uscd.c_constant_seq " &
+        '        "    AND uscd.c_constant = 'USER_STATUS' " &
+        '        "    AND uscd.d_from <= '" & ymd & "' " &
+        '        "    AND uscd.d_to >= '" & ymd & "' " &
+        '        "ORDER BY " &
+        '        "    CLng(sat.c_user_id)"   'ok
         strSql = "SELECT " &
                 "    sat.c_user_id AS 社員番号, " &
                 "    sat.l_name AS 名前, " &
@@ -188,14 +259,31 @@ Public Class UC050501
                 "    staf_attribute sat, " &
                 "    ( " &
                 "        SELECT " &
-                "            c_user_id, " &
-                "            MIN(d_from) AS d_from " &
-                "        FROM " &
-                "            staf_account " &
-                "        WHERE " &
-                "            d_from > '" & ymd & "' " &
-                "        GROUP BY " &
-                "            c_user_id " &
+                "            TSTAF.c_user_id, " &
+                "            MIN(TSTAF.target_d_from) AS d_from " &
+                "        FROM  " &
+                "        ( " &
+                "            SELECT " &
+                "                c_user_id, " &
+                "                MAX(d_from) AS target_d_from " &
+                "            FROM " &
+                "                staf_attribute " &
+                "            WHERE " &
+                "                d_from <= '" & ymd & "' " &
+                "            GROUP BY " &
+                "                c_user_id " &
+                "            UNION " &
+                "            SELECT " &
+                "                c_user_id, " &
+                "                MIN(d_from) AS target_d_from " &
+                "            FROM " &
+                "                staf_attribute " &
+                "            WHERE " &
+                "                d_from > '" & ymd & "' " &
+                "            GROUP BY " &
+                "                c_user_id " &
+                "        ) AS TSTAF" &
+                "        GROUP BY TSTAF.c_user_id " &
                 "    ) msat, " &
                 "    bank_info bi, " &
                 "    bank_info_dtl bid, " &
@@ -203,8 +291,8 @@ Public Class UC050501
                 "    constant_dtl uscd " &
                 "WHERE " &
                 "    sat.c_user_id = sac.c_user_id " &
-                "    AND (sat.c_user_id = msat.c_user_id OR msat.c_user_id IS NULL) " &
-                "    AND (sat.d_from = msat.d_from AND msat.d_from IS NOT NULL OR msat.d_from IS NULL) " &
+                "    AND sat.c_user_id = msat.c_user_id " &
+                "    AND sat.d_from = msat.d_from " &
                 "    AND sac.c_user_id = msac.c_user_id " &
                 "    AND sac.d_from = msac.max_d_from " &
                 "    AND sac.c_bank = bi.c_bank " &
@@ -223,7 +311,7 @@ Public Class UC050501
                 "    AND uscd.d_from <= '" & ymd & "' " &
                 "    AND uscd.d_to >= '" & ymd & "' " &
                 "ORDER BY " &
-                "    CLng(sat.c_user_id)"   'ok
+                "    CLng(sat.c_user_id)"
 
         Try
             ' データベース接続

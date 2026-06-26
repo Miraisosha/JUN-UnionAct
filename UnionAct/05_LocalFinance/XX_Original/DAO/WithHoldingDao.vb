@@ -33,7 +33,7 @@ Namespace DAO.FinancialAffairs.WithHolding
             ByRef command As NpgsqlCommand _
         )
             Try
-                command.Parameters.Add("k_daily_pay_kind", Me._strCut)
+                'command.Parameters.Add("k_daily_pay_kind", Me._strCut)
                 command.Parameters.Item("k_daily_pay_kind").Value = Me._strCut
             Catch exception As Exception
                 Throw New SysUnionException(MethodBase.GetCurrentMethod, exception, "DE0001", New String(0 - 1) {})
@@ -198,10 +198,10 @@ Namespace DAO.FinancialAffairs.WithHolding
             strSql05 += "      ,SUM(pay_strike_cut_monthly) AS sum_strike_cut_monthly" & vbCrLf
             strSql05 += "      ,SUM(pay_time_cut_once) AS sum_time_cut_once" & vbCrLf
             strSql05 += "      ,SUM(pay_strike_cut_once) AS sum_strike_cut_once" & vbCrLf
-            strSql05 += "      ,sum_time_cut_monthly -" & MDFinanceCommon.Trunc("sum_time_cut_monthly", TruncPlace) & " AS sum_time_cut_monthly_break" & vbCrLf
-            strSql05 += "      ,sum_strike_cut_monthly - " & MDFinanceCommon.Trunc("sum_strike_cut_monthly", TruncPlace) & " AS sum_strike_cut_monthly_break" & vbCrLf
-            strSql05 += "      ,sum_time_cut_once - " & MDFinanceCommon.Trunc("sum_time_cut_once", TruncPlace) & " AS sum_time_cut_once_break" & vbCrLf
-            strSql05 += "      ,sum_strike_cut_once - " & MDFinanceCommon.Trunc("sum_strike_cut_once", TruncPlace) & " AS sum_strike_cut_once_break" & vbCrLf
+            strSql05 += "      ,SUM(pay_time_cut_monthly) -" & MDFinanceCommon.Trunc("SUM(pay_time_cut_monthly)", TruncPlace) & " AS sum_time_cut_monthly_break" & vbCrLf
+            strSql05 += "      ,SUM(pay_strike_cut_monthly) - " & MDFinanceCommon.Trunc("SUM(pay_strike_cut_monthly)", TruncPlace) & " AS sum_strike_cut_monthly_break" & vbCrLf
+            strSql05 += "      ,SUM(pay_time_cut_once) - " & MDFinanceCommon.Trunc("SUM(pay_time_cut_once)", TruncPlace) & " AS sum_time_cut_once_break" & vbCrLf
+            strSql05 += "      ,SUM(pay_strike_cut_once) - " & MDFinanceCommon.Trunc("SUM(pay_strike_cut_once)", TruncPlace) & " AS sum_strike_cut_once_break" & vbCrLf
             strSql05 += "      ,'1'" & vbCrLf
             strSql05 += "  FROM (" & vbCrLf
             strSql05 += "        SELECT d_years" & vbCrLf
@@ -282,10 +282,10 @@ Namespace DAO.FinancialAffairs.WithHolding
             strSql06 += "      ,SUM(pay_strike_cut_monthly) AS sum_strike_cut_monthly" & vbCrLf
             strSql06 += "      ,SUM(pay_time_cut_once) AS sum_time_cut_once" & vbCrLf
             strSql06 += "      ,SUM(pay_strike_cut_once) AS sum_strike_cut_once" & vbCrLf
-            strSql06 += "      ,sum_time_cut_monthly -" & MDFinanceCommon.Trunc("sum_time_cut_monthly", TruncPlace) & " AS sum_time_cut_monthly_break" & vbCrLf
-            strSql06 += "      ,sum_strike_cut_monthly - " & MDFinanceCommon.Trunc("sum_strike_cut_monthly", TruncPlace) & " AS sum_strike_cut_monthly_break" & vbCrLf
-            strSql06 += "      ,sum_time_cut_once - " & MDFinanceCommon.Trunc("sum_time_cut_once", TruncPlace) & " AS sum_time_cut_once_break" & vbCrLf
-            strSql06 += "      ,sum_strike_cut_once - " & MDFinanceCommon.Trunc("sum_strike_cut_once", TruncPlace) & " AS sum_strike_cut_once_break" & vbCrLf
+            strSql06 += "      ,SUM(pay_time_cut_monthly) -" & MDFinanceCommon.Trunc("SUM(pay_time_cut_monthly)", TruncPlace) & " AS sum_time_cut_monthly_break" & vbCrLf
+            strSql06 += "      ,SUM(pay_strike_cut_monthly) - " & MDFinanceCommon.Trunc("SUM(pay_strike_cut_monthly)", TruncPlace) & " AS sum_strike_cut_monthly_break" & vbCrLf
+            strSql06 += "      ,SUM(pay_time_cut_once) - " & MDFinanceCommon.Trunc("SUM(pay_time_cut_once)", TruncPlace) & " AS sum_time_cut_once_break" & vbCrLf
+            strSql06 += "      ,SUM(pay_strike_cut_once) - " & MDFinanceCommon.Trunc("SUM(pay_strike_cut_once)", TruncPlace) & " AS sum_strike_cut_once_break" & vbCrLf
             strSql06 += "      ,c_pay_once_name" & vbCrLf
             strSql06 += "      ,'1'" & vbCrLf
             strSql06 += "  FROM (" & vbCrLf
@@ -652,7 +652,7 @@ Namespace DAO.FinancialAffairs.WithHolding
             ' 中央委員の役員手当を除外して役員手当集計
             strSql = ""
             strSql += "SELECT LIST.c_user_id" & vbCrLf
-            strSql += "      ,IIF(ISNULL(MAX(MASTER.s_officer_pay)), 0, MAX(MASTER.s_officer_pay)) AS sum_officer_pay" & vbCrLf
+            strSql += "      ,IIF(MAX(MASTER.s_officer_pay) IS NULL, 0, MAX(MASTER.s_officer_pay)) AS sum_officer_pay" & vbCrLf
             strSql += "  FROM ((" & vbCrLf
             strSql += "         SELECT byuser.c_user_id" & vbCrLf
             strSql += "               ,prdif.c_officer_pay_id" & vbCrLf
@@ -700,7 +700,7 @@ Namespace DAO.FinancialAffairs.WithHolding
             strSql += "        ) AS MASTER " & vbCrLf
             strSql += "        ON LIST.c_officer_pay_id = MASTER.c_officer_pay_id" & vbCrLf
             strSql += ") GROUP BY LIST.c_user_id" & vbCrLf
-            'strSql = "SELECT LIST.c_user_id, IIF(ISNULL(MAX(MASTER.s_officer_pay)), 0, MAX(MASTER.s_officer_pay)) AS sum_officer_pay FROM (" & _
+            'strSql = "SELECT LIST.c_user_id, IIF(MAX(MASTER.s_officer_pay) IS NULL, 0, MAX(MASTER.s_officer_pay)) AS sum_officer_pay FROM (" & _
             '         " (SELECT byuser.c_user_id, prdif.c_officer_pay_id FROM" & _
             '         "  (SELECT c_committee_list, c_user_id, c_committee_id, s_committee_seq FROM committee_list_dtl WHERE c_user_id = :c_user_id AND d_from < :targetY & '0930') AS byuser," & _
             '         "  (SELECT t5.c_committee_id, t5.s_committee_seq, t6.c_period_id, t5.c_officer_pay_id FROM committee_dtl AS t5, period_service_diff AS t6" & _
@@ -1229,12 +1229,12 @@ Namespace DAO.FinancialAffairs.WithHolding
                 cmdText1 += "                          ,taxation_total.c_user_id AS c_user_id" & vbCrLf
                 cmdText1 += "                      FROM taxation_total" & vbCrLf
                 cmdText1 += "                     WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-                'cmdText1 += "                       AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                cmdText1 += "                       AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
                 cmdText1 += "                       AND c_user_id NOT IN (" & vbCrLf
                 cmdText1 += "                            SELECT taxation_total.c_user_id" & vbCrLf
                 cmdText1 += "                              FROM taxation_total" & vbCrLf
                 cmdText1 += "                             WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-                'cmdText1 += "                               AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                cmdText1 += "                               AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
                 cmdText1 += "                             GROUP BY c_user_id" & vbCrLf
                 cmdText1 += "                            HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
                 cmdText1 += "                                    OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -1309,13 +1309,13 @@ Namespace DAO.FinancialAffairs.WithHolding
                 cmdText2 += "                          ,taxation_total.c_user_id AS c_user_id" & vbCrLf
                 cmdText2 += "                      FROM taxation_total" & vbCrLf
                 cmdText2 += "                     WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-                'cmdText2 += "                       AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                cmdText2 += "                       AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
                 cmdText2 += "                       AND c_pay_once_name = :c_pay_once_name" & vbCrLf
                 cmdText2 += "                       AND c_user_id NOT IN (" & vbCrLf
                 cmdText2 += "                           SELECT taxation_total.c_user_id" & vbCrLf
                 cmdText2 += "                             FROM taxation_total" & vbCrLf
                 cmdText2 += "                            WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-                'cmdText2 += "                              AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                cmdText2 += "                              AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
                 cmdText2 += "                            GROUP BY c_user_id" & vbCrLf
                 cmdText2 += "                           HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
                 cmdText2 += "                                  OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -1361,7 +1361,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 command.Parameters.Add(New NpgsqlParameter("d_years", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("d_from", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("c_ksh", DbType.String))
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 command.Parameters.Item("d_years").Value = TargetYM
                 command.Parameters.Item("d_from").Value = CriterionDate
                 command.Parameters.Item("c_ksh").Value = CompanyCode
@@ -1451,7 +1451,7 @@ Namespace DAO.FinancialAffairs.WithHolding
             format += "             ,c_taxation_flag" & vbCrLf
             format += "         FROM taxation_total" & vbCrLf
             format += "        WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'format += "          AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            format += "          AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             format += "          AND c_user_id IN ( {1} ) ) withholding" & vbCrLf
             format += "       LEFT OUTER JOIN (" & vbCrLf
             format += "           SELECT A1.*" & vbCrLf
@@ -1529,7 +1529,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 command.Parameters.Add(New NpgsqlParameter("d_years", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("d_from", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("c_ksh", DbType.String))
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 command.Parameters.Item("d_years").Value = TargetYM
                 command.Parameters.Item("d_from").Value = CriterionDate
                 command.Parameters.Item("c_ksh").Value = CompanyCode
@@ -1616,12 +1616,12 @@ Namespace DAO.FinancialAffairs.WithHolding
             cmdText1 += "                      ,taxation_total.c_user_id AS c_user_id" & vbCrLf
             cmdText1 += "                  FROM taxation_total" & vbCrLf
             cmdText1 += "                 WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText1 += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText1 += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText1 += "                   AND c_user_id NOT IN (" & vbCrLf
             cmdText1 += "                       SELECT c_user_id" & vbCrLf
             cmdText1 += "                         FROM taxation_total" & vbCrLf
             cmdText1 += "                        WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText1 += "                          AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText1 += "                          AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText1 += "                        GROUP BY c_user_id" & vbCrLf
             cmdText1 += "                       HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
             cmdText1 += "                              OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -1703,13 +1703,13 @@ Namespace DAO.FinancialAffairs.WithHolding
             cmdText2 += "                      ,taxation_total.c_user_id AS c_user_id" & vbCrLf
             cmdText2 += "                  FROM taxation_total" & vbCrLf
             cmdText2 += "                 WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText2 += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText2 += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText2 += "                   AND c_pay_once_name = :c_pay_once_name" & vbCrLf
             cmdText2 += "                   AND c_user_id NOT IN (" & vbCrLf
             cmdText2 += "                       SELECT c_user_id" & vbCrLf
             cmdText2 += "                         FROM taxation_total" & vbCrLf
             cmdText2 += "                        WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText2 += "                          AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText2 += "                          AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText2 += "                        GROUP BY c_user_id" & vbCrLf
             cmdText2 += "                       HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
             cmdText2 += "                              OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -1747,7 +1747,7 @@ Namespace DAO.FinancialAffairs.WithHolding
             cmdText2 += "              AND A4.d_from = B4.d_from" & vbCrLf
             cmdText2 += "       ) license" & vbCrLf
             cmdText2 += "       ON taxable_persons.k_qualification = license.c_constant_seq" & vbCrLf
-            cmdText2 += " ORDER BY RIGHT('0000000000' + taxable_persons.c_staf_id)" & vbCrLf
+            cmdText2 += " ORDER BY RIGHT('0000000000' + taxable_persons.c_staf_id,10)" & vbCrLf
 
             Try
                 Dim command As New NpgsqlCommand("", MyBase.GetNpgsqlConnection)
@@ -1755,7 +1755,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 command.Parameters.Add(New NpgsqlParameter("d_from", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("c_ksh", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("k_belonging", DbType.String))
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 command.Parameters.Item("d_years").Value = TargetYM
                 command.Parameters.Item("d_from").Value = CriterionDate
                 command.Parameters.Item("c_ksh").Value = CompanyCode
@@ -1829,12 +1829,12 @@ Namespace DAO.FinancialAffairs.WithHolding
             cmdText1 += "               SELECT *" & vbCrLf
             cmdText1 += "                 FROM taxation_total" & vbCrLf
             cmdText1 += "                WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText1 += "                  AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText1 += "                  AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText1 += "                  AND c_user_id NOT IN (" & vbCrLf
             cmdText1 += "                      SELECT c_user_id" & vbCrLf
             cmdText1 += "                        FROM taxation_total" & vbCrLf
             cmdText1 += "                       WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText1 += "                         AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText1 += "                         AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText1 += "                       GROUP BY c_user_id" & vbCrLf
             cmdText1 += "                      HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
             cmdText1 += "                             OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -1899,13 +1899,13 @@ Namespace DAO.FinancialAffairs.WithHolding
             cmdText2 += "                SELECT *" & vbCrLf
             cmdText2 += "                  FROM taxation_total" & vbCrLf
             cmdText2 += "                 WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText2 += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText2 += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText2 += "                   AND c_pay_once_name = :c_pay_once_name" & vbCrLf
             cmdText2 += "                   AND c_user_id NOT IN (" & vbCrLf
             cmdText2 += "                       SELECT c_user_id" & vbCrLf
             cmdText2 += "                         FROM taxation_total" & vbCrLf
             cmdText2 += "                        WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText2 += "                          AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText2 += "                          AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText2 += "                          GROUP BY c_user_id" & vbCrLf
             cmdText2 += "                          HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
             cmdText2 += "                                 OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -1954,7 +1954,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 command.Parameters.Add(New NpgsqlParameter("d_years", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("d_from", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("c_ksh", DbType.String))
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 command.Parameters.Item("d_years").Value = TargetYM
                 command.Parameters.Item("d_from").Value = CriterionDate
                 command.Parameters.Item("c_ksh").Value = CompanyCode
@@ -2307,12 +2307,12 @@ Namespace DAO.FinancialAffairs.WithHolding
             cmdText1 += "                          ,c_taxation_flag AS c_taxation_flag" & vbCrLf
             cmdText1 += "                      FROM taxation_total" & vbCrLf
             cmdText1 += "                     WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText1 += "                       AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText1 += "                       AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText1 += "                       AND c_user_id IN (" & vbCrLf
             cmdText1 += "                           SELECT c_user_id" & vbCrLf
             cmdText1 += "                             FROM taxation_total" & vbCrLf
             cmdText1 += "                            WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText1 += "                              AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText1 += "                              AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText1 += "                            GROUP BY c_user_id" & vbCrLf
             cmdText1 += "                           HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
             cmdText1 += "                                  OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -2400,13 +2400,13 @@ Namespace DAO.FinancialAffairs.WithHolding
             cmdText2 += "                          ,taxation_total.c_taxation_flag AS c_taxation_flag" & vbCrLf
             cmdText2 += "                      FROM taxation_total" & vbCrLf
             cmdText2 += "                     WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText2 += "                       AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText2 += "                       AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText2 += "                       AND c_pay_once_name = :c_pay_once_name" & vbCrLf
             cmdText2 += "                       AND c_user_id IN (" & vbCrLf
             cmdText2 += "                           SELECT c_user_id" & vbCrLf
             cmdText2 += "                             FROM taxation_total" & vbCrLf
             cmdText2 += "                            WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-            'cmdText2 += "                              AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+            cmdText2 += "                              AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
             cmdText2 += "                            GROUP BY c_user_id" & vbCrLf
             cmdText2 += "                           HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
             cmdText2 += "                                  OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -2453,7 +2453,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 command.Parameters.Add(New NpgsqlParameter("d_years", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("d_from", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("c_ksh", DbType.String))
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 command.Parameters.Item("d_years").Value = TargetYM
                 command.Parameters.Item("d_from").Value = CriterionDate
                 command.Parameters.Item("c_ksh").Value = CompanyCode
@@ -2747,11 +2747,11 @@ Namespace DAO.FinancialAffairs.WithHolding
                 format += "      ,model.l_omission_name" & vbCrLf                                                           ' 04. 機種
                 format += "      ,license.l_omission_name" & vbCrLf                                                         ' 05. 資格
                 format += "      ,u_branch.l_omission_name" & vbCrLf                                                        ' 06. 支部
-                format += "      ,IIF(ISNULL(address.l_add_number), '', address.l_add_number) AS l_add_number" & vbCrLf     ' 07. 郵便番号
-                format += "      ,IIF(ISNULL(address.l_prefectures), '', address.l_prefectures) AS l_prefectures" & vbCrLf  ' 08. 都道府県
-                format += "      ,IIF(ISNULL(address.l_cities), '', address.l_cities) AS l_cities" & vbCrLf                 ' 09. 市区町村
-                format += "      ,IIF(ISNULL(address.l_add_ather), '', address.l_add_ather) AS l_add_ather" & vbCrLf        ' 10. 番地等
-                format += "      ,IIF(ISNULL(address.l_building), '', address.l_building) AS l_building" & vbCrLf           ' 11. 建物名等
+                format += "      ,IIF(address.l_add_number IS NULL, '', address.l_add_number) AS l_add_number" & vbCrLf     ' 07. 郵便番号
+                format += "      ,IIF(address.l_prefectures IS NULL, '', address.l_prefectures) AS l_prefectures" & vbCrLf  ' 08. 都道府県
+                format += "      ,IIF(address.l_cities IS NULL, '', address.l_cities) AS l_cities" & vbCrLf                 ' 09. 市区町村
+                format += "      ,IIF(address.l_add_ather IS NULL, '', address.l_add_ather) AS l_add_ather" & vbCrLf        ' 10. 番地等
+                format += "      ,IIF(address.l_building IS NULL, '', address.l_building) AS l_building" & vbCrLf           ' 11. 建物名等
                 format += "      ,taxable_sumup.total_pay" & vbCrLf                                                         ' 12. 給与の合計
                 format += "      ,taxable_sumup.withholding" & vbCrLf                                                       ' 13. 源泉徴収額
                 format += "      ,'" & addr1 & "' AS addname1" & vbCrLf                                                     ' 14. 組合住所1
@@ -3380,12 +3380,11 @@ Namespace DAO.FinancialAffairs.WithHolding
                 cmdText += "                      ,taxation_total.c_user_id AS c_user_id" & vbCrLf
                 cmdText += "                      ,taxation_total.c_taxation_flag AS c_taxation_flag" & vbCrLf
                 cmdText += "                  FROM taxation_total" & vbCrLf
-        cmdText += "                 WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-        ' 2026/06/18 MOD START なぜコメントにしたのか不明？？　これをコメントにするとユーザが寿福表示されてしまう
-        cmdText += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                cmdText += "                 WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
+                cmdText += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
 
-        ' 条件に一時金名称があれば、追加
-        If OnceName.Length > 0 Then
+                ' 条件に一時金名称があれば、追加
+                If OnceName.Length > 0 Then
                     cmdText += "                   AND c_pay_once_name = :c_pay_once_name" & vbCrLf
                 End If
 
@@ -3393,10 +3392,9 @@ Namespace DAO.FinancialAffairs.WithHolding
                 cmdText += "                        SELECT c_user_id" & vbCrLf
                 cmdText += "                          FROM taxation_total" & vbCrLf
                 cmdText += "                         WHERE FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf
-        ' 2026/06/18 MOD START なぜコメントにしたのか不明？？　これをコメントにするとユーザが寿福表示されてしまう
-        cmdText += "                           AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
-        cmdText += "                         GROUP BY c_user_id" & vbCrLf
-        cmdText += "                        HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
+                cmdText += "                           AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                cmdText += "                         GROUP BY c_user_id" & vbCrLf
+                cmdText += "                        HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
                 cmdText += "                               OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
                 cmdText += "                               OR SUM(s_cut_once_taxation) <> 0)" & vbCrLf
                 cmdText += "                       ))" & vbCrLf
@@ -3439,7 +3437,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 command.Parameters.Add(New NpgsqlParameter("d_from", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("c_ksh", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("k_belonging", DbType.String))
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 command.Parameters.Item("d_years").Value = TargetYM
                 command.Parameters.Item("d_from").Value = CriterionDate
                 command.Parameters.Item("c_ksh").Value = CompanyCode
@@ -3535,7 +3533,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 cmdText += "                          + taxation_total.s_pay_strike_cut_once)) AS tax" & vbCrLf
                 cmdText += "                  FROM taxation_total" & vbCrLf
                 cmdText += "                 WHERE TO_CHAR(d_years, 'yyyyMM') = :d_years" & vbCrLf
-                'cmdText += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                cmdText += "                   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
 
                 ' 条件に一時金名称があれば、追加
                 If OnceName.Length > 0 Then
@@ -3546,7 +3544,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 cmdText += "                        SELECT c_user_id" & vbCrLf
                 cmdText += "                          FROM taxation_total" & vbCrLf
                 cmdText += "                         WHERE TO_CHAR(d_years, 'yyyyMM') = :d_years" & vbCrLf
-                'cmdText += "                           AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                cmdText += "                           AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
                 cmdText += "                         GROUP BY c_user_id" & vbCrLf
                 cmdText += "                        HAVING (SUM(s_officer_pay) <> 0" & vbCrLf
                 cmdText += "                               OR SUM(s_cut_monthly_taxation) <> 0" & vbCrLf
@@ -3590,7 +3588,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 command.Parameters.Add(New NpgsqlParameter("d_years", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("d_from", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("c_ksh", DbType.String))
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 command.Parameters.Item("d_years").Value = TargetYM
                 command.Parameters.Item("d_from").Value = CriterionDate
                 command.Parameters.Item("c_ksh").Value = CompanyCode
@@ -3702,14 +3700,14 @@ Namespace DAO.FinancialAffairs.WithHolding
                 message += "SELECT COUNT(*)" & vbCrLf
                 message += "  FROM taxation_total" & vbCrLf
                 message += " WHERE FORMAT(d_years, 'yyyyMM') = '" & TargetYM & "'" & vbCrLf
-                'message += "   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                message += "   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
                 'Dim message As String = ("SELECT COUNT(*) FROM taxation_total WHERE TO_CHAR(d_years, 'yyyyMM') = '" & TargetYM & "' AND k_daily_pay_kind = :k_daily_pay_kind ")
 
                 ' ログ出力(SQL)
                 WithHoldingDao._logger.Debug(message)
 
                 Dim command As New NpgsqlCommand(message, MyBase.GetNpgsqlConnection)
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 Me.AddCutDivParameterValue(command)
                 Dim obj2 As Object = command.ExecuteScalar
                 If (((obj2 Is Nothing) OrElse TypeOf obj2 Is DBNull) OrElse (CLng(obj2) = 0)) Then
@@ -3743,14 +3741,14 @@ Namespace DAO.FinancialAffairs.WithHolding
                 message += "SELECT COUNT(*)" & vbCrLf
                 message += "  FROM taxation_total" & vbCrLf
                 message += " WHERE FORMAT(d_years, 'yyyyMM') > '" & TargetYM & "'" & vbCrLf
-                'message += "   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
+                message += "   AND k_daily_pay_kind = :k_daily_pay_kind" & vbCrLf
                 'Dim message As String = ("SELECT COUNT(*) FROM taxation_total WHERE TO_CHAR(d_years, 'yyyyMM') > '" & TargetYM & "' AND k_daily_pay_kind = :k_daily_pay_kind ")
 
                 ' ログ出力(SQL)
                 WithHoldingDao._logger.Debug(message)
 
                 Dim command As New NpgsqlCommand(message, MyBase.GetNpgsqlConnection)
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 Me.AddCutDivParameterValue(command)
                 Dim obj2 As Object = command.ExecuteScalar
                 If (((obj2 Is Nothing) OrElse TypeOf obj2 Is DBNull) OrElse (CLng(obj2) = 0)) Then
@@ -3801,7 +3799,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                     message += "      ,c_taxation_flag = :c_taxation_flag" & vbCrLf                 ' 課税フラグ
                     message += " WHERE c_user_id = :c_user_id" & vbCrLf                             ' 個人認証IDと同じもの
                     message += "   AND FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf               ' 集計年月と同じもの
-                    'message += "   AND k_daily_pay_kind = :k_daily_pay_kind " & vbCrLf              ' 日当計算区分と同じもの
+                    message += "   AND k_daily_pay_kind = :k_daily_pay_kind " & vbCrLf              ' 日当計算区分と同じもの
                 Else
                     ' 役員手当なし
                     message = ""
@@ -3815,7 +3813,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                     message += "      ,c_taxation_flag = :c_taxation_flag" & vbCrLf                 ' 課税フラグ
                     message += " WHERE c_user_id = :c_user_id" & vbCrLf                             ' 個人認証IDと同じもの
                     message += "   AND FORMAT(d_years, 'yyyyMM') = :d_years" & vbCrLf               ' 集計年月と同じもの
-                    'message += "   AND k_daily_pay_kind = :k_daily_pay_kind " & vbCrLf              ' 日当計算区分と同じもの
+                    message += "   AND k_daily_pay_kind = :k_daily_pay_kind " & vbCrLf              ' 日当計算区分と同じもの
                 End If
                 'Dim message As String = If((Remuneration > 0), "UPDATE taxation_total SET s_officer_pay = :s_officer_pay, s_cut_monthly_taxation = :s_cut_monthly_taxation,d_up = GETDATE(),c_user_id_up = :c_user_id_up,s_up = s_up + 1,c_taxation_flag = :c_taxation_flag WHERE c_user_id = :c_user_id AND TO_CHAR(d_years, 'yyyyMM') = :d_years AND k_daily_pay_kind = :k_daily_pay_kind ", "UPDATE taxation_total SET s_officer_pay = :s_officer_pay, s_cut_monthly_taxation = :s_cut_monthly_taxation,s_cut_once_taxation = :s_cut_monthly_taxation,d_up = GETDATE(),c_user_id_up = :c_user_id_up,s_up = s_up + 1,c_taxation_flag = :c_taxation_flag WHERE c_user_id = :c_user_id AND TO_CHAR(d_years, 'yyyyMM') = :d_years AND k_daily_pay_kind = :k_daily_pay_kind ")
                 'Dim message As String = If((Remuneration > 0), "UPDATE taxation_total SET s_officer_pay = :s_officer_pay, s_cut_monthly_taxation = :s_cut_monthly_taxation,d_up = GETDATE(),c_user_id_up = :c_user_id_up,s_up = s_up + 1 WHERE c_user_id = :c_user_id AND TO_CHAR(d_years, 'yyyyMM') = :d_years AND k_daily_pay_kind = :k_daily_pay_kind ", "UPDATE taxation_total SET s_officer_pay = :s_officer_pay, s_cut_monthly_taxation = :s_cut_monthly_taxation,s_cut_once_taxation = :s_cut_monthly_taxation,d_up = GETDATE(),c_user_id_up = :c_user_id_up,s_up = s_up + 1 WHERE c_user_id = :c_user_id AND TO_CHAR(d_years, 'yyyyMM') = :d_years AND k_daily_pay_kind = :k_daily_pay_kind ")
@@ -3836,7 +3834,7 @@ Namespace DAO.FinancialAffairs.WithHolding
                 command.Parameters.Add(New NpgsqlParameter("c_taxation_flag", DbType.String))       ' 課税フラグ
                 command.Parameters.Add(New NpgsqlParameter("c_user_id", DbType.String))             ' 個人認証ID
                 command.Parameters.Add(New NpgsqlParameter("d_years", DbType.String))               ' 集計年月
-                'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))      ' 日当計算区分
+                command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))      ' 日当計算区分
 
                 ' パラメータ値設定
                 command.Parameters.Item("s_officer_pay").Value = Remuneration                       ' 役員手当

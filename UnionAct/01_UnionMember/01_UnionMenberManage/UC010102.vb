@@ -3066,7 +3066,7 @@ Public Class UC010102
         Try
             If iMtbCtl.ValidateText() IsNot Nothing Then                                    ' 対象年月日に値があるかチェック
                 ' 対象年月日と現在日付取得
-                strTarget = iMtbCtl.Text.Replace("/", "")                                   ' 対象年月日（"/"なしのyyyyMMD）
+                strTarget = iMtbCtl.Text.Replace("/", "").Replace("-", "")                                   ' 対象年月日（"/"なしのyyyyMMD）
                 strNow = Now.ToString("yyyyMMdd")                                           ' 現在日付（"/"なしのyyyyMMdd）
                 If ChkDate(strTarget) Then                                                  ' 対象年月日が正しい日付かチェック
                     If strTarget <= strNow Then                                             ' 対象年月日が未来日でなないかチェック
@@ -3124,7 +3124,7 @@ Public Class UC010102
         Try
             If iMtbCtl.ValidateText() IsNot Nothing Then                                    ' 対象年月日に値があるかチェック
                 ' 対象年月日と現在日付取得
-                strTarget = iMtbCtl.Text.Replace("/", "")                                   ' 対象年月日（"/"なしのyyyyMMD）
+                strTarget = iMtbCtl.Text.Replace("/", "").Replace("-", "")                                   ' 対象年月日（"/"なしのyyyyMMD）
                 strNow = Now.ToString("yyyyMMdd")                                           ' 現在日付（"/"なしのyyyyMMdd）
                 If ChkDate(strTarget) Then                                                  ' 対象年月日が正しい日付かチェック
                     If strTarget <= strNow Then                                             ' 対象年月日が未来日でなないかチェック

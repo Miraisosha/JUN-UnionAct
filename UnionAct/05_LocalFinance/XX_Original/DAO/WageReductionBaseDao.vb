@@ -566,7 +566,7 @@ Namespace DAO.FinancialAffairs.WageReduction
             sql += "            ) staf_kind"
             sql += "            ON (member.k_staf_kind = staf_kind.c_constant_seq)"
             sql += "       )"
-            sql += " WHERE FORMAT(member.c_staf_id, '000000') = :c_staf_id"
+            sql += " WHERE RIGHT('000000' + member.c_staf_id, 6) = :c_staf_id"
             sql += " ORDER BY member.d_join DESC"
 
             Try
@@ -770,6 +770,9 @@ Namespace DAO.FinancialAffairs.WageReduction
                 ' ログ出力
                 WageReductionBaseDao._logger.Debug(sql)
                 For Each row As DataRow In data.Rows
+                    If (IsDBNull(row.Item(4)) OrElse row.Item(4) = Nothing) Then
+                        Throw New Exception("控除額計が入力されていない行があります")
+                    End If
                     If row.Item(4) <> 0 Then
                         ' SQL設定
                         command.SetSql(sql)
@@ -827,7 +830,7 @@ Namespace DAO.FinancialAffairs.WageReduction
             ByVal register As String, _
             ByVal AutoCommit As Boolean _
         )
-            Dim sqlIns As String = ("INSERT INTO " & Me.TableName & " (c_user_id, d_years, s_pay_cut, c_pay_once_name, d_ins, c_user_id_ins) VALUES (:c_user_id, CONVERT(DATE,:d_years,112), :s_pay_cut, :c_pay_once_name, GETDATE, :c_user_ins)")
+            Dim sqlIns As String = ("INSERT INTO " & Me.TableName & " (c_user_id, d_years, s_pay_cut, c_pay_once_name, d_ins, c_user_id_ins) VALUES (:c_user_id, CONVERT(DATE,:d_years,112), :s_pay_cut, :c_pay_once_name, GETDATE(), :c_user_ins)")
             Dim sqlUpd As String = ("UPDATE " & Me.TableName & " SET s_pay_cut=:s_pay_cut, d_ins=GETDATE(), c_user_id_ins=:c_user_ins WHERE c_user_id=:c_user_id AND d_years=CONVERT(DATE,:d_years,112) AND c_pay_once_name=:c_pay_once_name")
             Dim sqlDel As String = ("DELETE FROM " & Me.TableName & " WHERE c_user_id=:c_user_id AND d_years=CONVERT(DATE,:d_years,112) AND c_pay_once_name=:c_pay_once_name")
 

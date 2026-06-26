@@ -15,8 +15,8 @@ Namespace DAO.Master
         ' Methods
         Public Function GetExecutiveLunchPay(ByVal strCommitteeId As String, ByVal strCommitteeSeq As String, ByVal strDate As String) As DataSet
             Dim set2 As DataSet
-            Try 
-                Dim cmdText As String = "SELECT executive_lunch_pay_master.c_executive_lunch_pay_id, executive_lunch_pay_master.s_pay FROM executive_lunch_pay_master, (SELECT c_executive_lunch_pay_id FROM committee_dtl WHERE c_committee_id = :c_committee_id AND s_committee_seq = :s_committee_seq AND d_from <= :d_date AND d_to >= :d_date GROUP BY c_executive_lunch_pay_id ) committee_dtl_A WHERE d_from <= :d_date AND d_to >= :d_date AND Format(executive_lunch_pay_master.c_executive_lunch_pay_id, '000') = committee_dtl_A.c_executive_lunch_pay_id ORDER BY executive_lunch_pay_master.c_executive_lunch_pay_id "
+            Try
+                Dim cmdText As String = "SELECT executive_lunch_pay_master.c_executive_lunch_pay_id, executive_lunch_pay_master.s_pay FROM executive_lunch_pay_master, (SELECT c_executive_lunch_pay_id FROM committee_dtl WHERE c_committee_id = :c_committee_id AND s_committee_seq = :s_committee_seq AND d_from <= :d_date AND d_to >= :d_date GROUP BY c_executive_lunch_pay_id ) committee_dtl_A WHERE d_from <= :d_date AND d_to >= :d_date AND RIGHT('000'+executive_lunch_pay_master.c_executive_lunch_pay_id, 3) = committee_dtl_A.c_executive_lunch_pay_id ORDER BY executive_lunch_pay_master.c_executive_lunch_pay_id "
                 Dim command As New NpgsqlCommand(cmdText, MyBase.GetNpgsqlConnection)
                 command.Parameters.Add(New NpgsqlParameter("c_committee_id", DbType.String))
                 command.Parameters.Add(New NpgsqlParameter("s_committee_seq", DbType.String))

@@ -710,7 +710,7 @@ Label_00C9:
                          "  committee_list_dtl_A.c_user_id NOT IN " &
                              "(" &
                              "SELECT" &
-                             " IIF(IsNull(call_roll_user.c_user_id),'XXXXXXX',call_roll_user.c_user_id) AS c_user_id " &
+                             " IIF(call_roll_user.c_user_id IS NULL,'XXXXXXX',call_roll_user.c_user_id) AS c_user_id " &
                              "FROM call_roll_user " &
                              "WHERE call_roll_user.d_years = CONVERT(DATE,:d_date,112) " &
                              "GROUP BY call_roll_user.c_user_id" &

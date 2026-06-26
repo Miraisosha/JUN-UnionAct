@@ -1069,7 +1069,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="09_MasterMaintenance\MDMasterCommon.vb" />
-    <Compile Include="99_Common\App.vb" />
     <Compile Include="99_Common\CLAccessMdb.vb" />
     <Compile Include="99_Common\CLEncrypt.vb" />
     <Compile Include="99_Common\CLMsg.vb" />
@@ -1097,7 +1096,6 @@
     <Compile Include="99_Common\UCInfoMsg.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1269,7 +1267,6 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1872,7 +1869,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="02_UnionAction\06_Search\CR0206P3.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CR0206P3.vb</LastGenOutput>
+      <LastGenOutput>CR0206P31.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="03_CentralExecutiveCommittee\01_AffiliationCommittee\CR0301P1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -3200,31 +3197,24 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cancel.bmp">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="cancel.bmp" />
     <Content Include="cancel_name.bmp" />
     <Content Include="ExceptionMsgData.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="release.bmp">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="release.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="01_UnionMember\02_FixFormatOutput\" />
     <Folder Include="07_DevotionPersonnelManagement\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
-  <Target Name="AfterCompile" Condition="exists('app.$(Configuration).config')">
-    <TransformXml Source="app.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="app.$(Configuration).config" />
-    <ItemGroup>
-      <AppConfigWithTargetPath Remove="app.config" />
-      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
-        <TargetPath>$(TargetFileName).config</TargetPath>
-      </AppConfigWithTargetPath>
-    </ItemGroup>
+  <Import Project="..\packages\Microsoft.VisualStudio.SlowCheetah.4.0.50\build\Microsoft.VisualStudio.SlowCheetah.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.4.0.50\build\Microsoft.VisualStudio.SlowCheetah.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.4.0.50\build\Microsoft.VisualStudio.SlowCheetah.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SlowCheetah.4.0.50\build\Microsoft.VisualStudio.SlowCheetah.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

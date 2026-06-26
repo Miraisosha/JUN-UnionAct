@@ -18,6 +18,7 @@ Imports System.Text
 Imports System.Runtime.InteropServices
 
 Imports Microsoft.Office.Interop
+Imports System.IO
 
 Public Class FM040604
 
@@ -803,14 +804,15 @@ Public Class FM040604
             log.Fatal(ex.Message)
 
             ' 致命的エラーメッセージボックス表示
-            Call CLMsg.ShowEtarnal( _
-                Err.Number, _
-                Err.Description, _
-                SCREEN_ID, _
-                SCREEN_NAME, _
-                System.Reflection.MethodInfo.GetCurrentMethod.Name() _
+            Call CLMsg.ShowEtarnal(
+                Err.Number,
+                Err.Description,
+                SCREEN_ID,
+                SCREEN_NAME,
+                System.Reflection.MethodInfo.GetCurrentMethod.Name()
             )
-
+        Finally
+            mXlsWb = Nothing
         End Try
 
     End Sub
@@ -2171,8 +2173,29 @@ Public Class FM040604
 
             ' ワークフォルダ取得
             mStrWorkDir = dtRet.Rows(0).Item(0).ToString()
+            ' 対象のディレクトリを指定
+            Dim baseTempDir = MDFile.GetDirPath(mStrWorkDir)
+            Dim namaHaed As String = MDFile.GetName(mStrWorkDir, False)
+            Dim dirs = MDFile.GetDirs(baseTempDir, namaHaed + "*", SearchOption.TopDirectoryOnly)
+
             strNow = Now.ToString("yyyyMMdd")
             mStrWorkDirTo = mStrWorkDir & strNow & "\"
+
+            For Each dir As String In dirs
+                MDFile.DirDelete(dir, True)
+                If dir + "\" = mStrWorkDirTo Then
+                    Dim n As Integer = 0
+                    For i = 0 To 10
+                        If MDFile.ExistDir(mStrWorkDirTo) Then
+                            n += 1
+                            mStrWorkDirTo = mStrWorkDir & strNow & n & "\"
+                        Else
+                            Exit For
+                        End If
+                    Next i
+                    Continue For
+                End If
+            Next
 
             ' 下1桁が "\" ではない場合、"\" を付与
             If mStrWorkDir.Substring(mStrWorkDir.Length - 1, 1) <> "\" Then
@@ -4329,11 +4352,13 @@ Public Class FM040604
             ' Excel Worksheetオブジェクト解放
             If Not mXlsWs Is Nothing Then
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(mXlsWs)
+                mXlsWs = Nothing
             End If
 
             ' Excel Sheetsオブジェクト解放
             If Not mXlsSs Is Nothing Then
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(mXlsSs)
+                mXlsSs = Nothing
             End If
 
             ' Excel Workbookオブジェクト解放
@@ -4341,13 +4366,16 @@ Public Class FM040604
                 Try
                     mXlsWb.Close()
                 Finally
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(mXlsWb)
+                    If Not mXlsWb Is Nothing Then
+                        System.Runtime.InteropServices.Marshal.ReleaseComObject(mXlsWb)
+                    End If
                 End Try
             End If
 
             ' Excel Workbooksオブジェクト解放
             If Not mXlsWbs Is Nothing Then
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(mXlsWbs)
+                mXlsWbs = Nothing
             End If
 
             ' Excel アプリケーションオブジェクト解放
@@ -4357,6 +4385,7 @@ Public Class FM040604
                     mXlsAp.Quit()
                 Finally
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(mXlsAp)
+                    mXlsAp = Nothing
                 End Try
             End If
 

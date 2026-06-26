@@ -1211,7 +1211,7 @@ Public Class UC040101
                     If bytStatus = STATUS_UPDATE _
                     Or bytStatus = STATUS_STOP Then
                         ' チェック用開始日付
-                        strChkStartDate = .GetData(.Row, 4).ToString().Substring(0, 10).Replace("/", "")
+                        strChkStartDate = .GetData(.Row, 4).ToString().Substring(0, 10).Replace("/", "").Replace("-", "")
                         ' チェック用通知番号
                         strChkUnionMeetingNo = .GetData(.Row, 0).ToString()
                         ' チェック用申請地区区分

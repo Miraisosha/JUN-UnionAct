@@ -1964,11 +1964,11 @@ Public Class UC020601
                 strSelectSql = strSelectSql & CONSTANT_VIEW_SEARCH & ".会社所属 AS 会社所属,"                                       '会社所属
                 strSelectSql = strSelectSql & CONSTANT_VIEW_SEARCH & ".職場 AS 職場,"                                               '職場
                 strSelectSql = strSelectSql & CONSTANT_VIEW_SEARCH & ".所属会社 AS 所属会社,"                                       '所属会社
-                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".機長年月日,'yyyy/MM/dd' AS 機長年月日,"         '機長年月日
-                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".加入年月日,'yyyy/MM/dd' AS 加入年月日,"         '加入年月日
-                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".生年月日,'yyyy/MM/dd' AS 生年月日,"             '生年月日
-                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".入社年月日,'yyyy/MM/dd' AS 入社年月日,"         '入社年月日
-                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".退職年月日,'yyyy/MM/dd' AS 退職年月日,"         '退職年月日
+                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".機長年月日,'yyyy/MM/dd') AS 機長年月日,"         '機長年月日
+                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".加入年月日,'yyyy/MM/dd') AS 加入年月日,"         '加入年月日
+                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".生年月日,'yyyy/MM/dd') AS 生年月日,"             '生年月日
+                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".入社年月日,'yyyy/MM/dd') AS 入社年月日,"         '入社年月日
+                strSelectSql = strSelectSql & "FORMAT(" & CONSTANT_VIEW_SEARCH & ".退職年月日,'yyyy/MM/dd') AS 退職年月日,"         '退職年月日
                 strSelectSql = strSelectSql & CONSTANT_VIEW_SEARCH & ".勤務状態 AS 勤務状態,"                                       '勤務状態
                 strSelectSql = strSelectSql & CONSTANT_VIEW_SEARCH & ".郵便番号 AS 郵便番号,"                                       '郵便番号
                 strSelectSql = strSelectSql & CONSTANT_VIEW_SEARCH & ".住所 AS 住所,"                                               '住所
@@ -2539,7 +2539,7 @@ Public Class UC020601
                     "' AND " & CONSTANT_VIEW_SEARCH & "." & strChk & "<'" & Format(Date.Parse(strTop), "yyyy/MM") & "')"
                 End If
                 '最小値のみ設定されている場合
-                If (ChkNull(strBottom) = False) Then
+                If (ChkNull(strBottom) = False) And (ChkNull(strTop) = True) Then
                     If (ChkNull(strBottom2) = False) Then
                         strBottom = strBottom & "/" & strBottom2
                     Else
@@ -2548,7 +2548,7 @@ Public Class UC020601
                     strSql = strSql & " AND (" & CONSTANT_VIEW_SEARCH & "." & strChk & ">='" & Format(Date.Parse(strBottom), "yyyy/MM") & "')"
                 End If
                 '最大値のみ設定されている場合
-                If (ChkNull(strTop) = False) Then
+                If (ChkNull(strBottom) = True) And (ChkNull(strTop) = False) Then
                     If (ChkNull(strTop2) = False) Then
                         strTop = strTop & "/" & strTop2
                     Else

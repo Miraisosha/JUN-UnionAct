@@ -561,7 +561,7 @@ Namespace DAO.FinancialAffairs.WageReduction
             Dim sql As String = ""
 
             ' SQL
-            sql += "SELECT FORMAT(member.c_staf_id,'000000') AS """ & map.GetLogicalName(0) & """"  ' 01. é–àıî‘çÜ
+            sql += "SELECT RIGHT('000000'+member.c_staf_id,6) AS """ & map.GetLogicalName(0) & """"  ' 01. é–àıî‘çÜ
             sql += "      ,member.c_dezit                    AS """ & map.GetLogicalName(1) & """"  ' 02. CD
             sql += "      ,member.l_name                     AS """ & map.GetLogicalName(2) & """"  ' 03. ñºëO
             sql += "      ,staf_kind.l_name                  AS """ & map.GetLogicalName(3) & """"  ' 04. ëgçáàıéÌï 
@@ -666,7 +666,7 @@ Namespace DAO.FinancialAffairs.WageReduction
             sql += "           ) staf_kind"
             sql += "           ON (member.k_staf_kind = staf_kind.c_constant_seq)"
             sql += "       )"
-            sql += " WHERE FORMAT(member.c_staf_id, '000000') IN (:c_staf_id_list)"
+            sql += " WHERE RIGHT('000000'+member.c_staf_id,6) IN (:c_staf_id_list)"
             sql += " ORDER BY member.c_staf_id"
 
             Try

@@ -755,11 +755,11 @@ Namespace DAO.FinancialAffairs.DailyAllowance
             Dim strKey As String
             Dim strSql As String
 
-            strSql = "SELECT c_user_id, d_years, s_day, c_committee_id, s_committee_seq, " & _
-                     "IIF(ISNULL(s_next_balance_daily_pay),0,s_next_balance_daily_pay) - IIF(ISNULL(s_daily_pay),0,s_daily_pay) AS s_balance_daily_pay," & _
-                     "IIF(ISNULL(s_next_balance_food_expenses),0,s_next_balance_food_expenses)-IIF(ISNULL(s_food_expenses),0,s_food_expenses) AS s_balance_food_expenses " & _
-                     "FROM call_roll_user_dtl AS DTL " & _
-                     "WHERE :prev_daily_pay_close < Format(d_years, 'yyyyMMdd') AND Format(d_years, 'yyyyMMdd') <= :d_daily_pay_close AND " & _
+            strSql = "SELECT c_user_id, d_years, s_day, c_committee_id, s_committee_seq, " &
+                     "IIF(s_next_balance_daily_pay IS NULL,0,s_next_balance_daily_pay) - IIF(s_daily_pay IS NULL,0,s_daily_pay) AS s_balance_daily_pay," &
+                     "IIF(s_next_balance_food_expenses IS NULL,0,s_next_balance_food_expenses)-IIF(s_food_expenses IS NULL,0,s_food_expenses) AS s_balance_food_expenses " &
+                     "FROM call_roll_user_dtl AS DTL " &
+                     "WHERE :prev_daily_pay_close < Format(d_years, 'yyyyMMdd') AND Format(d_years, 'yyyyMMdd') <= :d_daily_pay_close AND " &
                      "k_daily_pay_kind = :k_daily_pay_kind AND (:strUpdateDate < Format(d_up, 'yyyyMMdd') OR :strUpdateDate <= Format(d_ins, 'yyyyMMdd'))"
             objCommand.Parameters.Clear()
             objCommand.SetSql(strSql)
@@ -838,24 +838,24 @@ Namespace DAO.FinancialAffairs.DailyAllowance
             Dim strKey As String
             Dim strSql As String
 
-            strSql = "SELECT call_roll_user_dtl.c_committee_id, call_roll_user_dtl.s_committee_seq," & _
-                     "IIF(ISNULL(officer_pay_master.s_officer_pay),0,officer_pay_master.s_officer_pay) AS s_officer_pay," & _
-                     "IIF(ISNULL(executive_lunch_pay_master.s_pay),0,executive_lunch_pay_master.s_pay) AS s_lunch_pay " & _
-                     "FROM ((call_roll_user_dtl " & _
-                     "INNER JOIN committee_dtl ON (call_roll_user_dtl.s_committee_seq = committee_dtl.s_committee_seq) AND " & _
-                     "(call_roll_user_dtl.c_committee_id = committee_dtl.c_committee_id)) " & _
-                         "LEFT JOIN (SELECT MST.d_from, MST.c_officer_pay_id, MST.s_officer_pay FROM officer_pay_master AS MST," & _
-                         " (SELECT M.c_officer_pay_id AS max_id, MAX(M.d_from) AS max_d_from FROM officer_pay_master AS M " & _
-                         "WHERE M.d_from<=:d_key_date And :d_key_date<=M.d_to GROUP BY M.c_officer_pay_id) AS MT " & _
-                         "WHERE MT.max_id=MST.c_officer_pay_id AND MT.max_d_from=MST.d_from) AS officer_pay_master " & _
-                         "ON committee_dtl.c_officer_pay_id = officer_pay_master.c_officer_pay_id) " & _
-                         "LEFT JOIN (SELECT MST.d_from, MST.c_executive_lunch_pay_id, MST.s_pay FROM executive_lunch_pay_master AS MST," & _
-                         " (SELECT M.c_executive_lunch_pay_id AS max_id, MAX(M.d_from) AS max_d_from FROM executive_lunch_pay_master AS M " & _
-                         "WHERE M.d_from<=:d_key_date And :d_key_date<=M.d_to GROUP BY M.c_executive_lunch_pay_id) AS MT " & _
-                         "WHERE MT.max_id=MST.c_executive_lunch_pay_id AND MT.max_d_from=MST.d_from) AS executive_lunch_pay_master " & _
-                         "ON committee_dtl.c_executive_lunch_pay_id = executive_lunch_pay_master.c_executive_lunch_pay_id " & _
-                     "WHERE call_roll_user_dtl.k_food_expenses='1' AND " & _
-                     ":prev_daily_pay_close < Format(d_years, 'yyyyMMdd') AND " & _
+            strSql = "SELECT call_roll_user_dtl.c_committee_id, call_roll_user_dtl.s_committee_seq," &
+                     "IIF(officer_pay_master.s_officer_pay IS NULL,0,officer_pay_master.s_officer_pay) AS s_officer_pay," &
+                     "IIF(executive_lunch_pay_master.s_pay IS NULL,0,executive_lunch_pay_master.s_pay) AS s_lunch_pay " &
+                     "FROM ((call_roll_user_dtl " &
+                     "INNER JOIN committee_dtl ON (call_roll_user_dtl.s_committee_seq = committee_dtl.s_committee_seq) AND " &
+                     "(call_roll_user_dtl.c_committee_id = committee_dtl.c_committee_id)) " &
+                         "LEFT JOIN (SELECT MST.d_from, MST.c_officer_pay_id, MST.s_officer_pay FROM officer_pay_master AS MST," &
+                         " (SELECT M.c_officer_pay_id AS max_id, MAX(M.d_from) AS max_d_from FROM officer_pay_master AS M " &
+                         "WHERE M.d_from<=:d_key_date And :d_key_date<=M.d_to GROUP BY M.c_officer_pay_id) AS MT " &
+                         "WHERE MT.max_id=MST.c_officer_pay_id AND MT.max_d_from=MST.d_from) AS officer_pay_master " &
+                         "ON committee_dtl.c_officer_pay_id = officer_pay_master.c_officer_pay_id) " &
+                         "LEFT JOIN (SELECT MST.d_from, MST.c_executive_lunch_pay_id, MST.s_pay FROM executive_lunch_pay_master AS MST," &
+                         " (SELECT M.c_executive_lunch_pay_id AS max_id, MAX(M.d_from) AS max_d_from FROM executive_lunch_pay_master AS M " &
+                         "WHERE M.d_from<=:d_key_date And :d_key_date<=M.d_to GROUP BY M.c_executive_lunch_pay_id) AS MT " &
+                         "WHERE MT.max_id=MST.c_executive_lunch_pay_id AND MT.max_d_from=MST.d_from) AS executive_lunch_pay_master " &
+                         "ON committee_dtl.c_executive_lunch_pay_id = executive_lunch_pay_master.c_executive_lunch_pay_id " &
+                     "WHERE call_roll_user_dtl.k_food_expenses='1' AND " &
+                     ":prev_daily_pay_close < Format(d_years, 'yyyyMMdd') AND " &
                      "Format(d_years, 'yyyyMMdd') <= :d_daily_pay_close "
             objCommand.Parameters.Clear()
             objCommand.SetSql(strSql)
@@ -883,10 +883,10 @@ Namespace DAO.FinancialAffairs.DailyAllowance
             Dim strSql As String
             Dim strSql4 As String
             'strSql = "SELECT c_user_id,d_years,:c_period_id,k_daily_pay_kind,call_roll_user_dtl.d_daily_pay_close,CONVERT(DATE,:d_up_close,112)," & _
-            '         "Sum(IIF(ISNULL(call_roll_user_dtl.s_daily_pay),0,call_roll_user_dtl.s_daily_pay)) AS s_daily_pay, " & _
-            '         "Sum(IIF(ISNULL(call_roll_user_dtl.s_food_expenses),0,call_roll_user_dtl.s_food_expenses)) AS s_food_expenses, " & _
-            '         "Sum(IIF(ISNULL(call_roll_user_dtl.s_next_balance_daily_pay),0,call_roll_user_dtl.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " & _
-            '         "Sum(IIF(ISNULL(call_roll_user_dtl.s_next_balance_food_expenses),0,call_roll_user_dtl.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " & _
+            '         "Sum(IIF(call_roll_user_dtl.s_daily_pay IS NULL,0,call_roll_user_dtl.s_daily_pay)) AS s_daily_pay, " & _
+            '         "Sum(IIF(call_roll_user_dtl.s_food_expenses IS NULL,0,call_roll_user_dtl.s_food_expenses)) AS s_food_expenses, " & _
+            '         "Sum(IIF(call_roll_user_dtl.s_next_balance_daily_pay IS NULL,0,call_roll_user_dtl.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " & _
+            '         "Sum(IIF(call_roll_user_dtl.s_next_balance_food_expenses IS NULL,0,call_roll_user_dtl.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " & _
             '         "DCONVERT(DATE,:d_ins,112) AS d_ins, :c_user_id_ins AS c_user_id_ins " & _
             '         "FROM call_roll_user_dtl INNER JOIN committee ON call_roll_user_dtl.c_committee_id = committee.c_committee_id " & _
             '         "WHERE call_roll_user_dtl.k_daily_pay_kind=:k_daily_pay_kind AND " & _
@@ -897,8 +897,8 @@ Namespace DAO.FinancialAffairs.DailyAllowance
                      "SUM(DATA.s_daily_pay) AS s_daily_pay, SUM(DATA.s_food_expenses) AS s_food_expenses," &
                      "SUM(DATA.s_next_balance_daily_pay) AS s_next_balance_daily_pay, SUM(DATA.s_next_balance_food_expenses) AS s_next_balance_food_expenses FROM (" &
                      "SELECT DTL.c_user_id,d_years,:c_period_id AS c_period_id,k_daily_pay_kind,DTL.d_daily_pay_close,CONVERT(DATE,:d_up_close,112) AS d_up_close," &
-                     "Sum(IIF(ISNULL(DTL.s_daily_pay),0,DTL.s_daily_pay)) AS s_daily_pay, " &
-                     "Sum(IIF(ISNULL(DTL.s_food_expenses),0,DTL.s_food_expenses)) AS s_food_expenses, " &
+                     "Sum(IIF(DTL.s_daily_pay IS NULL,0,DTL.s_daily_pay)) AS s_daily_pay, " &
+                     "Sum(IIF(DTL.s_food_expenses IS NULL,0,DTL.s_food_expenses)) AS s_food_expenses, " &
                      "0 AS s_next_balance_daily_pay, " &
                      "0 AS s_next_balance_food_expenses, " &
                      "CONVERT(DATE,:d_ins,112) AS d_ins, :c_user_id_ins AS c_user_id_ins " &
@@ -910,8 +910,8 @@ Namespace DAO.FinancialAffairs.DailyAllowance
                      "SELECT DTL.c_user_id,CONVERT(DATE,LEFT(:d_daily_pay_close, 6) & '01',112) AS d_years,:c_period_id AS c_period_id,k_daily_pay_kind,CONVERT(DATE,:d_daily_pay_close,112) AS d_daily_pay_close,CONVERT(DATE,:d_up_close,112) AS d_up_close," &
                      "0 AS s_daily_pay, " &
                      "0 AS s_food_expenses, " &
-                     "Sum(IIF(ISNULL(DTL.s_next_balance_daily_pay),0,DTL.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " &
-                     "Sum(IIF(ISNULL(DTL.s_next_balance_food_expenses),0,DTL.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " &
+                     "Sum(IIF(DTL.s_next_balance_daily_pay IS NULL,0,DTL.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " &
+                     "Sum(IIF(DTL.s_next_balance_food_expenses IS NULL,0,DTL.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " &
                      "CONVERT(DATE,:d_ins,112) AS d_ins, :c_user_id_ins AS c_user_id_ins " &
                      "FROM call_roll_user_dtl AS DTL " &
                      "WHERE DTL.k_daily_pay_kind=:k_daily_pay_kind AND " &
@@ -919,10 +919,10 @@ Namespace DAO.FinancialAffairs.DailyAllowance
                      "GROUP BY DTL.c_user_id, d_years, DTL.k_daily_pay_kind, DTL.d_daily_pay_close " &
                      ") AS DATA GROUP BY c_user_id, d_years, c_period_id, k_daily_pay_kind, d_daily_pay_close, d_up_close"
             strSql4 = "SELECT call_roll_user_dtl.c_user_id,d_years,:c_period_id,k_daily_pay_kind,call_roll_user_dtl.d_daily_pay_close,CONVERT(DATE,:d_up_close,112)," &
-                     "Sum(IIF(ISNULL(call_roll_user_dtl.s_daily_pay),0,call_roll_user_dtl.s_daily_pay)) AS s_daily_pay, " &
-                     "Sum(IIF(ISNULL(call_roll_user_dtl.s_food_expenses),0,call_roll_user_dtl.s_food_expenses)) AS s_food_expenses, " &
-                     "Sum(IIF(ISNULL(call_roll_user_dtl.s_next_balance_daily_pay),0,call_roll_user_dtl.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " &
-                     "Sum(IIF(ISNULL(call_roll_user_dtl.s_next_balance_food_expenses),0,call_roll_user_dtl.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " &
+                     "Sum(IIF(call_roll_user_dtl.s_daily_pay IS NULL,0,call_roll_user_dtl.s_daily_pay)) AS s_daily_pay, " &
+                     "Sum(IIF(call_roll_user_dtl.s_food_expenses IS NULL,0,call_roll_user_dtl.s_food_expenses)) AS s_food_expenses, " &
+                     "Sum(IIF(call_roll_user_dtl.s_next_balance_daily_pay IS NULL,0,call_roll_user_dtl.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " &
+                     "Sum(IIF(call_roll_user_dtl.s_next_balance_food_expenses IS NULL,0,call_roll_user_dtl.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " &
                      "CONVERT(DATE,:d_ins,112) AS d_ins, :c_user_id_ins AS c_user_id_ins " &
                      "FROM call_roll_user_dtl " &
                      "INNER JOIN (SELECT saft_view.c_user_id, saft_view.k_belonging FROM staf_attribute_full_time_view saft_view, " &
@@ -970,11 +970,11 @@ Namespace DAO.FinancialAffairs.DailyAllowance
             '         "(d_daily_pay_close, d_years, c_ksh, k_daily_pay_kind, k_belonging, c_committee_id," & _
             '         "s_daily_pay, s_food_expenses, s_balance_daily_pay, s_balance_food_expenses, d_ins, c_user_id_ins) " & _
             '         "SELECT Format(call_roll_user_dtl.d_daily_pay_close, 'yyyyMMdd'), call_roll_user_dtl.d_years, :c_ksh AS c_ksh, " & _
-            '         "call_roll_user_dtl.k_daily_pay_kind, IIF(ISNULL(committee.k_belonging),'',committee.k_belonging), call_roll_user_dtl.c_committee_id, " & _
-            '         "Sum(IIF(ISNULL(call_roll_user_dtl.s_daily_pay),0,call_roll_user_dtl.s_daily_pay)) AS s_daily_pay, " & _
-            '         "Sum(IIF(ISNULL(call_roll_user_dtl.s_food_expenses),0,call_roll_user_dtl.s_food_expenses)) AS s_food_expenses, " & _
-            '         "Sum(IIF(ISNULL(call_roll_user_dtl.s_next_balance_daily_pay),0,call_roll_user_dtl.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " & _
-            '         "Sum(IIF(ISNULL(call_roll_user_dtl.s_next_balance_food_expenses),0,call_roll_user_dtl.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " & _
+            '         "call_roll_user_dtl.k_daily_pay_kind, IIF(committee.k_belonging IS NULL,'',committee.k_belonging), call_roll_user_dtl.c_committee_id, " & _
+            '         "Sum(IIF(call_roll_user_dtl.s_daily_pay IS NULL,0,call_roll_user_dtl.s_daily_pay)) AS s_daily_pay, " & _
+            '         "Sum(IIF(call_roll_user_dtl.s_food_expenses IS NULL,0,call_roll_user_dtl.s_food_expenses)) AS s_food_expenses, " & _
+            '         "Sum(IIF(call_roll_user_dtl.s_next_balance_daily_pay IS NULL,0,call_roll_user_dtl.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " & _
+            '         "Sum(IIF(call_roll_user_dtl.s_next_balance_food_expenses IS NULL,0,call_roll_user_dtl.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " & _
             '         "CONVERT(DATE,:d_ins,112) AS d_ins, :c_user_id_ins AS c_user_id_ins " & _
             '         "FROM call_roll_user_dtl INNER JOIN committee ON call_roll_user_dtl.c_committee_id = committee.c_committee_id " & _
             '         "WHERE call_roll_user_dtl.k_daily_pay_kind=:k_daily_pay_kind AND " & _
@@ -990,8 +990,8 @@ Namespace DAO.FinancialAffairs.DailyAllowance
                      "d_ins, c_user_id_ins FROM (" &
                      "SELECT Format(DTL.d_daily_pay_close, 'yyyyMMdd') AS d_daily_pay_close, DTL.d_years, :c_ksh AS c_ksh, " &
                      "DTL.k_daily_pay_kind, k_belonging, DTL.c_committee_id, " &
-                     "Sum(IIF(ISNULL(DTL.s_daily_pay),0,DTL.s_daily_pay)) AS s_daily_pay, " &
-                     "Sum(IIF(ISNULL(DTL.s_food_expenses),0,DTL.s_food_expenses)) AS s_food_expenses, " &
+                     "Sum(IIF(DTL.s_daily_pay IS NULL,0,DTL.s_daily_pay)) AS s_daily_pay, " &
+                     "Sum(IIF(DTL.s_food_expenses IS NULL,0,DTL.s_food_expenses)) AS s_food_expenses, " &
                      "0 AS s_balance_daily_pay, " &
                      "0 AS s_balance_food_expenses, " &
                      "CONVERT(DATE,:d_ins,112) AS d_ins, :c_user_id_ins AS c_user_id_ins " &
@@ -1004,8 +1004,8 @@ Namespace DAO.FinancialAffairs.DailyAllowance
                      "DTL.k_daily_pay_kind, k_belonging, DTL.c_committee_id, " &
                      "0 AS s_daily_pay, " &
                      "0 AS s_food_expenses, " &
-                     "Sum(IIF(ISNULL(DTL.s_next_balance_daily_pay),0,DTL.s_next_balance_daily_pay)) AS s_balance_daily_pay, " &
-                     "Sum(IIF(ISNULL(DTL.s_next_balance_food_expenses),0,DTL.s_next_balance_food_expenses)) AS s_balance_food_expenses, " &
+                     "Sum(IIF(DTL.s_next_balance_daily_pay IS NULL,0,DTL.s_next_balance_daily_pay)) AS s_balance_daily_pay, " &
+                     "Sum(IIF(DTL.s_next_balance_food_expenses IS NULL,0,DTL.s_next_balance_food_expenses)) AS s_balance_food_expenses, " &
                      "CONVERT(DATE,:d_ins,112) AS d_ins, :c_user_id_ins AS c_user_id_ins " &
                      "FROM call_roll_user_dtl AS DTL INNER JOIN staf_attribute_latest_view ON DTL.c_user_id = staf_attribute_latest_view.c_user_id " &
                      "WHERE DTL.k_daily_pay_kind=:k_daily_pay_kind AND " &
@@ -1017,10 +1017,10 @@ Namespace DAO.FinancialAffairs.DailyAllowance
                      "s_daily_pay, s_food_expenses, s_balance_daily_pay, s_balance_food_expenses, d_ins, c_user_id_ins) " &
                      "SELECT Format(call_roll_user_dtl.d_daily_pay_close, 'yyyyMMdd'), call_roll_user_dtl.d_years, :c_ksh AS c_ksh, " &
                      "call_roll_user_dtl.k_daily_pay_kind, k_belonging, call_roll_user_dtl.c_committee_id, " &
-                     "Sum(IIF(ISNULL(call_roll_user_dtl.s_daily_pay),0,call_roll_user_dtl.s_daily_pay)) AS s_daily_pay, " &
-                     "Sum(IIF(ISNULL(call_roll_user_dtl.s_food_expenses),0,call_roll_user_dtl.s_food_expenses)) AS s_food_expenses, " &
-                     "Sum(IIF(ISNULL(call_roll_user_dtl.s_next_balance_daily_pay),0,call_roll_user_dtl.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " &
-                     "Sum(IIF(ISNULL(call_roll_user_dtl.s_next_balance_food_expenses),0,call_roll_user_dtl.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " &
+                     "Sum(IIF(call_roll_user_dtl.s_daily_pay IS NULL,0,call_roll_user_dtl.s_daily_pay)) AS s_daily_pay, " &
+                     "Sum(IIF(call_roll_user_dtl.s_food_expenses IS NULL,0,call_roll_user_dtl.s_food_expenses)) AS s_food_expenses, " &
+                     "Sum(IIF(call_roll_user_dtl.s_next_balance_daily_pay IS NULL,0,call_roll_user_dtl.s_next_balance_daily_pay)) AS s_next_balance_daily_pay, " &
+                     "Sum(IIF(call_roll_user_dtl.s_next_balance_food_expenses IS NULL,0,call_roll_user_dtl.s_next_balance_food_expenses)) AS s_next_balance_food_expenses, " &
                      "CONVERT(DATE,:d_ins,112) AS d_ins, :c_user_id_ins AS c_user_id_ins " &
                      "FROM call_roll_user_dtl " &
                      "INNER JOIN (SELECT saft_view.c_user_id, saft_view.k_belonging FROM staf_attribute_full_time_view saft_view, " &
@@ -1401,7 +1401,7 @@ Namespace DAO.FinancialAffairs.DailyAllowance
             Dim set2 As DataSet
             Try
                 Dim strSql As String
-                strSql = "SELECT False AS print_check, DTL.s_day, DTL.s_day AS 開催日, " &
+                strSql = "SELECT CONVERT(bit, 'false') AS print_check, DTL.s_day, DTL.s_day AS 開催日, " &
                              "DTL.c_user_id, DTL.c_user_id AS 個人認証ＩＤ, ATTR.c_staf_id, " &
                              "CLng(ATTR.c_staf_id) AS 社員番号, ATTR.staf_attribute_l_name, " &
                              "ATTR.staf_attribute_l_name AS 氏名, ATTR.k_qualification, " &
@@ -1414,7 +1414,7 @@ Namespace DAO.FinancialAffairs.DailyAllowance
                 Dim command As New NpgsqlCommand("", MyBase.GetNpgsqlConnection)
                 SetExecParam(command, "04", strPrevCloseDate, strCloseDate, MDLoginInfo.Ksh)
                 If fClosed Then
-                    strSql += " AND IsNull(DTL.d_daily_pay_close) "
+                    strSql += " AND DTL.d_daily_pay_close IS NULL "
                     strSql += " AND Format(DTL.s_day, 'yyyyMMdd')>='" & MDLoginInfo.PeriodFrom & "'" &
                               " AND Format(DTL.s_day, 'yyyyMMdd')<='" & MDLoginInfo.PeriodTo & "'"
                 Else
@@ -1588,95 +1588,95 @@ Namespace DAO.FinancialAffairs.DailyAllowance
         "HDR.d_daily_pay_close " & _
        " )"}
                 Dim index As Integer = If((DateTime.ParseExact(strPrevCloseDate, "yyyyMMdd", Nothing).AddDays(1).Month = DateTime.ParseExact(strDate, "yyyyMMdd", Nothing).Month), 1, 0)
-                Dim command As New NpgsqlCommand(String.Concat(New String() {
-      "SELECT " &
-       "FALSE AS print_check, " &
-       "call_roll_user_info.c_user_id AS c_user_id, " &
-       "call_roll_user_info.c_user_id AS " & "個人認証ＩＤ" & ", " &
-       "Long.Parse(Format(staf_attribute.c_staf_id, '9999999999')) AS c_staf_id, " &
-       "staf_attribute.c_staf_id AS " & "社員番号" & ", " &
-       "staf_attribute.l_name AS l_name, " &
-       "staf_attribute.l_name AS " & "氏名" & ", " &
-       "staf_attribute.k_belonging AS k_belonging, " &
-       "staf_attribute.k_qualification AS k_qualification, " &
-       "qualification.l_omission_name AS " & "資格" & ", " &
-       "staf_attribute.k_model AS k_model, " &
-       "model.l_name AS " & "機種" & "," &
-       "call_roll_user_info.sum_daily_pay AS sum_daily_pay, " &
-       "call_roll_user_info.sum_daily_pay AS " & "当月日当計" & ", " &
-       "call_roll_user_info.sum_food_expenses AS sum_food_expenses, " &
-       "call_roll_user_info.sum_food_expenses AS " & "中執昼食費計" & ", " &
-       "call_roll_user_info.sum_balance_daily_pay AS sum_balance_daily_pay, " &
-       "call_roll_user_info.sum_balance_daily_pay AS " & "前回差分計" & ", " &
-       "call_roll_user_info.sum_balance_food_expenses AS sum_balance_food_expenses, " &
-       "call_roll_user_info.sum_balance_food_expenses AS " & "前回差分昼食費計" & ", " &
-       "call_roll_user_info.sum_daily_pay + " &
-        "call_roll_user_info.sum_food_expenses + " &
-        "call_roll_user_info.sum_balance_daily_pay + " &
-        "call_roll_user_info.sum_balance_food_expenses AS " & "日当計" & " " &
-      "FROM " &
-       "(SELECT " &
-        "call_roll_user_A.c_user_id AS c_user_id," &
-        "COALESCE(SUM(call_roll_user_A.sum_daily_pay), 0) AS sum_daily_pay, " &
-        "COALESCE(SUM(call_roll_user_A.sum_food_expenses), 0) AS sum_food_expenses, " &
-        "COALESCE(SUM(call_roll_user_A.sum_balance_daily_pay), 0) AS sum_balance_daily_pay, " &
-        "COALESCE(SUM(call_roll_user_A.sum_balance_food_expenses), 0) AS sum_balance_food_expenses " &
-       "FROM " &
-        "( " &
-         "(SELECT " &
-          "HDR.c_user_id AS c_user_id, " &
-          "HDR.d_daily_pay_close AS d_daily_pay_close, " &
-          "SUM(HDR.s_daily_pay_total) AS sum_daily_pay, " &
-          "SUM(HDR.s_food_expenses_total) AS sum_food_expenses, " &
-          "0 AS sum_balance_daily_pay, " &
-          "0 AS sum_balance_food_expenses " &
-         "FROM " &
-          "call_roll_user HDR, " &
-          "(SELECT " &
-           "c_user_id, " &
-           "d_years, " &
-           "c_committee_id, " &
-           "k_daily_pay_kind " &
-          "FROM " &
-           "call_roll_user_dtl " &
-          "GROUP BY " &
-           "c_user_id, " &
-           "d_years, " &
-           "c_committee_id, " &
-           "k_daily_pay_kind " &
-          ") DTL " &
-         "WHERE " &
-          "Format(HDR.d_daily_pay_close,'yyyyMMdd') = :d_daily_pay_close " &
-          "AND (HDR.s_daily_pay_total <> 0 OR HDR.s_food_expenses_total <> 0 OR HDR.s_next_balance_daily_pay_total <> 0 OR HDR.s_next_balance_food_expenses_total <> 0) " &
-          "AND Format(HDR.d_years,'yyyyMMdd') = :d_date " &
-          "AND DTL.c_user_id = HDR.c_user_id " &
-          "AND DTL.d_years = HDR.d_years " &
-          "AND DTL.k_daily_pay_kind = :k_daily_pay_kind " &
-         "GROUP BY " &
-          "HDR.c_user_id, " &
-          "HDR.d_daily_pay_close " &
-         ")" &
-       "," & strArray(index) & ", " &
-        ") call_roll_user_A " &
-       "GROUP BY " &
-        "call_roll_user_A.c_user_id" &
-       ") call_roll_user_info , " & MyBase.GetStafAttributeView(":d_daily_pay_close", "staf_attribute", True, New String() {"*"}) &
-       "LEFT OUTER JOIN " &
-        "qualification_view qualification " &
-       "ON " &
-        "staf_attribute.k_qualification = qualification.c_constant_seq " &
-       "AND :d_daily_pay_close BETWEEN qualification.d_from AND qualification.d_to " &
-       "LEFT OUTER JOIN " &
-        "model_view model " &
-       "ON " &
-        "staf_attribute.k_model = model.c_constant_seq " &
-       "AND :d_daily_pay_close BETWEEN model.d_from AND model.d_to " &
-       "WHERE " &
-        "call_roll_user_info.c_user_id = staf_attribute.c_user_id " &
-      "ORDER BY " &
-       "staf_attribute.k_belonging, " &
-       "Long.Parse(Format(staf_attribute.c_staf_id, '9999999999')), " &
-       "call_roll_user_info.c_user_id" & UtDb.DbOrderOffset & "; "}), MyBase.GetNpgsqlConnection)
+                '          Dim command As New NpgsqlCommand(String.Concat(New String() {
+                '"SELECT " &
+                ' "FALSE AS print_check, " &
+                ' "call_roll_user_info.c_user_id AS c_user_id, " &
+                ' "call_roll_user_info.c_user_id AS " & "個人認証ＩＤ" & ", " &
+                ' "Long.Parse(Format(staf_attribute.c_staf_id, '9999999999')) AS c_staf_id, " &
+                ' "staf_attribute.c_staf_id AS " & "社員番号" & ", " &
+                ' "staf_attribute.l_name AS l_name, " &
+                ' "staf_attribute.l_name AS " & "氏名" & ", " &
+                ' "staf_attribute.k_belonging AS k_belonging, " &
+                ' "staf_attribute.k_qualification AS k_qualification, " &
+                ' "qualification.l_omission_name AS " & "資格" & ", " &
+                ' "staf_attribute.k_model AS k_model, " &
+                ' "model.l_name AS " & "機種" & "," &
+                ' "call_roll_user_info.sum_daily_pay AS sum_daily_pay, " &
+                ' "call_roll_user_info.sum_daily_pay AS " & "当月日当計" & ", " &
+                ' "call_roll_user_info.sum_food_expenses AS sum_food_expenses, " &
+                ' "call_roll_user_info.sum_food_expenses AS " & "中執昼食費計" & ", " &
+                ' "call_roll_user_info.sum_balance_daily_pay AS sum_balance_daily_pay, " &
+                ' "call_roll_user_info.sum_balance_daily_pay AS " & "前回差分計" & ", " &
+                ' "call_roll_user_info.sum_balance_food_expenses AS sum_balance_food_expenses, " &
+                ' "call_roll_user_info.sum_balance_food_expenses AS " & "前回差分昼食費計" & ", " &
+                ' "call_roll_user_info.sum_daily_pay + " &
+                '  "call_roll_user_info.sum_food_expenses + " &
+                '  "call_roll_user_info.sum_balance_daily_pay + " &
+                '  "call_roll_user_info.sum_balance_food_expenses AS " & "日当計" & " " &
+                '"FROM " &
+                ' "(SELECT " &
+                '  "call_roll_user_A.c_user_id AS c_user_id," &
+                '  "COALESCE(SUM(call_roll_user_A.sum_daily_pay), 0) AS sum_daily_pay, " &
+                '  "COALESCE(SUM(call_roll_user_A.sum_food_expenses), 0) AS sum_food_expenses, " &
+                '  "COALESCE(SUM(call_roll_user_A.sum_balance_daily_pay), 0) AS sum_balance_daily_pay, " &
+                '  "COALESCE(SUM(call_roll_user_A.sum_balance_food_expenses), 0) AS sum_balance_food_expenses " &
+                ' "FROM " &
+                '  "( " &
+                '   "(SELECT " &
+                '    "HDR.c_user_id AS c_user_id, " &
+                '    "HDR.d_daily_pay_close AS d_daily_pay_close, " &
+                '    "SUM(HDR.s_daily_pay_total) AS sum_daily_pay, " &
+                '    "SUM(HDR.s_food_expenses_total) AS sum_food_expenses, " &
+                '    "0 AS sum_balance_daily_pay, " &
+                '    "0 AS sum_balance_food_expenses " &
+                '   "FROM " &
+                '    "call_roll_user HDR, " &
+                '    "(SELECT " &
+                '     "c_user_id, " &
+                '     "d_years, " &
+                '     "c_committee_id, " &
+                '     "k_daily_pay_kind " &
+                '    "FROM " &
+                '     "call_roll_user_dtl " &
+                '    "GROUP BY " &
+                '     "c_user_id, " &
+                '     "d_years, " &
+                '     "c_committee_id, " &
+                '     "k_daily_pay_kind " &
+                '    ") DTL " &
+                '   "WHERE " &
+                '    "Format(HDR.d_daily_pay_close,'yyyyMMdd') = :d_daily_pay_close " &
+                '    "AND (HDR.s_daily_pay_total <> 0 OR HDR.s_food_expenses_total <> 0 OR HDR.s_next_balance_daily_pay_total <> 0 OR HDR.s_next_balance_food_expenses_total <> 0) " &
+                '    "AND Format(HDR.d_years,'yyyyMMdd') = :d_date " &
+                '    "AND DTL.c_user_id = HDR.c_user_id " &
+                '    "AND DTL.d_years = HDR.d_years " &
+                '    "AND DTL.k_daily_pay_kind = :k_daily_pay_kind " &
+                '   "GROUP BY " &
+                '    "HDR.c_user_id, " &
+                '    "HDR.d_daily_pay_close " &
+                '   ")" &
+                ' "," & strArray(index) & ", " &
+                '  ") call_roll_user_A " &
+                ' "GROUP BY " &
+                '  "call_roll_user_A.c_user_id" &
+                ' ") call_roll_user_info , " & MyBase.GetStafAttributeView(":d_daily_pay_close", "staf_attribute", True, New String() {"*"}) &
+                ' "LEFT OUTER JOIN " &
+                '  "qualification_view qualification " &
+                ' "ON " &
+                '  "staf_attribute.k_qualification = qualification.c_constant_seq " &
+                ' "AND :d_daily_pay_close BETWEEN qualification.d_from AND qualification.d_to " &
+                ' "LEFT OUTER JOIN " &
+                '  "model_view model " &
+                ' "ON " &
+                '  "staf_attribute.k_model = model.c_constant_seq " &
+                ' "AND :d_daily_pay_close BETWEEN model.d_from AND model.d_to " &
+                ' "WHERE " &
+                '  "call_roll_user_info.c_user_id = staf_attribute.c_user_id " &
+                '"ORDER BY " &
+                ' "staf_attribute.k_belonging, " &
+                ' "Long.Parse(Format(staf_attribute.c_staf_id, '9999999999')), " &
+                ' "call_roll_user_info.c_user_id" & UtDb.DbOrderOffset & "; "}), MyBase.GetNpgsqlConnection)
                 'command.Parameters.Add(New NpgsqlParameter("k_daily_pay_kind", DbType.String))
                 'command.Parameters.Add(New NpgsqlParameter("d_daily_pay_close", DbType.String))
                 'command.Parameters.Add(New NpgsqlParameter("prev_daily_pay_close", DbType.String))

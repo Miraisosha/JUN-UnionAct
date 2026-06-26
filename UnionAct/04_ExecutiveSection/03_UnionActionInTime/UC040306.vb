@@ -1349,7 +1349,6 @@ Public Class UC040306
         Dim blnRet As Boolean = False                                                   ' 処理結果
         Dim strSql As String = ""                                                       ' SQL文
         Dim intRet As Integer = 0                                                       ' 処理件数（ローカルレプリカ）
-        Dim intRetMst As Integer = 0                                                    ' 処理件数（サーバデザインマスタ）
 
         Try
             '---------------------------------------------------------------------------
@@ -1424,13 +1423,11 @@ Public Class UC040306
             intRet = iClsDb.ExecuteNonQueryKeyErr(strSql)           ' ローカルレプリカ
 
             ' 結果判定
-            If intRet = -2 _
-            Or intRetMst = -2 Then
+            If intRet = -2 Then
                 ' キー重複エラーの場合
                 CLMsg.Show("DE0015")
                 Return blnRet
-            ElseIf Not intRet = 1 _
-            Or Not intRetMst = 1 Then
+            ElseIf Not intRet = 1 Then
                 ' その他のエラー場合
                 CLMsg.Show("DE0005")
                 Return blnRet
@@ -1541,7 +1538,6 @@ Public Class UC040306
         Dim blnRet As Boolean = False                                                               ' 処理結果
         Dim strSql As String = ""                                                                   ' SQL文
         Dim intRet As Integer = 0                                                                   ' 処理件数（ローカルレプリカ）
-        Dim intRetMst As Integer = 0                                                                ' 処理件数（サーバデザインマスタ）
 
         Try
             ' SQL作成
@@ -1589,8 +1585,7 @@ Public Class UC040306
             intRet = iClsDb.ExecuteNonQuery(strSql)             ' ローカルレプリカ
 
             ' 処理判定
-            If Not intRet = 1 _
-            And Not intRetMst = 1 Then
+            If Not intRet = 1 Then
                 Call MessageBox.Show("時間内組合活動メンバー日程を登録できませんでした。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
                 Return blnRet
             End If
@@ -1646,7 +1641,6 @@ Public Class UC040306
         Dim blnRet As Boolean = False                                                               ' 処理結果
         Dim strSql As String = ""                                                                   ' SQL文
         Dim intRet As Integer = 0                                                                   ' 処理件数（ローカルレプリカ）
-        Dim intRetMst As Integer = 0                                                                ' 処理件数（サーバデザインマスタ）
 
         Try
             ' SQL作成
@@ -1669,8 +1663,7 @@ Public Class UC040306
             intRet = iClsDb.ExecuteNonQuery(strSql)         ' ローカルレプリカ
 
             ' 処理判定
-            If Not intRet = 1 _
-            And Not intRetMst = 1 Then
+            If Not intRet = 1 Then
                 Call MessageBox.Show("時間内組合活動メンバー日程を更新できませんでした。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
                 Return blnRet
             End If
@@ -1845,7 +1838,7 @@ Public Class UC040306
             For i = iBytRow To iCfg.Rows.Count - 1                                  ' 指定行からレコード件数までループ
                 For j = iBytColFrom To iBytColTo                                    ' 指定チェック対象列（開始）から指定チェック対象列（終了）までループ
                     If Not (iCfg.GetCellImage(i, j) Is Nothing) Then                ' 画像があるかチェック
-                        strTarget = iCfg.GetData(i, j).ToString().Replace("/", "")  ' 対象日付取得（yyyyMMdd）
+                        strTarget = iCfg.GetData(i, j).ToString().Replace("/", "").Replace("-", "")  ' 対象日付取得（yyyyMMdd）
                         If strNow >= strTarget Then                                 ' 対象日付が過去日付（現在日付含）かチェック
                             Return True                                             ' 戻り値に正常（画像有り）を設定
                         End If

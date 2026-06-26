@@ -185,19 +185,17 @@ Namespace DAO.FinancialAffairs.WageReduction
             sql += "                      ,SUM(uis.s_cover) AS s_cover"
             sql += "                      ,SUM(uis.s_dues)  AS s_dues"
             sql += "                  FROM ("
-            sql += "                        SELECT *"
-            sql += "                          FROM ("
             '                                       賃金カット（月例時間内）
             sql += "                                SELECT c_user_id"
             sql += "                                      ,s_pay_cut AS i_cut"
             sql += "                                      ," & MDFinanceCommon.Trunc("s_pay_cut", TruncPlace) & " AS i_cover"
-            sql += "                                      ,s_pay_cut - i_cover AS i_dues"
+            sql += "                                      ,s_pay_cut - " & MDFinanceCommon.Trunc("s_pay_cut", TruncPlace) & " AS i_dues"
             sql += "                                      ,0 AS s_cut"
             sql += "                                      ,0 AS s_cover"
             sql += "                                      ,0 AS s_dues"
             sql += "                                  FROM pay_time_cut_monthly"
             sql += "                                 WHERE FORMAT(d_years,'yyyyMM') = :d_years"
-            sql += "                                ) UNION ("
+            sql += "                                UNION"
             '                                       賃金カット（月例ストライキ）
             sql += "                                SELECT c_user_id"
             sql += "                                      ,0 AS i_cut"
@@ -205,10 +203,9 @@ Namespace DAO.FinancialAffairs.WageReduction
             sql += "                                      ,0 AS i_dues"
             sql += "                                      ,s_pay_cut AS s_cut"
             sql += "                                      ," & MDFinanceCommon.Trunc("s_pay_cut", TruncPlace) & " AS s_cover"
-            sql += "                                      ,s_pay_cut - s_cover As s_dures"
+            sql += "                                      ,s_pay_cut - " & MDFinanceCommon.Trunc("s_pay_cut", TruncPlace) & " As s_dures"
             sql += "                                  FROM pay_strike_cut_monthly"
             sql += "                                 WHERE FORMAT(d_years,'yyyyMM') = :d_years"
-            sql += "                                )"
             sql += "                       ) AS uis"
             sql += "                 GROUP BY uis.c_user_id"
             sql += "               ) cut"
@@ -317,19 +314,17 @@ Namespace DAO.FinancialAffairs.WageReduction
             sql += "              ,SUM(uis.s_cover) AS s_cover"
             sql += "              ,SUM(uis.s_dues)  AS s_dues"
             sql += "          FROM ("
-            sql += "                SELECT *"
-            sql += "                  FROM ("
             '                               賃金カット情報（月例時間内）
             sql += "                        SELECT c_user_id"
             sql += "                              ,s_pay_cut AS i_cut"
             sql += "                              ," & MDFinanceCommon.Trunc("s_pay_cut", TruncPlace) & " AS i_cover"
-            sql += "                              ,s_pay_cut - i_cover AS i_dues"
+            sql += "                              ,s_pay_cut - " & MDFinanceCommon.Trunc("s_pay_cut", TruncPlace) & " AS i_dues"
             sql += "                              ,0 AS s_cut"
             sql += "                              ,0 AS s_cover"
             sql += "                              ,0 AS s_dues"
             sql += "                          FROM pay_time_cut_monthly"
             sql += "                         WHERE FORMAT(d_years,'yyyyMM') = :d_years"
-            sql += "                       ) UNION ("
+            sql += "                       UNION "
             '                               賃金カット情報（月例ストライキ）
             sql += "                        SELECT c_user_id"
             sql += "                              ,0 AS i_cut"
@@ -337,9 +332,9 @@ Namespace DAO.FinancialAffairs.WageReduction
             sql += "                              ,0 AS i_dues"
             sql += "                              ,s_pay_cut AS s_cut"
             sql += "                              ," & MDFinanceCommon.Trunc("s_pay_cut", TruncPlace) & " AS s_cover"
-            sql += "                              ,s_pay_cut - s_cover As s_dures"
+            sql += "                              ,s_pay_cut - " & MDFinanceCommon.Trunc("s_pay_cut", TruncPlace) & " As s_dures"
             sql += "                         FROM pay_strike_cut_monthly"
-            sql += "                        WHERE FORMAT(d_years,'yyyyMM') = :d_years)"
+            sql += "                        WHERE FORMAT(d_years,'yyyyMM') = :d_years"
             sql += "                       ) AS uis"
             sql += "                 GROUP BY uis.c_user_id"
             sql += "               ) cut"
@@ -564,7 +559,7 @@ Namespace DAO.FinancialAffairs.WageReduction
             Dim sql As String = ""
 
             ' SQL
-            sql += "SELECT FORMAT(member.c_staf_id,'000000') AS """ & map.GetLogicalName(0) & """"  ' 01. 社員番号
+            sql += "SELECT RIGHT('000000'+member.c_staf_id,6) AS """ & map.GetLogicalName(0) & """"  ' 01. 社員番号
             sql += "      ,member.c_dezit                    AS """ & map.GetLogicalName(1) & """"  ' 02. CD
             sql += "      ,member.l_name                     AS """ & map.GetLogicalName(2) & """"  ' 03. 名前
             sql += "      ,staf_kind.l_name                  AS """ & map.GetLogicalName(3) & """"  ' 04. 組合員種別
@@ -668,7 +663,7 @@ Namespace DAO.FinancialAffairs.WageReduction
             sql += "           ) staf_kind"
             sql += "           ON (member.k_staf_kind = staf_kind.c_constant_seq)"
             sql += "       )"
-            sql += " WHERE FORMAT(member.c_staf_id, '000000') IN (:c_staf_id_list)"
+            sql += " WHERE RIGHT('000000'+member.c_staf_id, 6) IN (:c_staf_id_list)"
             sql += " ORDER BY member.c_staf_id"
 
             Try

@@ -1963,8 +1963,8 @@ Public Class UC020101
         Try
             strSql = "SELECT l_name,d_service_from,d_service_to " &
                      " FROM committee_dtl WHERE c_committee_id ='" & Me.cboCommittee.SelectedValue() & "' " &
-                     " AND CLng(" & MDLoginInfo.PeriodFrom.ToString.Substring(0, 4) & "&d_service_from) <= " & intTargetYearMonth &
-                     " AND CLng(" & MDLoginInfo.PeriodTo.ToString.Substring(0, 4) & "&d_service_to) >= " & intTargetYearMonth &
+                     " AND CONVERT(int,'" & MDLoginInfo.PeriodFrom.ToString.Substring(0, 4) & "' + d_service_from) <= " & intTargetYearMonth &
+                     " AND CONVERT(int,'" & MDLoginInfo.PeriodTo.ToString.Substring(0, 4) & "' + d_service_to) >= " & intTargetYearMonth &
                      " AND d_from <= '" & Me.searchStandardDay & "' " &
                      " AND d_to >= '" & Me.searchStandardDay & "' "
             'DB接続開始
@@ -1995,8 +1995,8 @@ Public Class UC020101
                     Dim aryOutTarget As ArrayList = New ArrayList
                     strSql = "SELECT s_committee_seq, l_name,d_service_from,d_service_to " &
                              " FROM committee_dtl WHERE c_committee_id ='" & Me.cboCommittee.SelectedValue() & "' " &
-                             " AND ( CLng(" & MDLoginInfo.PeriodFrom.ToString.Substring(0, 4) & "&d_service_from) > " & intTargetYearMonth &
-                             " OR CLng(" & MDLoginInfo.PeriodTo.ToString.Substring(0, 4) & "&d_service_to) < " & intTargetYearMonth & ") " &
+                             " AND ( CLng('" & MDLoginInfo.PeriodFrom.ToString.Substring(0, 4) & "' + d_service_from) > " & intTargetYearMonth &
+                             " OR CLng('" & MDLoginInfo.PeriodTo.ToString.Substring(0, 4) & "' + d_service_to) < " & intTargetYearMonth & ") " &
                              " AND  d_from <= '" & Me.searchStandardDay & "' " &
                              " AND  d_to >= '" & Me.searchStandardDay & "' "
                     dtPart = clsDb.ExecuteSql(strSql)
