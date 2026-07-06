@@ -13,6 +13,9 @@ Imports UnionAct.NSMDInfo
 Imports UnionAct.NSCLEncrypt
 Imports UnionAct.NSMDConst
 
+Imports System.Diagnostics
+Imports System.IO
+
 Public Class FM000101
 
 #Region "定数・変数"
@@ -40,18 +43,11 @@ Public Class FM000101
     '***************************************************************************************************
     Private Sub FM000101_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            'バージョン番号表示
+
             Dim asm = System.Reflection.Assembly.GetExecutingAssembly()
-            Dim Version = asm.GetName().Version
-
-            Dim days As Integer = Version.Build
-            Dim seconds As Integer = Version.Revision * 2
-            Dim iiii As Integer = 0
-            Dim baseDate As DateTime = New DateTime(2000, 1, 1)
-            Dim buildDate As DateTime = baseDate.AddDays(days)
-            Dim buildDateTime As DateTime = buildDate.AddSeconds(seconds)
-
-            lblVer.Text = "Ver." + Version.Major.ToString() + "." + Version.Minor.ToString() + " [" + buildDateTime.ToString("yyyy'/'MM'/'dd' 'HH':'mm") + "]"
+            Dim ver = asm.GetName().Version
+            Dim exePath As String = asm.Location
+            lblVer.Text = $"Ver.{ver}"
             '-------------------------------------------------------------------------------
             '   再ログイン判定処理
             '-------------------------------------------------------------------------------
@@ -1773,6 +1769,7 @@ Public Class FM000101
         Return blnRet
 
     End Function
+
 #End Region
 
 End Class
