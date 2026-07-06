@@ -51,7 +51,7 @@ Partial Class FM000101
         Me.lblMemberNo.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblMemberNo.Location = New System.Drawing.Point(63, 77)
         Me.lblMemberNo.Name = "lblMemberNo"
-        Me.lblMemberNo.Size = New System.Drawing.Size(72, 16)
+        Me.lblMemberNo.Size = New System.Drawing.Size(71, 16)
         Me.lblMemberNo.TabIndex = 1
         Me.lblMemberNo.Text = "社員番号"
         '
@@ -61,7 +61,7 @@ Partial Class FM000101
         Me.lblPwd.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblPwd.Location = New System.Drawing.Point(65, 106)
         Me.lblPwd.Name = "lblPwd"
-        Me.lblPwd.Size = New System.Drawing.Size(70, 16)
+        Me.lblPwd.Size = New System.Drawing.Size(69, 16)
         Me.lblPwd.TabIndex = 1
         Me.lblPwd.Text = "パスワード"
         '
@@ -71,7 +71,7 @@ Partial Class FM000101
         Me.lblPeriod.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lblPeriod.Location = New System.Drawing.Point(111, 136)
         Me.lblPeriod.Name = "lblPeriod"
-        Me.lblPeriod.Size = New System.Drawing.Size(24, 16)
+        Me.lblPeriod.Size = New System.Drawing.Size(23, 16)
         Me.lblPeriod.TabIndex = 1
         Me.lblPeriod.Text = "期"
         '
@@ -143,12 +143,14 @@ Partial Class FM000101
         'lblVer
         '
         Me.lblVer.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblVer.Location = New System.Drawing.Point(66, 42)
+        Me.lblVer.ForeColor = System.Drawing.Color.DarkGray
+        Me.lblVer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblVer.Location = New System.Drawing.Point(12, 328)
         Me.lblVer.Name = "lblVer"
         Me.lblVer.Size = New System.Drawing.Size(232, 19)
         Me.lblVer.TabIndex = 8
         Me.lblVer.Text = "Ver.1.0"
-        Me.lblVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblVer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'FM000101
         '
