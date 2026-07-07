@@ -32,7 +32,12 @@ Namespace Business.FinancialAffairs.WithHolding
                 Dim table As DataTable = Me.GetDao(New Object(0 - 1) {}).GetTaxMaster(PublicCommand.GetKsh, Taxable, CommonUtility.GetLastDay(TargetYear, TargetMonth))
                 Dim strArray As String() = New String() {"â€ê≈ëŒè€äz" & ":", Taxable.ToString("###,###,##0"), " " & "â€ê≈è„å¿äz" & "(" & "à»è„" & "):", CLng(table.Rows.Item(0).Item(0)).ToString("###,###,##0"), " " & "â€ê≈â∫å¿äz" & "(" & "ñ¢ñû" & "):", CLng(table.Rows.Item(0).Item(1)).ToString("###,###,##0"), " " & "â€ê≈äz" & ":", CLng(table.Rows.Item(0).Item(2)).ToString("###,###,##0"), " " & "â€ê≈ó¶" & ":", CDbl(table.Rows.Item(0).Item(3)).ToString("##0.000")}
                 WithholdingCommand._logger.Debug(String.Concat(strArray))
-                Dim num As Long = If((CLng(table.Rows.Item(0).Item(2)) <> 0), CLng(table.Rows.Item(0).Item(2) + (Taxable - table.Rows.Item(0).Item(0)) * (CDbl(table.Rows.Item(0).Item(3)) / 100)), CLng(Fix(Taxable * (CDbl(table.Rows.Item(0).Item(3)) / 100))))
+                Dim lowerAmount As Decimal = Convert.ToDecimal(table.Rows.Item(0).Item(0))
+                Dim baseTax As Decimal = Convert.ToDecimal(table.Rows.Item(0).Item(2))
+                Dim taxRate As Decimal = Convert.ToDecimal(table.Rows.Item(0).Item(3)) / 100D
+                Dim taxableAmount As Decimal = Convert.ToDecimal(Taxable)
+                Dim taxAmount As Decimal = If((baseTax <> 0D), baseTax + (taxableAmount - lowerAmount) * taxRate, taxableAmount * taxRate)
+                Dim num As Long = CLng(Decimal.Truncate(taxAmount))
                 WithholdingCommand._logger.Debug(("åπêÚí•é˚äz" & ":" & num.ToString("###,###,###")))
                 num2 = num
             Catch exception As DataNotFoundException

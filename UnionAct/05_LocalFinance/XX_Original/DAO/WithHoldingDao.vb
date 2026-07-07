@@ -1131,7 +1131,7 @@ Namespace DAO.FinancialAffairs.WithHolding
             command.Parameters.Item("TargetYM").Value = TargetYM & "01"                 ' 集計年月初日
 
             ' SQL実行
-            Return CInt(Fix(command.ExecuteScalar()))
+            Return CInt(Decimal.Truncate(Convert.ToDecimal(command.ExecuteScalar())))
         End Function
 
         ''' <summary>
