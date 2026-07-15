@@ -32,7 +32,7 @@ Imports System.Runtime.InteropServices
 ' 既定値にすることができます:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.2")>
-<Assembly: AssemblyFileVersion("1.0.0.2")>
+<Assembly: AssemblyVersion("1.0.0.3")>
+<Assembly: AssemblyFileVersion("1.0.0.3")>
 <Assembly: log4net.Config.XmlConfigurator(Watch:=True)>
 <Assembly: NeutralResourcesLanguage("")>
