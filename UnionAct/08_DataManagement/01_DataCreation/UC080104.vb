@@ -10,6 +10,7 @@ Imports UnionAct.NSMDCommon
 Imports UnionAct.NSMDChk
 Imports UnionAct.NSMDInfo
 Imports UnionAct.NSCLMsg
+Imports System.Collections.Generic
 Imports UnionAct.NSMDConst
 Imports UnionAct.NSMDFile
 Imports C1.Win.C1FlexGrid
@@ -43,9 +44,9 @@ Public Class UC080104
         Col_Q = 16      ' 17. Q列：無し                    | 手数料区分              | 無し            | 無し
         Col_R = 17      ' 18. R列：所属委員会（役職）(※2) | 所属委員会（役職）(※3) | 無し            | 無し
 
-        ' ※1 ① 振込先金融機関コードが、中央労金(2963)、近畿労金(2978)の場合
+        ' ※1 ① 振込先金融機関コードが、全国13労金の金融機関コードの場合
         '        ・振込手数料は、差し引かない金額を振込金額として出力する。
-        '     ② 振込先金融機関コードが、中央労金(2963)、近畿労金(2978)以外の場合
+        '     ② 振込先金融機関コードが、全国13労金の金融機関コード以外の場合
         '        ②-① 且つ振込金額が1万未満の場合
         '              ・振込金額から220円を差し引いて出力する。
         '        ②-② 且つ振込金額が1万以上5万未満の場合
@@ -80,9 +81,11 @@ Public Class UC080104
 
     Private Const MAX_DATE As String = "99999999"
 
-    ' 金融機関コード
-    Private Const FINANCIAL_CODE_CENTRAL_LABOR_BANK As String = "2963"  ' 中央労働金庫
-    Private Const FINANCIAL_CODE_KINKI_LABOR_BANK As String = "2978"    ' 近畿労働金庫
+    ' 全国13労働金庫の金融機関コード
+    Private Shared ReadOnly FINANCIAL_CODES_LABOR_BANK As New HashSet(Of String) From { _
+        "2951", "2954", "2963", "2965", "2966", "2968", "2970", _
+        "2972", "2978", "2984", "2987", "2990", "2997" _
+    }
 
     ' 権限関連
     Private _strGrantReference As String = String.Empty                 ' 参照権限
@@ -5123,10 +5126,9 @@ Public Class UC080104
                     strBelongCommittee = Me.flxNetbank.GetData(i, 9)            ' 所属委員会（役職）
 
                     ' 振込銀行番号チェック
-                    If strBankNo = FINANCIAL_CODE_CENTRAL_LABOR_BANK _
-                    Or strBankNo = FINANCIAL_CODE_KINKI_LABOR_BANK Then
+                    If FINANCIAL_CODES_LABOR_BANK.Contains(strBankNo) Then
                         '-------------------------------------------------------
-                        '   中央労金、近畿労金の場合
+                        '   全国13労金の場合
                         '-------------------------------------------------------
                         ' 振込金額から手数料は差し引かない
                         intPay = intBankMoney
