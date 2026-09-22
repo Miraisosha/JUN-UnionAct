@@ -279,12 +279,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3EE1430FB89F75BE82B44F957BCBA3AC"
-        "OwnerKey" = "8:_5BBD09E23F65C0E9682F0AA353488C81"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_401D1A178203A7D761582CA00DA0CBC8"
         "OwnerKey" = "8:_8BDA87A9B5244EB4B8CEABAB651A888E"
         "MsmSig" = "8:_UNDEFINED"
@@ -455,18 +449,6 @@
         {
         "MsmKey" = "8:_672E216B76E1031F80121F40C616FA76"
         "OwnerKey" = "8:_8BDA87A9B5244EB4B8CEABAB651A888E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_672E216B76E1031F80121F40C616FA76"
-        "OwnerKey" = "8:_B05899AB7454427BA546CE341B5F46EB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_672E216B76E1031F80121F40C616FA76"
-        "OwnerKey" = "8:_A0BD606361B34F53B8C1C4B33981C375"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -669,6 +651,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_86B74DD067BA974C85732C9AD977D5CC"
+        "OwnerKey" = "8:_A0BD606361B34F53B8C1C4B33981C375"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_86B74DD067BA974C85732C9AD977D5CC"
+        "OwnerKey" = "8:_B05899AB7454427BA546CE341B5F46EB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_88512E05085FA819639068E5A900C466"
         "OwnerKey" = "8:_B4440F050291E371C08E492AF61BE08A"
         "MsmSig" = "8:_UNDEFINED"
@@ -695,6 +689,12 @@
         {
         "MsmKey" = "8:_8DD81A05CACC85BED6F4A148AF27A5E8"
         "OwnerKey" = "8:_8BDA87A9B5244EB4B8CEABAB651A888E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8EA6F8FA33E94B7C9128422ADE7809F4"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1211,6 +1211,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A0BD606361B34F53B8C1C4B33981C375"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_86B74DD067BA974C85732C9AD977D5CC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -3335,26 +3341,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3EE1430FB89F75BE82B44F957BCBA3AC"
-            {
-            "SourcePath" = "8:webproperties.tlb"
-            "TargetName" = "8:webproperties.tlb"
-            "Tag" = "8:"
-            "Folder" = "8:_E4D7687D668A4E9793450E64F56AB73A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:2"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_401D1A178203A7D761582CA00DA0CBC8"
             {
             "AssemblyRegister" = "3:1"
@@ -4883,6 +4869,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_86B74DD067BA974C85732C9AD977D5CC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_86B74DD067BA974C85732C9AD977D5CC"
+                    {
+                    "Name" = "8:log4net.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:log4net.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E4D7687D668A4E9793450E64F56AB73A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_88512E05085FA819639068E5A900C466"
             {
             "SourcePath" = "8:dte80.olb"
@@ -4994,6 +5011,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8EA6F8FA33E94B7C9128422ADE7809F4"
+            {
+            "SourcePath" = "8:..\\UnionAct\\bin\\x86\\Staging\\UnionAct.exe.config"
+            "TargetName" = "8:UnionAct.exe.config"
+            "Tag" = "8:"
+            "Folder" = "8:_E4D7687D668A4E9793450E64F56AB73A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9069E2F2FA10438CAF67B037B4C6D10A"
@@ -7171,15 +7208,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ACAOA Staging"
-        "ProductCode" = "8:{1F3A0517-DEFC-49A5-868E-169BDB26D4D6}"
-        "PackageCode" = "8:{13835242-B09B-43D8-A028-091B2E4EB2DA}"
+        "ProductCode" = "8:{A6DA9FD3-0C9E-43ED-BDA6-0D7CC35F8A61}"
+        "PackageCode" = "8:{F3A2F173-7557-47D7-A121-FEDEABAF7BB2}"
         "UpgradeCode" = "8:{2A76DD51-40C9-4774-BDCF-37448849ABB3}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.11"
+        "ProductVersion" = "8:1.0.12"
         "Manufacturer" = "8:ACA"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -7721,7 +7758,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_8BDA87A9B5244EB4B8CEABAB651A888E"
             {
-            "SourcePath" = "8:..\\UnionAct\\obj\\x86\\Release\\UnionAct.exe"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E4D7687D668A4E9793450E64F56AB73A"
@@ -7745,6 +7782,7 @@
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
+                "ExcludeFilter" = "8:UnionAct.exe.config"
                 }
             }
         }
