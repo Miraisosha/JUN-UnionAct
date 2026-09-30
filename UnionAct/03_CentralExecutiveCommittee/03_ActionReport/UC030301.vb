@@ -50,6 +50,14 @@ Public Class UC030301
 #End Region
 
 #Region "イベント"
+    ' スクロール後に全体を再描画し、結合した社員番号・名前セルの文字残りを防ぐ。
+    Private Sub flxAttendance_AfterScroll(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.RangeEventArgs) Handles flxAttendance.AfterScroll
+        If flxAttendance.Redraw Then
+            flxAttendance.Refresh()
+        End If
+    End Sub
+
+
     '***************************************************************************************************
     '   ＩＤ　：UC030301_Load
     '   名称　：フォームロード処理
