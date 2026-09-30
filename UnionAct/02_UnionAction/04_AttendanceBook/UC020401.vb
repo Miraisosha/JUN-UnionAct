@@ -37,16 +37,23 @@ Public Class UC020401
 #End Region
 
 #Region "イベント"
-    '***************************************************************************************************
-    '   ＩＤ　：UC020401_Load
-    '   名称　：フォームロード処理
-    '   概要　：
-    '   作成日：2011/11/12(土)  Ryu
-    '   更新日：
-    '---------------------------------------------------------------------------------------------------
-    '   履歴　：2011/11/12(土)  Ryu  新規作成
-    '***************************************************************************************************
-    Private Sub UC020401_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+  ' スクロール後に全体を再描画し、結合した名前セルの文字残りを防ぐ。
+  Private Sub flxAttendance_AfterScroll(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.RangeEventArgs) Handles flxAttendance.AfterScroll
+    If flxAttendance.Redraw Then
+      flxAttendance.Refresh()
+    End If
+  End Sub
+
+  '***************************************************************************************************
+  '   ＩＤ　：UC020401_Load
+  '   名称　：フォームロード処理
+  '   概要　：
+  '   作成日：2011/11/12(土)  Ryu
+  '   更新日：
+  '---------------------------------------------------------------------------------------------------
+  '   履歴　：2011/11/12(土)  Ryu  新規作成
+  '***************************************************************************************************
+  Private Sub UC020401_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '処理開始ログ
         log.Info(System.Reflection.MethodInfo.GetCurrentMethod.Name() & STR_LOG_BEGIN)
         Try

@@ -1,0 +1,192 @@
+name: Build installers
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-installers-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build ${{ matrix.configuration }} installer
+    runs-on: [self-hosted, Windows, X64]
+    timeout-minutes: 60
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - configuration: Staging
+            setup_project: SetupStaging
+            artifact_name: unionact-staging-installer
+          - configuration: Release
+            setup_project: Setup
+            artifact_name: unionact-release-installer
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Locate Visual Studio
+        id: visual_studio
+        shell: powershell
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          if (-not (Test-Path -LiteralPath $vswhere)) {
+            throw "vswhere.exe was not found. Install Visual Studio 2022."
+          }
+
+          $installPath = & $vswhere `
+            -latest `
+            -products * `
+            -requires Microsoft.Component.MSBuild Component.VSInstallerProjects2022 `
+            -property installationPath
+
+          if (-not $installPath) {
+            throw "Visual Studio 2022 with MSBuild and Visual Studio Installer Projects was not found."
+          }
+
+          $msbuild = Join-Path $installPath "MSBuild\Current\Bin\MSBuild.exe"
+          $devenv = Join-Path $installPath "Common7\IDE\devenv.com"
+          $disableOutOfProc = Join-Path $installPath "Common7\IDE\CommonExtensions\Microsoft\VSI\DisableOutOfProcBuild\DisableOutOfProcBuild.exe"
+          if (-not (Test-Path -LiteralPath $msbuild)) {
+            throw "MSBuild.exe was not found at $msbuild"
+          }
+          if (-not (Test-Path -LiteralPath $devenv)) {
+            throw "devenv.com was not found at $devenv"
+          }
+          if (-not (Test-Path -LiteralPath $disableOutOfProc)) {
+            throw "DisableOutOfProcBuild.exe was not found at $disableOutOfProc"
+          }
+
+          "msbuild=$msbuild" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "devenv=$devenv" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "disable_out_of_proc=$disableOutOfProc" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+
+      - name: Verify Crystal Reports SDK
+        shell: powershell
+        run: |
+          $crystalAssembly = "${env:ProgramFiles(x86)}\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll"
+          if (-not (Test-Path -LiteralPath $crystalAssembly)) {
+            throw "SAP Crystal Reports SDK for Visual Studio is required: $crystalAssembly"
+          }
+
+      - name: Restore NuGet packages
+        run: nuget restore UnionAct.sln -NonInteractive
+
+      - name: Build application
+        shell: powershell
+        run: |
+          & '${{ steps.visual_studio.outputs.msbuild }}' `
+            'UnionAct\UnionAct.vbproj' `
+            /t:Rebuild `
+            /p:Configuration=${{ matrix.configuration }} `
+            /p:Platform=x86 `
+            /m `
+            /v:minimal
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
+
+      - name: Enable command-line setup builds
+        shell: powershell
+        run: |
+          $tool = '${{ steps.visual_studio.outputs.disable_out_of_proc }}'
+          Push-Location (Split-Path -Parent $tool)
+          try {
+            & $tool
+            if ($LASTEXITCODE -ne 0) {
+              exit $LASTEXITCODE
+            }
+          }
+          finally {
+            Pop-Location
+          }
+
+      - name: Prepare transformed config for setup project
+        shell: powershell
+        run: |
+          $transformedConfig = 'UnionAct\bin\x86\${{ matrix.configuration }}\UnionAct.exe.config'
+          if (-not (Test-Path -LiteralPath $transformedConfig)) {
+            throw "Transformed config was not generated: $transformedConfig"
+          }
+
+          # The vdproj primary output otherwise packages the source app.config.
+          Copy-Item -LiteralPath $transformedConfig -Destination 'UnionAct\app.config' -Force
+
+      - name: Build setup project
+        shell: powershell
+        run: |
+          & '${{ steps.visual_studio.outputs.devenv }}' `
+            'UnionAct.sln' `
+            /Build '${{ matrix.configuration }}|x86' `
+            /Project '${{ matrix.setup_project }}' `
+            /ProjectConfig '${{ matrix.configuration }}'
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
+
+      - name: Verify installer output
+        shell: powershell
+        run: |
+          $installer = 'Setup\${{ matrix.configuration }}\Setup.msi'
+          if (-not (Test-Path -LiteralPath $installer)) {
+            throw "Installer was not generated: $installer"
+          }
+
+          $extractPath = Join-Path $env:RUNNER_TEMP 'unionact-${{ matrix.configuration }}-installer'
+          New-Item -ItemType Directory -Path $extractPath -Force | Out-Null
+
+          $process = Start-Process msiexec.exe `
+            -ArgumentList @('/a', "`"$((Resolve-Path $installer).Path)`"", '/qn', "TARGETDIR=$extractPath") `
+            -Wait `
+            -PassThru `
+            -WindowStyle Hidden
+          if ($process.ExitCode -ne 0) {
+            throw "Failed to extract installer. msiexec exit code: $($process.ExitCode)"
+          }
+
+          $packagedConfig = Get-ChildItem -Path $extractPath -Recurse -Filter 'UnionAct.exe.config' |
+            Select-Object -First 1
+          if (-not $packagedConfig) {
+            throw 'UnionAct.exe.config was not found in the installer.'
+          }
+
+          [xml]$config = Get-Content -LiteralPath $packagedConfig.FullName -Raw
+          $connectionNode = $config.configuration.connectionStrings.add |
+            Where-Object { $_.name -eq 'UnionActDb' } |
+            Select-Object -First 1
+          $sequencePathNode = $config.configuration.appSettings.add |
+            Where-Object { $_.key -eq 'SequencePath' } |
+            Select-Object -First 1
+          $connection = [string]$connectionNode.connectionString
+          $sequencePath = [string]$sequencePathNode.value
+
+          if ([string]::IsNullOrWhiteSpace($connection)) {
+            throw 'UnionActDb connectionString is empty in the packaged config.'
+          }
+          if ([string]::IsNullOrWhiteSpace($sequencePath)) {
+            throw 'SequencePath is empty in the packaged config.'
+          }
+
+          if ('${{ matrix.configuration }}' -eq 'Release' -and
+              ($connection -match 'acaoa_dev' -or $sequencePath -match 'sji_dev')) {
+            throw 'The Release installer contains Staging settings.'
+          }
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: Setup/${{ matrix.configuration }}/
+          if-no-files-found: error
+          retention-days: 14
